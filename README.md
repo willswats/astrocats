@@ -1,6 +1,6 @@
 # Astrocats <!-- omit in toc -->
 
-A [Unity](https://unity.com/) Asteroids clone, but with cats.
+An Asteroids clone, but with cats.
 
 ## Table of Contents <!-- omit in toc -->
 
