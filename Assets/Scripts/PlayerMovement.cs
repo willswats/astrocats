@@ -7,8 +7,8 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D body;
     float horizontalInput;
     float verticalInput;
-    public float moveSpeed = 6f;
-    public float rotationSpeed = 4f;
+    public float moveSpeed = 4f;
+    public float rotationSpeed = 0.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -37,12 +37,13 @@ public class PlayerMovement : MonoBehaviour
 
     void MovePlayer()
     {
-        body.velocity = -transform.up * Mathf.Clamp01(verticalInput) * moveSpeed;
+        body.AddForce(-transform.up * Mathf.Clamp01(verticalInput) * moveSpeed);
     }
 
     void RotatePlayer()
     {
         float rotation = -horizontalInput * rotationSpeed;
         transform.Rotate(Vector3.forward * rotation);
+        body.AddTorque(rotation);
     }
 }
