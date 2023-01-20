@@ -5,10 +5,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     Rigidbody2D body;
-    float horizontal;
-    float vertical;
-    float moveLimiter = 0.7f;
-    public float runSpeed = 10f;
+    Vector2 moveDirection;
+    public float moveSpeed = 5f;
 
     // Start is called before the first frame update
     void Start()
@@ -19,18 +17,15 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        horizontal = Input.GetAxisRaw("Horizontal");
-        vertical = Input.GetAxisRaw("Vertical");
+        float horizontal = Input.GetAxisRaw("Horizontal"); // -1 left, 1 right
+        float vertical = Input.GetAxisRaw("Vertical"); // -1 down, 1 up
+
+        moveDirection = new Vector2(horizontal, vertical).normalized;
     }
 
-    // Frame-rate independent, for physics calculations
+    // Frame-rate independent for physics calculations
     void FixedUpdate()
     {
-        if (horizontal != 0 && vertical != 0)
-        {
-            horizontal *= moveLimiter;
-            vertical *= moveLimiter;
-        }
-        body.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed);
+        body.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
     }
 }
