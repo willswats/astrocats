@@ -51,7 +51,7 @@ public class Player : MonoBehaviour
 
     void ShootProjectile()
     {
-        Projectile projectile = Instantiate(projectilePrefab, transform.position, transform.rotation);
+        Projectile projectile = Instantiate(projectilePrefab, transform.position + -transform.up, transform.rotation);
         projectile.Project(-transform.up);
     }
 }

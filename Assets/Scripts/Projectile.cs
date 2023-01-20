@@ -18,4 +18,9 @@ public class Projectile : MonoBehaviour
         body.AddForce(direction * speed);
         Destroy(gameObject, lifeTimeSeconds);
     }
+
+    void OnCollisionEnter2D(Collision2D collison)
+    {
+        Destroy(gameObject);
+    }
 }
