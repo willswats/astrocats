@@ -10,19 +10,16 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 4f;
     public float rotationSpeed = 0.5f;
 
-    // Start is called before the first frame update
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         GetPlayerInput();
     }
 
-    // Frame-rate independent for physics calculations
     void FixedUpdate()
     {
         MovePlayer();
