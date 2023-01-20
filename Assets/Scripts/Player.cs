@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class Player : MonoBehaviour
 {
     Rigidbody2D body;
     float horizontalInput;
     float verticalInput;
     public float moveSpeed = 4f;
     public float rotationSpeed = 0.5f;
+    public Projectile projectilePrefab;
 
     void Start()
     {
@@ -30,6 +31,10 @@ public class PlayerMovement : MonoBehaviour
     {
         horizontalInput = Input.GetAxisRaw("Horizontal"); // -1 left, 1 right
         verticalInput = Input.GetAxisRaw("Vertical"); // -1 down, 1 up
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            ShootProjectile();
+        }
     }
 
     void MovePlayer()
@@ -42,5 +47,11 @@ public class PlayerMovement : MonoBehaviour
         float rotation = -horizontalInput * rotationSpeed;
         transform.Rotate(Vector3.forward * rotation);
         body.AddTorque(rotation);
+    }
+
+    void ShootProjectile()
+    {
+        Projectile projectile = Instantiate(projectilePrefab, transform.position, transform.rotation);
+        projectile.Project(-transform.up);
     }
 }
