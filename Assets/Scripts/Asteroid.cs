@@ -52,16 +52,26 @@ public class Asteroid : MonoBehaviour
         }
     }
 
+    private Vector2 getSplitAsteroidSpawnLocation()
+    {
+        Vector2 spawnLocation = transform.position;
+        spawnLocation += Random.insideUnitCircle * 1;
+        return spawnLocation;
+    }
+
+    private void InstantiateSplitAsteroid(Vector2 spawnLocation)
+    {
+        Asteroid half = Instantiate(this, spawnLocation, transform.rotation);
+        half.size = size / 2;
+        half.SetTrajectory(Random.insideUnitCircle.normalized * speed);
+    }
+
     private void CreateSplit(int asteroidCount)
     {
         for (var i = 0; i < asteroidCount; i++)
         {
-            Vector2 position = transform.position;
-            position += Random.insideUnitCircle * 0.5f;
-
-            Asteroid half = Instantiate(this, position, transform.rotation);
-            half.size = size / 2;
-            half.SetTrajectory(Random.insideUnitCircle.normalized * speed);
+            Vector2 spawnLocation = getSplitAsteroidSpawnLocation();
+            InstantiateSplitAsteroid(spawnLocation);
         }
     }
 }
