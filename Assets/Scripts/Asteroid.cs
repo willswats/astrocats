@@ -12,6 +12,7 @@ public class Asteroid : MonoBehaviour
     public float lifeTimeSeconds = 30f;
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D body;
+
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -28,7 +29,7 @@ public class Asteroid : MonoBehaviour
         // Set random scale
         transform.localScale = Vector3.one * size;
 
-        // Set mass
+        // Set mass relative to size
         body.mass = size;
     }
 

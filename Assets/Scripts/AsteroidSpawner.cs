@@ -8,29 +8,48 @@ public class AsteroidSpawner : MonoBehaviour
     public float trajectoryVariance = 15f;
     public float spawnRateSeconds = 2f;
     public float spawnDistance = 15f;
-    public int spawnAmount = 1;
+    public float spawnAmount = 1;
 
     private void Start()
     {
-        InvokeRepeating(nameof(SpawnAsteroid), spawnRateSeconds, spawnRateSeconds);
+        InvokeRepeating(nameof(Spawn), spawnRateSeconds, spawnRateSeconds);
     }
 
-    private void SpawnAsteroid()
+    private Vector3 getSpawnDirection()
+    {
+        Vector3 spawnDirection = Random.insideUnitCircle.normalized * spawnDistance;
+        return spawnDirection;
+    }
+
+    private Vector3 getSpawnLocation(Vector3 spawnDirection)
+    {
+        Vector3 spawnLocation = transform.position + spawnDirection;
+        return spawnLocation;
+    }
+
+    private Quaternion getRotation()
+    {
+        float variance = Random.Range(-trajectoryVariance, trajectoryVariance);
+        Quaternion rotation = Quaternion.AngleAxis(variance, Vector3.forward);
+        return rotation;
+    }
+
+    private void InstantiateAsteroid(Vector3 spawnDirection, Vector3 spawnLocation, Quaternion rotation)
+    {
+        Asteroid asteroid = Instantiate(asteroidPrefab, spawnLocation, rotation);
+        asteroid.size = Random.Range(asteroid.minSize, asteroid.maxSize);
+        asteroid.SetTrajectory(rotation * -spawnDirection);
+    }
+
+    private void Spawn()
     {
         for (int i = 0; i < spawnAmount; i++)
         {
-            // Spawn location of asteroid
-            Vector3 spawnDirection = Random.insideUnitCircle.normalized * spawnDistance;
-            Vector3 spawnPoint = transform.position + spawnDirection;
+            Vector3 spawnDirection = getSpawnDirection();
+            Vector3 spawnLocation = getSpawnLocation(spawnDirection);
+            Quaternion rotation = getRotation();
 
-            // Rotation of asteroid
-            float variance = Random.Range(-trajectoryVariance, trajectoryVariance);
-            Quaternion rotation = Quaternion.AngleAxis(variance, Vector3.forward);
-
-            // Instantiate and set random size and trajectory
-            Asteroid asteroid = Instantiate(asteroidPrefab, spawnPoint, rotation);
-            asteroid.size = Random.Range(asteroid.minSize, asteroid.maxSize);
-            asteroid.SetTrajectory(rotation * -spawnDirection);
+            InstantiateAsteroid(spawnDirection, spawnLocation, rotation);
         }
     }
 }

@@ -10,7 +10,8 @@ public class Player : MonoBehaviour
     private Rigidbody2D body;
     private float horizontalInput;
     private float verticalInput;
-    private void Start()
+
+    private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
     }
