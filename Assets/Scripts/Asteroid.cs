@@ -39,4 +39,29 @@ public class Asteroid : MonoBehaviour
 
         Destroy(gameObject, lifeTimeSeconds);
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Projectile")
+        {
+            if ((size / 2) > minSize)
+            {
+                CreateSplit(2);
+            }
+            Destroy(gameObject);
+        }
+    }
+
+    private void CreateSplit(int asteroidCount)
+    {
+        for (var i = 0; i < asteroidCount; i++)
+        {
+            Vector2 position = transform.position;
+            position += Random.insideUnitCircle * 0.5f;
+
+            Asteroid half = Instantiate(this, position, transform.rotation);
+            half.size = size / 2;
+            half.SetTrajectory(Random.insideUnitCircle.normalized * speed);
+        }
+    }
 }
