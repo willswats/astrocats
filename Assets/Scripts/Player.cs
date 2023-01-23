@@ -4,30 +4,29 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    Rigidbody2D body;
-    float horizontalInput;
-    float verticalInput;
     public float moveSpeed = 4f;
     public float rotationSpeed = 0.5f;
     public Projectile projectilePrefab;
-
-    void Start()
+    private Rigidbody2D body;
+    private float horizontalInput;
+    private float verticalInput;
+    private void Start()
     {
         body = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    private void Update()
     {
         GetPlayerInput();
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         MovePlayer();
         RotatePlayer();
     }
 
-    void GetPlayerInput()
+    private void GetPlayerInput()
     {
         horizontalInput = Input.GetAxisRaw("Horizontal"); // -1 left, 1 right
         verticalInput = Input.GetAxisRaw("Vertical"); // -1 down, 1 up
@@ -37,19 +36,19 @@ public class Player : MonoBehaviour
         }
     }
 
-    void MovePlayer()
+    private void MovePlayer()
     {
         body.AddForce(-transform.up * Mathf.Clamp01(verticalInput) * moveSpeed);
     }
 
-    void RotatePlayer()
+    private void RotatePlayer()
     {
         float rotation = -horizontalInput * rotationSpeed;
         transform.Rotate(Vector3.forward * rotation);
         body.AddTorque(rotation);
     }
 
-    void ShootProjectile()
+    private void ShootProjectile()
     {
         Projectile projectile = Instantiate(projectilePrefab, transform.position + -transform.up, transform.rotation);
         projectile.Project(-transform.up);
