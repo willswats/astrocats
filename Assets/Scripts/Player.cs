@@ -23,33 +23,26 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        MovePlayer();
-        RotatePlayer();
+        PlayerMovement();
     }
 
     private void GetPlayerInput()
     {
         horizontalInput = Input.GetAxisRaw("Horizontal"); // -1 left, 1 right
         verticalInput = Input.GetAxisRaw("Vertical"); // -1 down, 1 up
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetButtonDown("Fire1"))
         {
-            ShootProjectile();
+            Shoot();
         }
     }
 
-    private void MovePlayer()
+    private void PlayerMovement()
     {
-        body.AddForce(-transform.up * Mathf.Clamp01(verticalInput) * moveSpeed);
+        body.AddRelativeForce(new Vector2(0, -verticalInput) * moveSpeed);
+        body.AddTorque(-horizontalInput * rotationSpeed);
     }
 
-    private void RotatePlayer()
-    {
-        float rotation = -horizontalInput * rotationSpeed;
-        transform.Rotate(Vector3.forward * rotation);
-        body.AddTorque(rotation);
-    }
-
-    private void ShootProjectile()
+    private void Shoot()
     {
         Projectile projectile = Instantiate(projectilePrefab, transform.position + -transform.up, transform.rotation);
         projectile.Project(-transform.up);

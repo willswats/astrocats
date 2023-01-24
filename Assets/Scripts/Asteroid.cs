@@ -33,45 +33,34 @@ public class Asteroid : MonoBehaviour
         body.mass = size;
     }
 
-    public void SetTrajectory(Vector2 direction)
-    {
-        body.AddForce(direction * speed);
-
-        Destroy(gameObject, lifeTimeSeconds);
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Projectile")
         {
             if ((size / 2) > minSize)
             {
-                CreateSplit(2);
+                Split(2);
             }
             Destroy(gameObject);
         }
     }
 
-    private Vector2 getSplitAsteroidSpawnLocation()
+    public void SetTrajectory(Vector2 direction)
     {
-        Vector2 spawnLocation = transform.position;
-        spawnLocation += Random.insideUnitCircle * 1;
-        return spawnLocation;
+        body.AddForce(direction * speed);
+        Destroy(gameObject, lifeTimeSeconds);
     }
 
-    private void InstantiateSplitAsteroid(Vector2 spawnLocation)
+    private void Split(int count)
     {
-        Asteroid half = Instantiate(this, spawnLocation, transform.rotation);
-        half.size = size / 2;
-        half.SetTrajectory(Random.insideUnitCircle.normalized * speed);
-    }
-
-    private void CreateSplit(int asteroidCount)
-    {
-        for (var i = 0; i < asteroidCount; i++)
+        for (var i = 0; i < count; i++)
         {
-            Vector2 spawnLocation = getSplitAsteroidSpawnLocation();
-            InstantiateSplitAsteroid(spawnLocation);
+            Vector2 spawnLocation = transform.position;
+            spawnLocation += Random.insideUnitCircle * 1;
+
+            Asteroid splitAsteroid = Instantiate(this, spawnLocation, transform.rotation);
+            splitAsteroid.size = size / 2;
+            splitAsteroid.SetTrajectory(Random.insideUnitCircle.normalized * speed);
         }
     }
 }
