@@ -7,9 +7,9 @@ public class Player : MonoBehaviour
     public float moveSpeed = 4f;
     public float rotationSpeed = 0.5f;
     public Projectile projectilePrefab;
-    private Rigidbody2D body;
     private float horizontalInput;
     private float verticalInput;
+    private Rigidbody2D body;
 
     private void Awake()
     {
@@ -23,7 +23,8 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        PlayerMovement();
+        HandleVerticalInput();
+        HandleHorizonalInput();
     }
 
     private void GetPlayerInput()
@@ -32,17 +33,21 @@ public class Player : MonoBehaviour
         verticalInput = Input.GetAxisRaw("Vertical"); // -1 down, 1 up
         if (Input.GetButtonDown("Fire1"))
         {
-            Shoot();
+            InstantiateProjectile();
         }
     }
 
-    private void PlayerMovement()
+    private void HandleVerticalInput()
     {
         body.AddRelativeForce(new Vector2(0, -verticalInput) * moveSpeed);
+    }
+
+    private void HandleHorizonalInput()
+    {
         body.AddTorque(-horizontalInput * rotationSpeed);
     }
 
-    private void Shoot()
+    private void InstantiateProjectile()
     {
         Projectile projectile = Instantiate(projectilePrefab, transform.position + -transform.up, transform.rotation);
         projectile.Project(-transform.up);
