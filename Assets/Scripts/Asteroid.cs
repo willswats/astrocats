@@ -21,16 +21,7 @@ public class Asteroid : MonoBehaviour
 
     private void Start()
     {
-        // Set random sprite
-        spriteRenderer.sprite = sprites[Random.Range(0, sprites.Length)];
-
-        // Set random rotation on z-axis
-        transform.eulerAngles = new Vector3(0, 0, Random.value * 360);
-        // Set random scale
-        transform.localScale = Vector3.one * size;
-
-        // Set mass relative to size
-        body.mass = size;
+        RandomiseAsteroid();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -49,6 +40,17 @@ public class Asteroid : MonoBehaviour
     {
         body.AddForce(direction * speed);
         Destroy(gameObject, lifeTimeSeconds);
+    }
+
+
+    private void RandomiseAsteroid()
+    {
+        spriteRenderer.sprite = sprites[Random.Range(0, sprites.Length)];
+
+        transform.eulerAngles = new Vector3(0, 0, Random.value * 360);
+        transform.localScale = Vector3.one * size;
+
+        body.mass = size;
     }
 
     private void Split(int count)
