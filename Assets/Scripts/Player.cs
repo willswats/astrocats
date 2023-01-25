@@ -5,51 +5,40 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public float moveSpeed = 4f;
-    public float rotationSpeed = 0.5f;
-    public Projectile projectilePrefab;
-    private float horizontalInput;
+    public float rotationSpeed = 1f;
     private float verticalInput;
+    private float horizontalInput;
     private Rigidbody2D body;
 
-    private void Awake()
+    private void Start()
     {
         body = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
     {
-        GetPlayerInput();
+        GetInput();
     }
 
     private void FixedUpdate()
     {
-        HandleVerticalInput();
-        HandleHorizonalInput();
+        HandleMovement();
     }
 
-    private void GetPlayerInput()
+    private void GetInput()
     {
-        horizontalInput = Input.GetAxisRaw("Horizontal"); // -1 left, 1 right
-        verticalInput = Input.GetAxisRaw("Vertical"); // -1 down, 1 up
+        verticalInput = Input.GetAxisRaw("Vertical");
+        horizontalInput = Input.GetAxisRaw("Horizontal");
+
         if (Input.GetButtonDown("Fire1"))
         {
-            InstantiateProjectile();
+            Debug.Log("Fire");
         }
     }
 
-    private void HandleVerticalInput()
+    private void HandleMovement()
     {
         body.AddRelativeForce(new Vector2(0, -verticalInput) * moveSpeed);
-    }
-
-    private void HandleHorizonalInput()
-    {
         body.AddTorque(-horizontalInput * rotationSpeed);
-    }
-
-    private void InstantiateProjectile()
-    {
-        Projectile projectile = Instantiate(projectilePrefab, transform.position + -transform.up, transform.rotation);
-        projectile.Project(-transform.up);
     }
 }
