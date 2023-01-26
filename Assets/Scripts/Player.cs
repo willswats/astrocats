@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public Projectile projectilePrefab;
     public float moveSpeed = 4f;
     public float rotationSpeed = 1f;
     private float verticalInput;
     private float horizontalInput;
-    private Rigidbody2D body;
+    private Rigidbody2D rb2d;
 
-    private void Start()
+    private void Awake()
     {
-        body = GetComponent<Rigidbody2D>();
+        rb2d = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
@@ -22,7 +23,8 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        HandleMovement();
+        HandleVerticalInput();
+        HandleHorizontalInput();
     }
 
     private void GetInput()
@@ -32,13 +34,24 @@ public class Player : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
-            Debug.Log("Fire");
+            HandleFire();
         }
     }
 
-    private void HandleMovement()
+    private void HandleVerticalInput()
     {
-        body.AddRelativeForce(new Vector2(0, -verticalInput) * moveSpeed);
-        body.AddTorque(-horizontalInput * rotationSpeed);
+        rb2d.AddRelativeForce(new Vector2(0, -verticalInput) * moveSpeed);
+    }
+
+    private void HandleHorizontalInput()
+    {
+        rb2d.AddTorque(-horizontalInput * rotationSpeed);
+    }
+
+    private void HandleFire()
+    {
+        Vector3 position = transform.position + -transform.up;
+        Projectile projectile = Instantiate(projectilePrefab, position, transform.rotation);
+        projectile.Project(-transform.up);
     }
 }
