@@ -50,8 +50,8 @@ public class Player : MonoBehaviour
 
     private void HandleFire()
     {
-        Vector3 position = transform.position + -transform.up;
+        Vector2 position = transform.position + -transform.up;
         Projectile projectile = Instantiate(projectilePrefab, position, transform.rotation);
-        projectile.Project(-transform.up);
+        projectile.SetForce(-transform.up);
     }
 }
