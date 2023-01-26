@@ -4,52 +4,54 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public float moveSpeed = 4f;
-    public float rotationSpeed = 0.5f;
     public Projectile projectilePrefab;
-    private float horizontalInput;
+    public float moveSpeed = 4f;
+    public float rotationSpeed = 1f;
     private float verticalInput;
-    private Rigidbody2D body;
+    private float horizontalInput;
+    private Rigidbody2D rb2d;
 
     private void Awake()
     {
-        body = GetComponent<Rigidbody2D>();
+        rb2d = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
     {
-        GetPlayerInput();
+        GetInput();
     }
 
     private void FixedUpdate()
     {
         HandleVerticalInput();
-        HandleHorizonalInput();
+        HandleHorizontalInput();
     }
 
-    private void GetPlayerInput()
+    private void GetInput()
     {
-        horizontalInput = Input.GetAxisRaw("Horizontal"); // -1 left, 1 right
-        verticalInput = Input.GetAxisRaw("Vertical"); // -1 down, 1 up
+        verticalInput = Input.GetAxisRaw("Vertical");
+        horizontalInput = Input.GetAxisRaw("Horizontal");
+
         if (Input.GetButtonDown("Fire1"))
         {
-            InstantiateProjectile();
+            HandleFire();
         }
     }
 
     private void HandleVerticalInput()
     {
-        body.AddRelativeForce(new Vector2(0, -verticalInput) * moveSpeed);
+        rb2d.AddRelativeForce(new Vector2(0, -verticalInput) * moveSpeed);
     }
 
-    private void HandleHorizonalInput()
+    private void HandleHorizontalInput()
     {
-        body.AddTorque(-horizontalInput * rotationSpeed);
+        rb2d.AddTorque(-horizontalInput * rotationSpeed);
     }
 
-    private void InstantiateProjectile()
+    private void HandleFire()
     {
-        Projectile projectile = Instantiate(projectilePrefab, transform.position + -transform.up, transform.rotation);
-        projectile.Project(-transform.up);
+        Vector2 position = transform.position + -transform.up;
+        Projectile projectile = Instantiate(projectilePrefab, position, transform.rotation);
+        projectile.SetForce(-transform.up);
     }
 }

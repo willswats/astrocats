@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7095250919202415263}
   - component: {fileID: 5456672279777556818}
   - component: {fileID: 4817286595506611324}
-  - component: {fileID: -3156581455002724802}
+  - component: {fileID: 7724556787480435988}
   m_Layer: 8
   m_Name: Asteroid
   m_TagString: Untagged
@@ -107,7 +107,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 0
 --- !u!60 &4817286595506611324
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -310,7 +310,7 @@ PolygonCollider2D:
       - {x: 0.01, y: -0.59}
       - {x: -0.02, y: -0.61}
       - {x: -0.049999997, y: -0.62}
---- !u!114 &-3156581455002724802
+--- !u!114 &7724556787480435988
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -332,8 +332,5 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 2fa8b05d564dd80fd8aadb0d5e0a04d9, type: 3}
   - {fileID: 21300000, guid: 0482c9c39875109c19e8e2634c294dae, type: 3}
   - {fileID: 21300000, guid: 1d7ba6efb733d47ab8052cd50ccaabba, type: 3}
-  size: 1
-  minSize: 0.5
-  maxSize: 1.5
-  speed: 5
+  trajectorySpeed: 50
   lifeTimeSeconds: 30

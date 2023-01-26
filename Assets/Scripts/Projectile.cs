@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public float speed = 500f;
-    public float lifeTimeSeconds = 10f;
-    private Rigidbody2D body;
+    private float speed = 500f;
+    private float lifeTimeSeconds = 10f;
+    private Rigidbody2D rb2d;
 
     private void Awake()
     {
-        body = GetComponent<Rigidbody2D>();
+        rb2d = GetComponent<Rigidbody2D>();
+    }
+
+    private void Start()
+    {
+        Destroy(gameObject, lifeTimeSeconds);
     }
 
     private void OnCollisionEnter2D(Collision2D collison)
@@ -18,9 +23,8 @@ public class Projectile : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void Project(Vector2 direction)
+    public void SetForce(Vector2 direction)
     {
-        body.AddForce(direction * speed);
-        Destroy(gameObject, lifeTimeSeconds);
+        rb2d.AddForce(direction * speed);
     }
 }
