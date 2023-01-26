@@ -24,7 +24,7 @@ public class Asteroid : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Projectile")
+        if (collision.gameObject.tag == "Projectile" || collision.gameObject.tag == "Asteroid")
         {
             Destroy(gameObject);
         }
