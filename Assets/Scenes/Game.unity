@@ -590,6 +590,7 @@ MonoBehaviour:
   - {fileID: 386093553}
   - {fileID: 97316400}
   - {fileID: 635814327}
+  asteroidTarget: {fileID: 0}
   spawnRateSeconds: 2
   minAsteroidTorque: 0
   maxAsteroidTorque: 50
