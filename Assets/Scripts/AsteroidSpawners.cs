@@ -6,9 +6,11 @@ public class AsteroidSpawners : MonoBehaviour
 {
     public Asteroid asteroidPrefab;
     public GameObject[] asteroidSpawners;
+    public GameObject asteroidTarget;
     public float spawnRateSeconds = 2f;
-    public float minAsteroidTorque = 0;
-    public float maxAsteroidTorque = 50;
+    public float trajectorySpeed = 10f;
+    public float minAsteroidTorque = 0f;
+    public float maxAsteroidTorque = 50f;
 
     private void Start()
     {
@@ -36,40 +38,17 @@ public class AsteroidSpawners : MonoBehaviour
         return rotation;
     }
 
-    private Vector2 GetAsteroidDirection(GameObject asteroidSpawner)
-    {
-        Vector2 direction;
-
-        switch (asteroidSpawner.name)
-        {
-            case "AsteroidSpawnerTop":
-                direction = -transform.up;
-                break;
-            case "AsteroidSpawnerBottom":
-                direction = transform.up;
-                break;
-            case "AsteroidSpawnerLeft":
-                direction = transform.right;
-                break;
-            case "AsteroidSpawnerRight":
-                direction = -transform.right;
-                break;
-            default:
-                throw new System.Exception("Invalid AsteroidSpawner name");
-        }
-
-        return direction;
-    }
-
     private void Spawn()
     {
         GameObject asteroidSpawner = getRandomAsteroidSpawner();
         Vector2 position = GetRandomAsteroidSpawnerPosition(asteroidSpawner);
         Quaternion rotation = GetRandomAsteroidRotation();
-        Vector2 direction = GetAsteroidDirection(asteroidSpawner);
 
         Asteroid asteroid = Instantiate(asteroidPrefab, position, rotation);
-        asteroid.SetForce(direction);
-        asteroid.SetTorque(Random.Range(minAsteroidTorque, maxAsteroidTorque));
+        Vector2 direction = asteroidTarget.transform.position - asteroid.transform.position;
+        Rigidbody2D asteroidrb2d = asteroid.GetComponent<Rigidbody2D>();
+
+        asteroidrb2d.AddForce(direction * trajectorySpeed);
+        asteroidrb2d.AddTorque(Random.Range(minAsteroidTorque, maxAsteroidTorque));
     }
 }

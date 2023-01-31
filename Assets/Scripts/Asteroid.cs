@@ -5,7 +5,6 @@ using UnityEngine;
 public class Asteroid : MonoBehaviour
 {
     public Sprite[] sprites;
-    public float trajectorySpeed = 50f;
     public float lifeTimeSeconds = 30f;
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb2d;
@@ -33,15 +32,5 @@ public class Asteroid : MonoBehaviour
     private void RandomiseSprite()
     {
         spriteRenderer.sprite = sprites[Random.Range(0, sprites.Length)];
-    }
-
-    public void SetForce(Vector2 direction)
-    {
-        rb2d.AddForce(direction * trajectorySpeed);
-    }
-
-    public void SetTorque(float torqueSpeed)
-    {
-        rb2d.AddTorque(torqueSpeed);
     }
 }
