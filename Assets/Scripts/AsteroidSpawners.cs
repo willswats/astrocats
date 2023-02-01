@@ -46,9 +46,9 @@ public class AsteroidSpawners : MonoBehaviour
 
         Asteroid asteroid = Instantiate(asteroidPrefab, position, rotation);
         Vector2 direction = asteroidTarget.transform.position - asteroid.transform.position;
-        Rigidbody2D asteroidrb2d = asteroid.GetComponent<Rigidbody2D>();
+        Rigidbody2D asteroidRb2d = asteroid.GetComponent<Rigidbody2D>();
 
-        asteroidrb2d.AddForce(direction * trajectorySpeed);
-        asteroidrb2d.AddTorque(Random.Range(minAsteroidTorque, maxAsteroidTorque));
+        asteroidRb2d.AddForce(direction * trajectorySpeed);
+        asteroidRb2d.AddTorque(Random.Range(minAsteroidTorque, maxAsteroidTorque));
     }
 }
