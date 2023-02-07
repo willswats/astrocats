@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public PauseMenu pauseMenu;
     public Projectile projectilePrefab;
     public float moveSpeed = 4f;
     public float rotationSpeed = 1f;
@@ -43,6 +44,11 @@ public class Player : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             HandleFire();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            pauseMenu.Pause();
         }
     }
 
