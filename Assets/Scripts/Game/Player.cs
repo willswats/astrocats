@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    public Button gameOverMenuSelectedButton;
+    public Button gameOverMenuSelected;
     public Menu gameOverMenu;
     public Menu pauseMenu;
     public Projectile projectilePrefab;
@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
         {
             Destroy(gameObject);
             gameOverMenu.ShowMenu();
-            gameOverMenuSelectedButton.Select();
+            gameOverMenuSelected.Select();
         }
     }
 
