@@ -37,6 +37,8 @@ public class Player : MonoBehaviour
         {
             Destroy(gameObject);
             gameOverMenu.ShowMenu();
+            Debug.Log(gameOverMenu.transform.GetChild(1));
+            // gameOverMenu.transform.GetChild(1).gameObject.GetComponent<Button>().Select();
             gameOverMenuSelected.Select();
         }
     }
