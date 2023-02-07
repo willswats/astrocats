@@ -99,7 +99,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 2
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
@@ -332,5 +332,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 2fa8b05d564dd80fd8aadb0d5e0a04d9, type: 3}
   - {fileID: 21300000, guid: 0482c9c39875109c19e8e2634c294dae, type: 3}
   - {fileID: 21300000, guid: 1d7ba6efb733d47ab8052cd50ccaabba, type: 3}
-  trajectorySpeed: 50
   lifeTimeSeconds: 30

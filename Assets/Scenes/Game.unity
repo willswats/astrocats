@@ -1362,12 +1362,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidPrefab: {fileID: 7724556787480435988, guid: e1825acc675c0c567b99610f048d10f7, type: 3}
   asteroidSpawners:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1098877389}
+  - {fileID: 386093555}
+  - {fileID: 97316402}
+  - {fileID: 635814329}
   asteroidTarget: {fileID: 2039998187}
-  spawnRateSeconds: 2
+  spawnRateSeconds: 4
   trajectorySpeed: 10
   minAsteroidTorque: 0
   maxAsteroidTorque: 50

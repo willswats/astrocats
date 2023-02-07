@@ -7,7 +7,7 @@ public class AsteroidSpawners : MonoBehaviour
     public Asteroid asteroidPrefab;
     public BoxCollider2D[] asteroidSpawners;
     public GameObject asteroidTarget;
-    public float spawnRateSeconds = 2f;
+    public float spawnRateSeconds = 4f;
     public float trajectorySpeed = 10f;
     public float minAsteroidTorque = 0f;
     public float maxAsteroidTorque = 50f;
