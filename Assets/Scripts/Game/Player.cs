@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public Menu gameOverMenu;
     public Menu pauseMenu;
     public Projectile projectilePrefab;
     public float moveSpeed = 4f;
@@ -33,6 +34,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "Asteroid")
         {
             Destroy(gameObject);
+            gameOverMenu.TogglePause();
         }
     }
 
@@ -48,7 +50,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            pauseMenu.Pause();
+            pauseMenu.TogglePause();
         }
     }
 

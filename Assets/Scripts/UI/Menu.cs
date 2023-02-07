@@ -15,7 +15,7 @@ public class Menu : MonoBehaviour
         Application.Quit();
     }
 
-    public void Pause()
+    public void TogglePause()
     {
         if (gameObject.activeSelf)
         {
