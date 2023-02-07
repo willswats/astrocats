@@ -5,7 +5,7 @@ using UnityEngine;
 public class AsteroidSpawners : MonoBehaviour
 {
     public Asteroid asteroidPrefab;
-    public SpriteRenderer[] asteroidSpawners;
+    public BoxCollider2D[] asteroidSpawners;
     public GameObject asteroidTarget;
     public float spawnRateSeconds = 2f;
     public float trajectorySpeed = 10f;
@@ -17,18 +17,18 @@ public class AsteroidSpawners : MonoBehaviour
         InvokeRepeating(nameof(Spawn), spawnRateSeconds, spawnRateSeconds);
     }
 
-    private SpriteRenderer getRandomAsteroidSpawner()
+    private BoxCollider2D getRandomAsteroidSpawner()
     {
-        SpriteRenderer asteroidSpawner = asteroidSpawners[Random.Range(0, asteroidSpawners.Length)];
+        BoxCollider2D asteroidSpawner = asteroidSpawners[Random.Range(0, asteroidSpawners.Length)];
         return asteroidSpawner;
     }
 
-    private Vector2 GetRandomAsteroidSpawnerPosition(SpriteRenderer asteroidSpawner)
+    private Vector2 GetRandomAsteroidSpawnerPosition(BoxCollider2D asteroidSpawner)
     {
         float positionX = Random.Range(asteroidSpawner.bounds.min.x, asteroidSpawner.bounds.max.x);
         float positionY = Random.Range(asteroidSpawner.bounds.min.y, asteroidSpawner.bounds.max.y);
 
-        Vector3 position = new Vector2(positionX, positionY);
+        Vector2 position = new Vector2(positionX, positionY);
         return position;
     }
 
@@ -40,7 +40,7 @@ public class AsteroidSpawners : MonoBehaviour
 
     private void Spawn()
     {
-        SpriteRenderer asteroidSpawner = getRandomAsteroidSpawner();
+        BoxCollider2D asteroidSpawner = getRandomAsteroidSpawner();
         Vector2 position = GetRandomAsteroidSpawnerPosition(asteroidSpawner);
         Quaternion rotation = GetRandomAsteroidRotation();
 
