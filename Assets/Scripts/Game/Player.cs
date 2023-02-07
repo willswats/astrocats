@@ -36,9 +36,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "Asteroid")
         {
             Destroy(gameObject);
-            gameOverMenu.ShowMenu();
-            Debug.Log(gameOverMenu.transform.GetChild(1));
-            // gameOverMenu.transform.GetChild(1).gameObject.GetComponent<Button>().Select();
+            gameOverMenu.TogglePause();
             gameOverMenuSelected.Select();
         }
     }
