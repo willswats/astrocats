@@ -26,10 +26,11 @@ public class AsteroidSpawners : MonoBehaviour
     private Vector2 GetRandomAsteroidSpawnerPosition(GameObject asteroidSpawner)
     {
         SpriteRenderer asteroidSprite = asteroidSpawner.GetComponent<SpriteRenderer>();
+
         float positionX = Random.Range(asteroidSprite.bounds.min.x, asteroidSprite.bounds.max.x);
         float positionY = Random.Range(asteroidSprite.bounds.min.y, asteroidSprite.bounds.max.y);
 
-        Vector2 position = new Vector2(positionX, positionY);
+        Vector3 position = new Vector2(positionX, positionY);
         return position;
     }
 
