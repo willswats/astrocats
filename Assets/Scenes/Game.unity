@@ -1521,10 +1521,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidPrefab: {fileID: 7724556787480435988, guid: e1825acc675c0c567b99610f048d10f7, type: 3}
   asteroidSpawners:
-  - {fileID: 1098877388}
-  - {fileID: 386093553}
-  - {fileID: 97316400}
-  - {fileID: 635814327}
+  - {fileID: 1098877391}
+  - {fileID: 386093556}
+  - {fileID: 97316403}
+  - {fileID: 635814330}
   asteroidTarget: {fileID: 2039998187}
   spawnRateSeconds: 2
   trajectorySpeed: 10
