@@ -14,4 +14,18 @@ public class Menu : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void Pause()
+    {
+        if (gameObject.activeSelf)
+        {
+            gameObject.SetActive(false);
+            Time.timeScale = 1f;
+        }
+        else
+        {
+            gameObject.SetActive(true);
+            Time.timeScale = 0f;
+        }
+    }
 }

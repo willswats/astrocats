@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public PauseMenu pauseMenu;
+    public Menu pauseMenu;
     public Projectile projectilePrefab;
     public float moveSpeed = 4f;
     public float rotationSpeed = 1f;
