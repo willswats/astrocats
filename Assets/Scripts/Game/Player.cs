@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    public Button gameOverMenuSelectedButton;
     public Menu gameOverMenu;
     public Menu pauseMenu;
     public Projectile projectilePrefab;
@@ -34,7 +36,8 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "Asteroid")
         {
             Destroy(gameObject);
-            gameOverMenu.TogglePause();
+            gameOverMenu.ShowMenu();
+            gameOverMenuSelectedButton.Select();
         }
     }
 

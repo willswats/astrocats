@@ -15,6 +15,11 @@ public class Menu : MonoBehaviour
         Application.Quit();
     }
 
+    public void ShowMenu()
+    {
+        gameObject.SetActive(true);
+    }
+
     public void TogglePause()
     {
         if (gameObject.activeSelf)
