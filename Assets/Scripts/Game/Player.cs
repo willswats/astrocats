@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public Projectile projectilePrefab;
     public float moveSpeed = 4f;
     public float rotationSpeed = 1f;
+    private GameManager gameManager;
     private float verticalInput;
     private float horizontalInput;
     private Rigidbody2D rb2d;
@@ -18,6 +19,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     private void Update()
@@ -38,6 +40,11 @@ public class Player : MonoBehaviour
             Destroy(gameObject);
             gameOverMenu.TogglePause();
             gameOverMenuSelected.Select();
+        }
+        else if (collision.gameObject.tag == "Point")
+        {
+            Debug.Log(gameManager);
+            gameManager.UpdateScore(1);
         }
     }
 
