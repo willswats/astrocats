@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Asteroid : MonoBehaviour
 {
+    private GameManager gameManager;
     public Sprite[] sprites;
     public float lifeTimeSeconds = 30f;
     private SpriteRenderer spriteRenderer;
@@ -13,6 +14,7 @@ public class Asteroid : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     private void Start()
@@ -26,6 +28,7 @@ public class Asteroid : MonoBehaviour
         if (collision.gameObject.tag == "Projectile")
         {
             Destroy(gameObject);
+            gameManager.UpdateScore(1);
         }
     }
 

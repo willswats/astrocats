@@ -20,7 +20,7 @@ public class Point : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            gameManager.UpdateScore(1);
+            gameManager.UpdateScore(5);
             spriteRenderer.enabled = false;
             boxCollider2D.enabled = false;
             StartCoroutine(DestroyGameObjectAfterSeconds(1, gameObject));
