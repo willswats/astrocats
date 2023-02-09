@@ -4,21 +4,25 @@ using UnityEngine;
 
 public class Point : MonoBehaviour
 {
-    float rotationSpeed = 100f;
+    public float rotationSpeed = 100f;
+    private GameManager gameManager;
+    private SpriteRenderer spriteRenderer;
+    private BoxCollider2D boxCollider2D;
 
-    private void Update()
+    private void Start()
     {
-        transform.Rotate(new Vector3(rotationSpeed * Time.deltaTime, rotationSpeed * Time.deltaTime, 0));
+        gameManager = FindObjectOfType<GameManager>();
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        boxCollider2D = gameObject.GetComponent<BoxCollider2D>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            gameObject.GetComponent<SpriteRenderer>().enabled = false;
-            gameObject.GetComponent<BoxCollider2D>().enabled = false;
-            gameObject.GetComponent<ParticleSystem>().Stop();
-            transform.Rotate(new Vector3(0, 0, 0));
+            gameManager.UpdateScore(1);
+            spriteRenderer.enabled = false;
+            boxCollider2D.enabled = false;
             StartCoroutine(DestroyGameObjectAfterSeconds(1, gameObject));
         }
     }
