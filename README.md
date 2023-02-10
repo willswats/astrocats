@@ -1,8 +1,8 @@
-# Astrocats <!-- omit in toc -->
+# Astrocats
 
 An Asteroids clone, but with cats.
 
-## Table of Contents <!-- omit in toc -->
+## Table of Contents
 
 - [General Information](#general-information)
 
