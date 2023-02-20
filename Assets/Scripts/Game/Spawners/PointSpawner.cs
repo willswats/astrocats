@@ -6,8 +6,8 @@ public class PointSpawner : MonoBehaviour
     public BoxCollider2D[] pointSpawners;
     public Point pointPrefab;
     public float spawnRateSeconds = 4f;
-    public float minAsteroidTorque = 0f;
-    public float maxAsteroidTorque = 50f;
+    public float minPointTorque = 0f;
+    public float maxPointTorque = 50f;
 
 
     private void Start()
@@ -24,6 +24,6 @@ public class PointSpawner : MonoBehaviour
         Point point = Instantiate(pointPrefab, pointPosition, pointRotation);
         Rigidbody2D pointRb2d = point.GetComponent<Rigidbody2D>();
 
-        pointRb2d.AddTorque(Random.Range(minAsteroidTorque, maxAsteroidTorque));
+        pointRb2d.AddTorque(Random.Range(minPointTorque, maxPointTorque));
     }
 }

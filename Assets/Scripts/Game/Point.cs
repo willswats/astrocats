@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class Point : MonoBehaviour
 {
-    public float rotationSpeed = 100f;
-    private GameManager gameManager;
     private SpriteRenderer spriteRenderer;
     private BoxCollider2D boxCollider2D;
 
