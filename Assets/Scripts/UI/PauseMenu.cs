@@ -8,7 +8,7 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            pauseMenu.TogglePause();
+            this.pauseMenu.TogglePause();
         }
     }
 }

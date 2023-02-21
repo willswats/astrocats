@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        rb2d = GetComponent<Rigidbody2D>();
+        this.rb2d = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
@@ -36,8 +36,8 @@ public class Player : MonoBehaviour
 
     private void GetInput()
     {
-        verticalInput = Input.GetAxisRaw("Vertical");
-        horizontalInput = Input.GetAxisRaw("Horizontal");
+        this.verticalInput = Input.GetAxisRaw("Vertical");
+        this.horizontalInput = Input.GetAxisRaw("Horizontal");
 
         if (Input.GetButtonDown("Fire1"))
         {
@@ -47,18 +47,18 @@ public class Player : MonoBehaviour
 
     private void HandleVerticalInput()
     {
-        rb2d.AddRelativeForce(new Vector2(0, -verticalInput) * moveSpeed);
+        this.rb2d.AddRelativeForce(new Vector2(0, -verticalInput) * moveSpeed);
     }
 
     private void HandleHorizontalInput()
     {
-        rb2d.AddTorque(-horizontalInput * rotationSpeed);
+        this.rb2d.AddTorque(-horizontalInput * rotationSpeed);
     }
 
     private void HandleFire()
     {
-        Vector2 position = transform.position + -transform.up;
-        Projectile projectile = Instantiate(projectilePrefab, position, transform.rotation);
-        projectile.SetForce(-transform.up);
+        Vector2 position = this.transform.position + -this.transform.up;
+        Projectile projectile = Instantiate(this.projectilePrefab, position, this.transform.rotation);
+        projectile.SetForce(-this.transform.up);
     }
 }

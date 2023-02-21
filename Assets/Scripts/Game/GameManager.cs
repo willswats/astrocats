@@ -24,13 +24,13 @@ public class GameManager : MonoBehaviour
 
     public void UpdateScore(int scoreAdd)
     {
-        score += scoreAdd;
-        scoreText.text = score.ToString();
+        this.score += scoreAdd;
+        this.scoreText.text = score.ToString();
     }
 
     public void ToggleGameOverMenu()
     {
-        gameOverMenu.TogglePause();
-        gameOverMenuSelected.Select();
+        this.gameOverMenu.TogglePause();
+        this.gameOverMenuSelected.Select();
     }
 }

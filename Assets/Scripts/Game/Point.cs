@@ -8,8 +8,8 @@ public class Point : MonoBehaviour
 
     private void Start()
     {
-        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-        boxCollider2D = gameObject.GetComponent<BoxCollider2D>();
+        this.spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        this.boxCollider2D = gameObject.GetComponent<BoxCollider2D>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -17,8 +17,8 @@ public class Point : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             GameManager.Instance.UpdateScore(5);
-            spriteRenderer.enabled = false;
-            boxCollider2D.enabled = false;
+            this.spriteRenderer.enabled = false;
+            this.boxCollider2D.enabled = false;
             StartCoroutine(DestroyGameObjectAfterSeconds(1, gameObject));
         }
     }

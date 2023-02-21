@@ -9,8 +9,8 @@ public class Asteroid : MonoBehaviour
 
     private void Awake()
     {
-        rb2d = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        this.rb2d = GetComponent<Rigidbody2D>();
+        this.spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Start()
@@ -30,6 +30,6 @@ public class Asteroid : MonoBehaviour
 
     private void RandomiseSprite()
     {
-        spriteRenderer.sprite = sprites[Random.Range(0, sprites.Length)];
+        this.spriteRenderer.sprite = sprites[Random.Range(0, sprites.Length)];
     }
 }

@@ -18,12 +18,12 @@ public class AsteroidSpawners : MonoBehaviour
 
     private void Spawn()
     {
-        BoxCollider2D asteroidSpawner = spawner.GetRandomSpawner(asteroidSpawners);
-        Vector2 asteroidPosition = spawner.GetRandomSpawnerPosition(asteroidSpawner);
-        Quaternion asteroidRotation = spawner.GetRandomRotation();
+        BoxCollider2D asteroidSpawner = this.spawner.GetRandomSpawner(this.asteroidSpawners);
+        Vector2 asteroidPosition = this.spawner.GetRandomSpawnerPosition(asteroidSpawner);
+        Quaternion asteroidRotation = this.spawner.GetRandomRotation();
 
-        Asteroid asteroid = Instantiate(asteroidPrefab, asteroidPosition, asteroidRotation);
-        Vector2 direction = asteroidTarget.transform.position - asteroid.transform.position;
+        Asteroid asteroid = Instantiate(this.asteroidPrefab, asteroidPosition, asteroidRotation);
+        Vector2 direction = this.asteroidTarget.transform.position - asteroid.transform.position;
         Rigidbody2D asteroidRb2d = asteroid.GetComponent<Rigidbody2D>();
 
         asteroidRb2d.AddForce(direction * trajectorySpeed);

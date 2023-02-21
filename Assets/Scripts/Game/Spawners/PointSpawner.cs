@@ -17,13 +17,13 @@ public class PointSpawner : MonoBehaviour
 
     private void Spawn()
     {
-        BoxCollider2D pointSpawner = spawner.GetRandomSpawner(pointSpawners);
-        Vector2 pointPosition = spawner.GetRandomSpawnerPosition(pointSpawner);
-        Quaternion pointRotation = spawner.GetRandomRotation();
+        BoxCollider2D pointSpawner = this.spawner.GetRandomSpawner(this.pointSpawners);
+        Vector2 pointPosition = this.spawner.GetRandomSpawnerPosition(pointSpawner);
+        Quaternion pointRotation = this.spawner.GetRandomRotation();
 
-        Point point = Instantiate(pointPrefab, pointPosition, pointRotation);
+        Point point = Instantiate(this.pointPrefab, pointPosition, pointRotation);
         Rigidbody2D pointRb2d = point.GetComponent<Rigidbody2D>();
 
-        pointRb2d.AddTorque(Random.Range(minPointTorque, maxPointTorque));
+        pointRb2d.AddTorque(Random.Range(this.minPointTorque, this.maxPointTorque));
     }
 }

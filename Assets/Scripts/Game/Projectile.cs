@@ -8,7 +8,7 @@ public class Projectile : MonoBehaviour
 
     private void Awake()
     {
-        rb2d = GetComponent<Rigidbody2D>();
+        this.rb2d = GetComponent<Rigidbody2D>();
     }
 
     private void Start()
@@ -23,6 +23,6 @@ public class Projectile : MonoBehaviour
 
     public void SetForce(Vector2 direction)
     {
-        rb2d.AddForce(direction * speed);
+        this.rb2d.AddForce(direction * speed);
     }
 }
