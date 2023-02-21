@@ -3,21 +3,20 @@ using UnityEngine;
 public class PointSpawner : MonoBehaviour
 {
     public Spawner spawner;
-    public BoxCollider2D[] pointSpawners;
     public Point pointPrefab;
     public float spawnRateSeconds = 4f;
     public float minPointTorque = 0f;
     public float maxPointTorque = 50f;
-
+    private BoxCollider2D pointSpawner;
 
     private void Start()
     {
         InvokeRepeating(nameof(Spawn), spawnRateSeconds, spawnRateSeconds);
+        this.pointSpawner = GetComponent<BoxCollider2D>();
     }
 
     private void Spawn()
     {
-        BoxCollider2D pointSpawner = this.spawner.GetRandomSpawner(this.pointSpawners);
         Vector2 pointPosition = this.spawner.GetRandomSpawnerPosition(pointSpawner);
         Quaternion pointRotation = this.spawner.GetRandomRotation();
 
