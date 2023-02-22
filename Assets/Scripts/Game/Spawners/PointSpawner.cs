@@ -4,19 +4,11 @@ public class PointSpawner : Spawner
 {
     public Point pointPrefab;
     public float spawnRateSeconds = 4f;
-    public float minPointTorque = 0f;
+    public float minPointTorque = 25f;
     public float maxPointTorque = 50f;
-    private BoxCollider2D pointSpawner;
 
-    private void Start()
+    public void Spawn(Vector2 pointPosition)
     {
-        InvokeRepeating(nameof(Spawn), spawnRateSeconds, spawnRateSeconds);
-        this.pointSpawner = GetComponent<BoxCollider2D>();
-    }
-
-    private void Spawn()
-    {
-        Vector2 pointPosition = this.GetRandomSpawnerPosition(pointSpawner);
         Quaternion pointRotation = this.GetRandomRotation();
 
         Point point = Instantiate(this.pointPrefab, pointPosition, pointRotation);
