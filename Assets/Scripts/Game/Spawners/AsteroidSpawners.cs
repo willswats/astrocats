@@ -1,8 +1,7 @@
 using UnityEngine;
 
-public class AsteroidSpawners : MonoBehaviour
+public class AsteroidSpawners : Spawner
 {
-    public Spawner spawner;
     public BoxCollider2D[] asteroidSpawners;
     public Asteroid asteroidPrefab;
     public GameObject asteroidTarget;
@@ -18,9 +17,9 @@ public class AsteroidSpawners : MonoBehaviour
 
     private void Spawn()
     {
-        BoxCollider2D asteroidSpawner = this.spawner.GetRandomSpawner(this.asteroidSpawners);
-        Vector2 asteroidPosition = this.spawner.GetRandomSpawnerPosition(asteroidSpawner);
-        Quaternion asteroidRotation = this.spawner.GetRandomRotation();
+        BoxCollider2D asteroidSpawner = this.GetRandomSpawner(this.asteroidSpawners);
+        Vector2 asteroidPosition = this.GetRandomSpawnerPosition(asteroidSpawner);
+        Quaternion asteroidRotation = this.GetRandomRotation();
 
         Asteroid asteroid = Instantiate(this.asteroidPrefab, asteroidPosition, asteroidRotation);
         Vector2 direction = this.asteroidTarget.transform.position - asteroid.transform.position;

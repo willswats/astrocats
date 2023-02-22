@@ -1,8 +1,7 @@
 using UnityEngine;
 
-public class PointSpawner : MonoBehaviour
+public class PointSpawner : Spawner
 {
-    public Spawner spawner;
     public Point pointPrefab;
     public float spawnRateSeconds = 4f;
     public float minPointTorque = 0f;
@@ -17,8 +16,8 @@ public class PointSpawner : MonoBehaviour
 
     private void Spawn()
     {
-        Vector2 pointPosition = this.spawner.GetRandomSpawnerPosition(pointSpawner);
-        Quaternion pointRotation = this.spawner.GetRandomRotation();
+        Vector2 pointPosition = this.GetRandomSpawnerPosition(pointSpawner);
+        Quaternion pointRotation = this.GetRandomRotation();
 
         Point point = Instantiate(this.pointPrefab, pointPosition, pointRotation);
         Rigidbody2D pointRb2d = point.GetComponent<Rigidbody2D>();
