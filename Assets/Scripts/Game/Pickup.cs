@@ -1,8 +1,10 @@
 using System.Collections;
 using UnityEngine;
 
-public class Point : MonoBehaviour
+public class Pickup : MonoBehaviour
 {
+    public int ScorePerPickup = 5;
+    public int DestroyAfterSeconds = 1;
     private SpriteRenderer spriteRenderer;
     private BoxCollider2D boxCollider2D;
 
@@ -16,10 +18,10 @@ public class Point : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            GameManager.Instance.UpdateScore(5);
+            GameManager.Instance.UpdateScore(ScorePerPickup);
             this.spriteRenderer.enabled = false;
             this.boxCollider2D.enabled = false;
-            StartCoroutine(DestroyGameObjectAfterSeconds(1, gameObject));
+            StartCoroutine(DestroyGameObjectAfterSeconds(DestroyAfterSeconds, gameObject));
         }
     }
 
