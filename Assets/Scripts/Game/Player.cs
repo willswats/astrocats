@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public Weapon weapon;
     public Projectile projectilePrefab;
     public float moveSpeed = 4f;
     public float rotationSpeed = 1f;
@@ -41,7 +42,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
-            HandleFire();
+            weapon.HandleFire(this.transform.position, -this.transform.up, this.transform.rotation);
         }
     }
 
@@ -53,12 +54,5 @@ public class Player : MonoBehaviour
     private void HandleHorizontalInput()
     {
         this.rb2d.AddTorque(-horizontalInput * rotationSpeed);
-    }
-
-    private void HandleFire()
-    {
-        Vector2 position = this.transform.position + -this.transform.up;
-        Projectile projectile = Instantiate(this.projectilePrefab, position, this.transform.rotation);
-        projectile.SetForce(-this.transform.up);
     }
 }
