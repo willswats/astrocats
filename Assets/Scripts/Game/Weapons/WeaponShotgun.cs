@@ -18,7 +18,6 @@ public class WeaponShotgun : Weapon
 
         foreach (Projectile projectile in projectiles)
         {
-            Debug.Log(projectiles);
             projectile.SetForce(playerDirection * this.projectileVelocity);
         }
     }
