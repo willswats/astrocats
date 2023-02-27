@@ -33,6 +33,7 @@
 ### Asteroids
 
 - [ ] Make smaller asteroids out of big ones when destroyed
+- [ ] Asteroids only drop points when they cannot become smaller asteroids
 - [ ] More asteroids spawn over time
 
 ### UI
