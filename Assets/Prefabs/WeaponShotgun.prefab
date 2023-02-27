@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 5911237058121802726}
   - component: {fileID: 3206779169432009739}
   - component: {fileID: 6868453899470014024}
-  - component: {fileID: 2535881113812284262}
+  - component: {fileID: 5199061586394270172}
+  - component: {fileID: 2156659564233071886}
   m_Layer: 0
   m_Name: WeaponShotgun
   m_TagString: Point
@@ -135,7 +136,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.35, y: 0.35}
   m_EdgeRadius: 0
---- !u!114 &2535881113812284262
+--- !u!114 &5199061586394270172
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -144,11 +145,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 3737207802471049966}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6050d6a9c5188c879bf696fa3369845a, type: 3}
+  m_Script: {fileID: 11500000, guid: 5274e90fd21aa3e538425863d3158725, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScorePerPickup: 0
+  projectileVelocity: 1
+  projectilePrefab: {fileID: 1421503212304558506, guid: 27d8e6253e4aaf60ba290896b86f1821, type: 3}
+  projectileCount: 3
+--- !u!114 &2156659564233071886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3737207802471049966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b32ae80343f7fd99a927df81de3018ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScorePerPickup: 5
   DestroyAfterSeconds: 1
+  player: {fileID: 0}
+  weapon: {fileID: 5199061586394270172}
 --- !u!1 &7446270771241301099
 GameObject:
   m_ObjectHideFlags: 0

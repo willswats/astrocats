@@ -10,6 +10,11 @@ public class Player : MonoBehaviour
     private float horizontalInput;
     private Rigidbody2D rb2d;
 
+    public void ChangeWeapon(Weapon weapon)
+    {
+        this.weapon = weapon;
+    }
+
     private void Awake()
     {
         this.rb2d = GetComponent<Rigidbody2D>();
