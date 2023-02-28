@@ -3,17 +3,11 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public Weapon weapon;
-    public Projectile projectilePrefab;
     public float moveSpeed = 4f;
     public float rotationSpeed = 1f;
     private float verticalInput;
     private float horizontalInput;
     private Rigidbody2D rb2d;
-
-    public void ChangeWeapon(Weapon weapon)
-    {
-        this.weapon = weapon;
-    }
 
     private void Awake()
     {
@@ -36,19 +30,28 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "Asteroid")
         {
             Destroy(gameObject);
-            GameManager.Instance.ToggleGameOverMenu();
+            // TODO: Decreease health
+            if (GameManager.Instance.lives >= 1)
+            {
+                GameManager.Instance.DecrementLife();
+                // TODO: Spawn player
+            }
+            else
+            {
+                GameManager.Instance.ToggleGameOverMenu();
+            }
         }
+    }
+
+    public void ChangeWeapon(Weapon weapon)
+    {
+        this.weapon = weapon;
     }
 
     private void GetInput()
     {
         this.verticalInput = Input.GetAxisRaw("Vertical");
         this.horizontalInput = Input.GetAxisRaw("Horizontal");
-
-        if (Input.GetButtonDown("Fire1"))
-        {
-            weapon.HandleFire(this.transform.position, -this.transform.up, this.transform.rotation);
-        }
     }
 
     private void HandleVerticalInput()

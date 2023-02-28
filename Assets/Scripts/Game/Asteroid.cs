@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Asteroid : MonoBehaviour
 {
-    public PointSpawner pointSpawner;
+    public PickupSpawner pointSpawner;
     public Sprite[] sprites;
     public float lifeTimeSeconds = 30f;
     private SpriteRenderer spriteRenderer;
@@ -16,7 +16,7 @@ public class Asteroid : MonoBehaviour
 
     private void Start()
     {
-        Destroy(gameObject, lifeTimeSeconds);
+        Destroy(this.gameObject, this.lifeTimeSeconds);
         RandomiseSprite();
     }
 
@@ -25,8 +25,8 @@ public class Asteroid : MonoBehaviour
         if (collision.gameObject.tag == "Projectile")
         {
             pointSpawner.Spawn(this.transform.position);
-            Destroy(gameObject);
-            GameManager.Instance.UpdateScore(1);
+            Destroy(this.gameObject);
+            GameManager.Instance.AddScore(1);
         }
     }
 

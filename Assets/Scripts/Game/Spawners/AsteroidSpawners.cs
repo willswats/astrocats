@@ -12,7 +12,7 @@ public class AsteroidSpawners : Spawner
 
     private void Start()
     {
-        InvokeRepeating(nameof(Spawn), spawnRateSeconds, spawnRateSeconds);
+        InvokeRepeating(nameof(this.Spawn), this.spawnRateSeconds, this.spawnRateSeconds);
     }
 
     private void Spawn()

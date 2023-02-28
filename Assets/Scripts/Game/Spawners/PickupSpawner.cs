@@ -1,9 +1,8 @@
 using UnityEngine;
 
-public class PointSpawner : Spawner
+public class PickupSpawner : Spawner
 {
-    public Pickup pointPrefab;
-    public float spawnRateSeconds = 4f;
+    public Pickup pickupPrefab;
     public float minPointTorque = 25f;
     public float maxPointTorque = 50f;
 
@@ -11,7 +10,7 @@ public class PointSpawner : Spawner
     {
         Quaternion pointRotation = this.GetRandomRotation();
 
-        Pickup point = Instantiate(this.pointPrefab, pointPosition, pointRotation);
+        Pickup point = Instantiate(this.pickupPrefab, pointPosition, pointRotation);
         Rigidbody2D pointRb2d = point.GetComponent<Rigidbody2D>();
 
         pointRb2d.AddTorque(Random.Range(this.minPointTorque, this.maxPointTorque));
