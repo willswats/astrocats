@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 public class Weapon : MonoBehaviour
 {
-
     public Projectile projectilePrefab;
-    private List<GameObject> projectileSpawnPoints;
+    public List<GameObject> projectileSpawnPoints;
+    private List<Projectile> projectiles;
 
     private void Update()
     {
@@ -15,14 +15,21 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    public virtual void HandleFire()
+    private void HandleFire()
     {
-        this.projectileSpawnPoints = new List<GameObject>();
+        this.projectiles = new List<Projectile>();
 
         for (int i = 0; i < projectileSpawnPoints.Count; i++)
         {
-            Instantiate(this.projectilePrefab, this.projectileSpawnPoints[i].transform.position + transform.up, this.projectileSpawnPoints[i].transform.rotation);
+            Vector2 direction = this.projectileSpawnPoints[i].transform.position;
+            Quaternion rotation = this.projectileSpawnPoints[i].transform.rotation;
+            projectiles.Add(Instantiate(this.projectilePrefab, direction, rotation));
         }
 
+        foreach (Projectile projectile in projectiles)
+        {
+            Debug.Log(projectile);
+            projectile.SetForce(transform.up);
+        }
     }
 }

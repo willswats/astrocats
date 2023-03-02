@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public Weapon weapon;
     public float moveSpeed = 4f;
     public float rotationSpeed = 1f;
     private float verticalInput;
@@ -30,7 +29,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "Asteroid")
         {
             Destroy(gameObject);
-            // TODO: Decreease health
+            // TODO: Decrease health 
             if (GameManager.Instance.lives >= 1)
             {
                 GameManager.Instance.DecrementLife();
@@ -41,11 +40,6 @@ public class Player : MonoBehaviour
                 GameManager.Instance.ToggleGameOverMenu();
             }
         }
-    }
-
-    public void ChangeWeapon(Weapon weapon)
-    {
-        this.weapon = weapon;
     }
 
     private void GetInput()
