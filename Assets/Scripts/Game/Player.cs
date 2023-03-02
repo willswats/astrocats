@@ -3,7 +3,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public float moveSpeed = 4f;
-    public float rotationSpeed = 1f;
+    public float rotationSpeed = 0.5f;
     private float verticalInput;
     private float horizontalInput;
     private Rigidbody2D rb2d;
@@ -28,17 +28,9 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.tag == "Asteroid")
         {
+            // TODO: decrement health
             Destroy(gameObject);
-            // TODO: Decrease health 
-            if (GameManager.Instance.lives >= 1)
-            {
-                GameManager.Instance.DecrementLife();
-                // TODO: Spawn player
-            }
-            else
-            {
-                GameManager.Instance.ToggleGameOverMenu();
-            }
+            GameManager.Instance.KillPlayer();
         }
     }
 

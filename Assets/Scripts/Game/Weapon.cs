@@ -28,7 +28,6 @@ public class Weapon : MonoBehaviour
 
         foreach (Projectile projectile in projectiles)
         {
-            Debug.Log(projectile);
             projectile.SetForce(transform.up);
         }
     }

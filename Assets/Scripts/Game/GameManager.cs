@@ -4,12 +4,13 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    public TextMeshProUGUI textPlayerScore;
+    public TextMeshProUGUI textPlayerLives;
     public Button gameOverMenuSelected;
     public Menu gameOverMenu;
-    public TextMeshProUGUI textScore;
-    public TextMeshProUGUI textLives;
-    private int score = 0;
-    public int lives = 3;
+    public Player player;
+    public int playerScore = 0;
+    public int playerLives = 3;
     public static GameManager Instance { get; private set; }
 
     private void Awake()
@@ -26,19 +27,33 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        this.textLives.text = this.lives.ToString();
+        SetupGame();
     }
 
-    public void AddScore(int score)
+    private void SetupGame()
     {
-        this.score += score;
-        this.textScore.text = score.ToString();
+        this.textPlayerLives.text = this.playerLives.ToString();
+        Instantiate(this.player);
     }
 
-    public void DecrementLife()
+    public void AddPlayerScore(int score)
     {
-        this.lives -= 1;
-        this.textLives.text = this.lives.ToString();
+        this.playerScore += score;
+        this.textPlayerScore.text = score.ToString();
+    }
+
+    public void KillPlayer()
+    {
+        this.playerLives -= 1;
+        this.textPlayerLives.text = this.playerLives.ToString();
+        if (playerLives <= 0)
+        {
+            ToggleGameOverMenu();
+        }
+        else
+        {
+            Instantiate(this.player);
+        }
     }
 
     public void ToggleGameOverMenu()

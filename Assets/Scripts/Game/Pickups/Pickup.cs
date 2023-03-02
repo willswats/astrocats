@@ -18,7 +18,7 @@ public class Pickup : MonoBehaviour, IPickup
     {
         if (collision.gameObject.tag == "Player")
         {
-            GameManager.Instance.AddScore(this.pickupScore);
+            GameManager.Instance.AddPlayerScore(this.pickupScore);
             PickupDestroy();
         }
     }
