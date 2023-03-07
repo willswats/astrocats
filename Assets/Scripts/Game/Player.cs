@@ -24,16 +24,6 @@ public class Player : MonoBehaviour
         HandleHorizontalInput();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Asteroid")
-        {
-            // TODO: decrement health
-            Destroy(gameObject);
-            GameManager.Instance.KillPlayer();
-        }
-    }
-
     private void GetInput()
     {
         this.verticalInput = Input.GetAxisRaw("Vertical");

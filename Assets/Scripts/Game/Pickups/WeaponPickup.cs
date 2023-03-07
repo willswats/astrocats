@@ -10,7 +10,6 @@ public class WeaponPickup : Pickup
         if (collision.gameObject.tag == "Player")
         {
             Player player = collision.gameObject.GetComponent<Player>();
-            // TODO: change weapon
         }
     }
 }

@@ -5,7 +5,7 @@ public class Asteroid : MonoBehaviour
     public PickupSpawner pointSpawner;
     public Sprite[] sprites;
     public int asteroidScore = 1;
-    public int asteroidDamage = 10;
+    public int asteroidDamage = 25;
     public float lifeTimeSeconds = 30f;
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb2d;
@@ -24,16 +24,16 @@ public class Asteroid : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        switch (collision.gameObject.tag)
+        string collisionTag = collision.gameObject.tag;
+        if (collisionTag == "Projectile")
         {
-            case "Projectile":
-                pointSpawner.Spawn(this.transform.position);
-                Destroy(this.gameObject);
-                GameManager.Instance.AddPlayerScore(asteroidScore);
-                break;
-            case "Asteroid":
-                GameManager.Instance.DamagePlayer(asteroidDamage);
-                break;
+            pointSpawner.Spawn(this.transform.position);
+            Destroy(this.gameObject);
+            GameManager.Instance.AddPlayerScore(asteroidScore);
+        }
+        if (collisionTag == "Player")
+        {
+            GameManager.Instance.DamagePlayer(asteroidDamage);
         }
     }
 

@@ -6,9 +6,10 @@
 
 ## Features
 
-### Ship
+### Player
 
 - [ ] Animated thrusters
+- [ ] Destroy all Asteroids when the player dies
 
 ### Enemies
 
@@ -20,6 +21,7 @@
 
 ### Weapons
 
+- [ ] Implement weapon pickups
 - [ ] Weapons:
   - [ ] Shotgun
   - [ ] Laser

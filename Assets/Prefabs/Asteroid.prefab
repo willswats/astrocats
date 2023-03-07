@@ -333,4 +333,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 2fa8b05d564dd80fd8aadb0d5e0a04d9, type: 3}
   - {fileID: 21300000, guid: 0482c9c39875109c19e8e2634c294dae, type: 3}
   - {fileID: 21300000, guid: 1d7ba6efb733d47ab8052cd50ccaabba, type: 3}
+  asteroidScore: 1
+  asteroidDamage: 25
   lifeTimeSeconds: 30

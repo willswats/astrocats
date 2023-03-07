@@ -30,11 +30,6 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        SetupGame();
-    }
-
-    private void SetupGame()
-    {
         this.textPlayerLives.text = this.playerLives.ToString();
         this.textPlayerHealth.text = this.playerHealth.ToString();
         Instantiate(this.player);
@@ -56,7 +51,6 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            // TODO: destroy all asteroids
             Instantiate(this.player);
         }
     }
@@ -70,6 +64,7 @@ public class GameManager : MonoBehaviour
         else
         {
             this.playerHealth -= damage;
+            this.textPlayerHealth.text = this.playerHealth.ToString();
         }
     }
 
