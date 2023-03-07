@@ -28,14 +28,12 @@ public class Player : MonoBehaviour
 
     public void DamagePlayer(int damage)
     {
+        this.health -= damage;
+        GameManager.Instance.UpdateHealthUI(health);
         if (this.health <= 0)
         {
+            Destroy(gameObject);
             GameManager.Instance.KillPlayer();
-        }
-        else
-        {
-            this.health -= damage;
-            GameManager.Instance.UpdateHealthUI(health);
         }
     }
 
