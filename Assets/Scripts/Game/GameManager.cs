@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI textPlayerHealth;
     public Button gameOverMenuSelected;
     public Menu gameOverMenu;
-    public AsteroidSpawners asteroidSpawners;
     public Player player;
     public int playerScore = 0;
     public int playerLives = 3;
