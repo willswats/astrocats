@@ -2,6 +2,7 @@
 
 ## Refactor
 
+- [ ] Move Destroying of Asteroid into Asteroid.cs and call it in AsteroidSpawners.cs
 - [ ] Create UI manager and move related GameManager code into it
 
 ## Features
