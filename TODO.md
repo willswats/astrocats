@@ -40,8 +40,7 @@
 
 ### UI
 
-- [ ] Display points
-- [ ] Display lives
+- [ ] Make the UI look better
 
 ### Audio
 
