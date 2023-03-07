@@ -1535,7 +1535,7 @@ MonoBehaviour:
   - {fileID: 386093555}
   - {fileID: 97316402}
   - {fileID: 635814329}
-  asteroidPrefab: {fileID: 7724556787480435988, guid: e1825acc675c0c567b99610f048d10f7, type: 3}
+  asteroidPrefab: {fileID: 5518058203174155482, guid: 9264eaeb96651678cbe400b3c28f2e7d, type: 3}
   asteroidTarget: {fileID: 2039998187}
   spawnRateSeconds: 4
   trajectorySpeed: 10
@@ -2763,7 +2763,6 @@ MonoBehaviour:
   player: {fileID: 6631850269249061044, guid: 7e70e3a37167e71eaa65bccad1a76f22, type: 3}
   playerScore: 0
   playerLives: 3
-  playerHealth: 100
 --- !u!4 &1614422410
 Transform:
   m_ObjectHideFlags: 0
