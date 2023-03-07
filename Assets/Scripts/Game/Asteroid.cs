@@ -33,7 +33,8 @@ public class Asteroid : MonoBehaviour
         }
         if (collisionTag == "Player")
         {
-            GameManager.Instance.DamagePlayer(asteroidDamage);
+            Player player = collision.gameObject.GetComponent<Player>();
+            player.DamagePlayer(asteroidDamage);
         }
     }
 
