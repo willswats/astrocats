@@ -13,7 +13,6 @@ public class GameManager : MonoBehaviour
     public Player player;
     public int playerScore = 0;
     public int playerLives = 3;
-    public int playerHealth = 100;
     public static GameManager Instance { get; private set; }
 
     private void Awake()
@@ -31,8 +30,12 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         this.textPlayerLives.text = this.playerLives.ToString();
-        this.textPlayerHealth.text = this.playerHealth.ToString();
         Instantiate(this.player);
+    }
+
+    public void UpdateHealthUI(int health)
+    {
+        this.textPlayerHealth.text = health.ToString();
     }
 
     public void AddPlayerScore(int score)
@@ -52,19 +55,6 @@ public class GameManager : MonoBehaviour
         else
         {
             Instantiate(this.player);
-        }
-    }
-
-    public void DamagePlayer(int damage)
-    {
-        if (this.playerHealth <= 0)
-        {
-            KillPlayer();
-        }
-        else
-        {
-            this.playerHealth -= damage;
-            this.textPlayerHealth.text = this.playerHealth.ToString();
         }
     }
 
