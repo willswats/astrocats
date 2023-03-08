@@ -37,7 +37,10 @@ public class AsteroidSpawners : Spawner
     {
         foreach (Asteroid asteroid in asteroids)
         {
-            Destroy(asteroid.gameObject);
+            if (asteroid != null)
+            {
+                Destroy(asteroid.gameObject);
+            }
         }
     }
 }
