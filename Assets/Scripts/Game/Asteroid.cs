@@ -10,12 +10,14 @@ public class Asteroid : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb2d;
     private Animator anim;
+    private AudioSource audiosource;
 
     private void Awake()
     {
         this.rb2d = GetComponent<Rigidbody2D>();
         this.spriteRenderer = GetComponent<SpriteRenderer>();
         this.anim = GetComponent<Animator>();
+        this.audiosource = GetComponent<AudioSource>();
     }
 
     private void Start()
@@ -33,6 +35,7 @@ public class Asteroid : MonoBehaviour
             GetComponent<Collider2D>().enabled = false;
             anim.SetTrigger("Explode");
             pointSpawner.Spawn(this.transform.position);
+            audiosource.Play();
             Destroy(this.gameObject, 0.5f);
             GameManager.Instance.AddPlayerScore(asteroidScore);
         }
