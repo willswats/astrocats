@@ -45,7 +45,7 @@
 
 ### Audio
 
-- [ ] Sound effects for:
+- [ ] Own sound effects for:
   - [ ] Menus
   - [ ] Ship thrusters
   - [ ] Weapons
