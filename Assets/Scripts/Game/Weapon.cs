@@ -6,6 +6,12 @@ public class Weapon : MonoBehaviour
     public Projectile projectilePrefab;
     public List<GameObject> projectileSpawnPoints;
     private List<Projectile> projectiles;
+    private AudioSource audiosource;
+
+    private void Start()
+    {
+        this.audiosource = GetComponent<AudioSource>();
+    }
 
     private void Update()
     {
@@ -30,5 +36,7 @@ public class Weapon : MonoBehaviour
         {
             projectile.SetForce(transform.up);
         }
+
+        audiosource.Play();
     }
 }
