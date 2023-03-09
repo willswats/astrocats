@@ -2532,7 +2532,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: PickupShotgun
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2156659564233071886, guid: 0499448be264554ebacbe05729bb2e53, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0499448be264554ebacbe05729bb2e53, type: 3}
 --- !u!1 &1497801241
 GameObject:
