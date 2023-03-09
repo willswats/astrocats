@@ -1332,7 +1332,7 @@ GameObject:
   - component: {fileID: 630267783}
   - component: {fileID: 630267782}
   m_Layer: 5
-  m_Name: TextScore
+  m_Name: TextPlayerScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1585,7 +1585,7 @@ GameObject:
   - component: {fileID: 746217676}
   - component: {fileID: 746217675}
   m_Layer: 5
-  m_Name: TextLives
+  m_Name: TextPlayerLives
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2778,15 +2778,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb141504b006343898bf2c5f2213fe8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textPlayerScore: {fileID: 630267782}
-  textPlayerLives: {fileID: 746217675}
-  textPlayerHealth: {fileID: 1698931533}
-  gameOverMenuSelected: {fileID: 462545568}
-  gameOverMenu: {fileID: 2065140771}
-  asteroidSpawners: {fileID: 727662459}
   player: {fileID: 6631850269249061044, guid: 7e70e3a37167e71eaa65bccad1a76f22, type: 3}
   playerScore: 0
   playerLives: 3
+  asteroidSpawners: {fileID: 727662459}
 --- !u!4 &1614422410
 Transform:
   m_ObjectHideFlags: 0
@@ -2984,7 +2979,7 @@ GameObject:
   - component: {fileID: 1698931534}
   - component: {fileID: 1698931533}
   m_Layer: 5
-  m_Name: TextHealth
+  m_Name: TextPlayerHealth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3357,7 +3352,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1947620435
 MonoBehaviour:
@@ -3629,6 +3624,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 922bfe69674b5ad6594d38eaaa590737, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2061033026
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2061033028}
+  - component: {fileID: 2061033027}
+  m_Layer: 0
+  m_Name: UIManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2061033027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2061033026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2123ba72f452e112c801ec3598ab5346, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textPlayerScore: {fileID: 630267782}
+  textPlayerLives: {fileID: 746217675}
+  textPlayerHealth: {fileID: 1698931533}
+  gameOverMenu: {fileID: 2065140771}
+  gameOverMenuSelected: {fileID: 462545568}
+--- !u!4 &2061033028
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2061033026}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2065140769
 GameObject:
   m_ObjectHideFlags: 0

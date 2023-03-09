@@ -5,6 +5,7 @@ public class Projectile : MonoBehaviour
     private float projectileVelocity = 500f;
     private float projectileLifeTimeSeconds = 10f;
     private Rigidbody2D rb2d;
+    private AudioSource audiosource;
 
     public void SetForce(Vector2 direction)
     {
@@ -19,6 +20,8 @@ public class Projectile : MonoBehaviour
     private void Start()
     {
         Destroy(this.gameObject, this.projectileLifeTimeSeconds);
+        this.audiosource = GetComponent<AudioSource>();
+        this.audiosource.Play();
     }
 
     private void OnCollisionEnter2D(Collision2D collison)
