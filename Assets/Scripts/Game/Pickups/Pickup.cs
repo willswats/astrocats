@@ -9,13 +9,6 @@ public class Pickup : MonoBehaviour, IPickup
     private BoxCollider2D boxCollider2D;
     private AudioSource audiosource;
 
-    private void Start()
-    {
-        this.spriteRenderer = this.gameObject.GetComponent<SpriteRenderer>();
-        this.boxCollider2D = this.gameObject.GetComponent<BoxCollider2D>();
-        this.audiosource = this.gameObject.GetComponent<AudioSource>();
-    }
-
     public virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
@@ -24,6 +17,13 @@ public class Pickup : MonoBehaviour, IPickup
             GameManager.Instance.AddPlayerScore(this.pickupScore);
             PickupDestroy();
         }
+    }
+
+    private void Start()
+    {
+        this.spriteRenderer = this.gameObject.GetComponent<SpriteRenderer>();
+        this.boxCollider2D = this.gameObject.GetComponent<BoxCollider2D>();
+        this.audiosource = this.gameObject.GetComponent<AudioSource>();
     }
 
     private void PickupDestroy()

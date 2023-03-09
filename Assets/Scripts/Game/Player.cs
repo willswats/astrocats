@@ -9,6 +9,17 @@ public class Player : MonoBehaviour
     private float horizontalInput;
     private Rigidbody2D rb2d;
 
+    public void DamagePlayer(int damage)
+    {
+        this.health -= damage;
+        GameManager.Instance.UpdateHealthUI(health);
+        if (this.health <= 0)
+        {
+            Destroy(gameObject);
+            GameManager.Instance.KillPlayer();
+        }
+    }
+
     private void Awake()
     {
         GameManager.Instance.UpdateHealthUI(health);
@@ -24,17 +35,6 @@ public class Player : MonoBehaviour
     {
         HandleVerticalInput();
         HandleHorizontalInput();
-    }
-
-    public void DamagePlayer(int damage)
-    {
-        this.health -= damage;
-        GameManager.Instance.UpdateHealthUI(health);
-        if (this.health <= 0)
-        {
-            Destroy(gameObject);
-            GameManager.Instance.KillPlayer();
-        }
     }
 
     private void GetInput()

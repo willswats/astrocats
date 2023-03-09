@@ -6,6 +6,11 @@ public class Projectile : MonoBehaviour
     private float projectileLifeTimeSeconds = 10f;
     private Rigidbody2D rb2d;
 
+    public void SetForce(Vector2 direction)
+    {
+        this.rb2d.AddForce(direction * projectileVelocity);
+    }
+
     private void Awake()
     {
         this.rb2d = GetComponent<Rigidbody2D>();
@@ -19,10 +24,5 @@ public class Projectile : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collison)
     {
         Destroy(gameObject);
-    }
-
-    public void SetForce(Vector2 direction)
-    {
-        this.rb2d.AddForce(direction * projectileVelocity);
     }
 }
