@@ -12,18 +12,22 @@ public class Player : MonoBehaviour
     public void DamagePlayer(int damage)
     {
         this.health -= damage;
-        GameManager.Instance.UpdateHealthUI(health);
+        UIManager.Instance.SetTextPlayerHealth(this.health);
         if (this.health <= 0)
         {
-            Destroy(gameObject);
+            Destroy(this.gameObject);
             GameManager.Instance.KillPlayer();
         }
     }
 
     private void Awake()
     {
-        GameManager.Instance.UpdateHealthUI(health);
         this.rb2d = GetComponent<Rigidbody2D>();
+    }
+
+    private void Start()
+    {
+        UIManager.Instance.SetTextPlayerHealth(this.health);
     }
 
     private void Update()

@@ -7,8 +7,8 @@ public class Asteroid : MonoBehaviour
     public int asteroidScore = 1;
     public int asteroidDamage = 25;
     public float lifeTimeSeconds = 30f;
-    private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb2d;
+    private SpriteRenderer spriteRenderer;
     private Animator anim;
     private AudioSource audiosource;
 
@@ -31,19 +31,39 @@ public class Asteroid : MonoBehaviour
         string collisionTag = collision.gameObject.tag;
         if (collisionTag == "Projectile")
         {
-            rb2d.simulated = false;
-            GetComponent<Collider2D>().enabled = false;
-            anim.SetTrigger("Explode");
-            pointSpawner.Spawn(this.transform.position);
-            audiosource.Play();
-            Destroy(this.gameObject, 0.5f);
-            GameManager.Instance.AddPlayerScore(asteroidScore);
+            DestroyAsteroid(0.5f);
+            UpdateAsteroidScore();
         }
         if (collisionTag == "Player")
         {
-            Player player = collision.gameObject.GetComponent<Player>();
-            player.DamagePlayer(asteroidDamage);
+            DamagePlayer(collision);
         }
+    }
+
+    private void DestroyAsteroid(float waitSeconds)
+    {
+        rb2d.simulated = false;
+        GetComponent<Collider2D>().enabled = false;
+
+        anim.SetTrigger("Explode");
+        audiosource.Play();
+        pointSpawner.Spawn(this.transform.position);
+
+        Destroy(this.gameObject, waitSeconds);
+    }
+
+    private void DamagePlayer(Collision2D collision)
+    {
+
+        Player player = collision.gameObject.GetComponent<Player>();
+        player.DamagePlayer(asteroidDamage);
+    }
+
+
+    private void UpdateAsteroidScore()
+    {
+        GameManager.Instance.AddPlayerScore(asteroidScore);
+        UIManager.Instance.SetTextPlayerScore(asteroidScore);
     }
 
     private void RandomiseSprite()
