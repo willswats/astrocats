@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 5911237058121802726}
   - component: {fileID: 3206779169432009739}
   - component: {fileID: 6868453899470014024}
-  - component: {fileID: 2156659564233071886}
   - component: {fileID: -8320138675588050706}
+  - component: {fileID: 702181417006550487}
   m_Layer: 0
   m_Name: PickupShotgun
   m_TagString: Pickup
@@ -135,20 +135,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.35, y: 0.35}
   m_EdgeRadius: 0
---- !u!114 &2156659564233071886
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3737207802471049966}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b32ae80343f7fd99a927df81de3018ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pickupScore: 5
-  pickupLifeTimeSeconds: 1
 --- !u!82 &-8320138675588050706
 AudioSource:
   m_ObjectHideFlags: 0
@@ -245,3 +231,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &702181417006550487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3737207802471049966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81e6a1dc7eb7a5757b9747706364adca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupScore: 5
+  pickupLifeTimeSeconds: 1
