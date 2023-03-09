@@ -3,7 +3,6 @@
 ## Refactor
 
 - [ ] Add own sounds
-- [ ] Fix weapons and weapon pickup
 
 ## Features
 
@@ -14,9 +13,10 @@
 ### Enemies
 
 - [ ] Three different enemies:
-  - [ ] Cannon enemies (drop cannons)
-  - [ ] Laser enemies (drop lasers)
-  - [ ] Shotgun enemies (drop shotguns)
+  - [ ] Cannon enemies
+  - [ ] Laser enemies
+  - [ ] Shotgun enemies
+- [ ] Enemies drop their weapon
 - [ ] More enemies spawn over time
 
 ### Weapons
