@@ -23,7 +23,7 @@ public class Asteroid : MonoBehaviour
     private void Start()
     {
         Destroy(this.gameObject, this.lifeTimeSeconds);
-        RandomiseSprite();
+        this.RandomiseSprite();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -31,25 +31,25 @@ public class Asteroid : MonoBehaviour
         string collisionTag = collision.gameObject.tag;
         if (collisionTag == "Projectile")
         {
-            DestroyAsteroid(0.5f);
-            UpdateAsteroidScore();
+            this.DestroyAsteroid();
+            this.UpdateAsteroidScore();
         }
         if (collisionTag == "Player")
         {
-            DamagePlayer(collision);
+            this.DamagePlayer(collision);
         }
     }
 
-    private void DestroyAsteroid(float waitSeconds)
+    private void DestroyAsteroid()
     {
-        rb2d.simulated = false;
+        this.rb2d.simulated = false;
         GetComponent<Collider2D>().enabled = false;
 
-        anim.SetTrigger("Explode");
-        audiosource.Play();
-        pointSpawner.Spawn(this.transform.position);
+        this.anim.SetTrigger("Explode");
+        this.audiosource.Play();
+        this.pointSpawner.Spawn(this.transform.position);
 
-        Destroy(this.gameObject, waitSeconds);
+        Destroy(this.gameObject, 0.5f);
     }
 
     private void DamagePlayer(Collision2D collision)
@@ -62,12 +62,12 @@ public class Asteroid : MonoBehaviour
 
     private void UpdateAsteroidScore()
     {
-        GameManager.Instance.AddPlayerScore(asteroidScore);
-        UIManager.Instance.SetTextPlayerScore(asteroidScore);
+        GameManager.Instance.AddPlayerScore(this.asteroidScore);
+        UIManager.Instance.SetTextPlayerScore(this.asteroidScore);
     }
 
     private void RandomiseSprite()
     {
-        this.spriteRenderer.sprite = sprites[Random.Range(0, sprites.Length)];
+        this.spriteRenderer.sprite = this.sprites[Random.Range(0, this.sprites.Length)];
     }
 }

@@ -29,13 +29,13 @@ public class AsteroidSpawners : Spawner
         Vector2 direction = this.asteroidTarget.transform.position - asteroid.transform.position;
         Rigidbody2D asteroidRb2d = asteroid.GetComponent<Rigidbody2D>();
 
-        asteroidRb2d.AddForce(direction * trajectorySpeed);
-        asteroidRb2d.AddTorque(Random.Range(minAsteroidTorque, maxAsteroidTorque));
+        asteroidRb2d.AddForce(direction * this.trajectorySpeed);
+        asteroidRb2d.AddTorque(Random.Range(this.minAsteroidTorque, this.maxAsteroidTorque));
     }
 
     public void DestroyAll()
     {
-        foreach (Asteroid asteroid in asteroids)
+        foreach (Asteroid asteroid in this.asteroids)
         {
             if (asteroid != null)
             {

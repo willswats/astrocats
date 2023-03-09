@@ -18,11 +18,11 @@ public class Projectile : MonoBehaviour
 
     private void Start()
     {
-        Destroy(gameObject, projectileLifeTimeSeconds);
+        Destroy(this.gameObject, this.projectileLifeTimeSeconds);
     }
 
     private void OnCollisionEnter2D(Collision2D collison)
     {
-        Destroy(gameObject);
+        Destroy(this.gameObject);
     }
 }

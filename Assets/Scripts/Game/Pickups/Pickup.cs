@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 
 public class Pickup : MonoBehaviour, IPickup
 {
@@ -13,9 +12,9 @@ public class Pickup : MonoBehaviour, IPickup
     {
         if (collision.gameObject.tag == "Player")
         {
-            audiosource.Play();
-            GameManager.Instance.AddPlayerScore(this.pickupScore);
-            PickupDestroy();
+            this.audiosource.Play();
+            this.UpdatePickupScore();
+            this.PickupDestroy();
         }
     }
 
@@ -30,12 +29,12 @@ public class Pickup : MonoBehaviour, IPickup
     {
         this.spriteRenderer.enabled = false;
         this.boxCollider2D.enabled = false;
-        StartCoroutine(GameObjectDestroyAfterSeconds(this.pickupLifeTimeSeconds, this.gameObject));
+        Destroy(this.gameObject, this.pickupLifeTimeSeconds);
     }
 
-    private IEnumerator GameObjectDestroyAfterSeconds(float seconds, GameObject gameObject)
+    private void UpdatePickupScore()
     {
-        yield return new WaitForSeconds(seconds);
-        Destroy(gameObject);
+        GameManager.Instance.AddPlayerScore(this.pickupScore);
+        UIManager.Instance.SetTextPlayerScore(this.pickupScore);
     }
 }

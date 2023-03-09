@@ -32,13 +32,13 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        GetInput();
+        this.GetInput();
     }
 
     private void FixedUpdate()
     {
-        HandleVerticalInput();
-        HandleHorizontalInput();
+        this.HandleVerticalInput();
+        this.HandleHorizontalInput();
     }
 
     private void GetInput()
@@ -49,11 +49,11 @@ public class Player : MonoBehaviour
 
     private void HandleVerticalInput()
     {
-        this.rb2d.AddRelativeForce(new Vector2(0, -verticalInput) * moveSpeed);
+        this.rb2d.AddRelativeForce(new Vector2(0, -this.verticalInput) * this.moveSpeed);
     }
 
     private void HandleHorizontalInput()
     {
-        this.rb2d.AddTorque(-horizontalInput * rotationSpeed);
+        this.rb2d.AddTorque(-this.horizontalInput * this.rotationSpeed);
     }
 }

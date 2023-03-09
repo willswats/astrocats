@@ -25,18 +25,18 @@ public class Weapon : MonoBehaviour
     {
         this.projectiles = new List<Projectile>();
 
-        for (int i = 0; i < projectileSpawnPoints.Count; i++)
+        for (int i = 0; i < this.projectileSpawnPoints.Count; i++)
         {
             Vector2 direction = this.projectileSpawnPoints[i].transform.position;
             Quaternion rotation = this.projectileSpawnPoints[i].transform.rotation;
             projectiles.Add(Instantiate(this.projectilePrefab, direction, rotation));
         }
 
-        foreach (Projectile projectile in projectiles)
+        foreach (Projectile projectile in this.projectiles)
         {
             projectile.SetForce(transform.up);
         }
 
-        audiosource.Play();
+        this.audiosource.Play();
     }
 }
