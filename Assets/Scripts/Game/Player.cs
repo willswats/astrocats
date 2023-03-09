@@ -7,6 +7,8 @@ public class Player : MonoBehaviour
     public float rotationSpeed = 0.5f;
     private float verticalInput;
     private float horizontalInput;
+    private Weapon weapon;
+    private WeaponShotgun weaponShotgun;
     private Rigidbody2D rb2d;
 
     public void DamagePlayer(int damage)
@@ -20,6 +22,18 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void SetWeaponDefault()
+    {
+        this.weapon.gameObject.SetActive(true);
+        this.weaponShotgun.gameObject.SetActive(false);
+    }
+
+    public void SetWeaponShotgun()
+    {
+        this.weapon.gameObject.SetActive(false);
+        this.weaponShotgun.gameObject.SetActive(true);
+    }
+
     private void Awake()
     {
         this.rb2d = GetComponent<Rigidbody2D>();
@@ -28,6 +42,9 @@ public class Player : MonoBehaviour
     private void Start()
     {
         UIManager.Instance.SetTextPlayerHealth(this.health);
+        this.weapon = GetComponentInChildren<Weapon>();
+        this.weaponShotgun = GetComponentInChildren<WeaponShotgun>();
+        this.SetWeaponDefault();
     }
 
     private void Update()

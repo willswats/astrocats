@@ -7,6 +7,8 @@ public class WeaponPickup : Pickup
         base.OnTriggerEnter2D(collision);
         if (collision.gameObject.tag == "Player")
         {
+            Player player = collision.gameObject.GetComponent<Player>();
+            player.SetWeaponShotgun();
         }
     }
 }
