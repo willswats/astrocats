@@ -2,6 +2,7 @@
 
 ## Refactor
 
+- [ ] Add own sounds
 - [ ] Move Destroying of Asteroid into Asteroid.cs and call it in AsteroidSpawners.cs
 - [ ] Create UI manager and move related GameManager code into it
 
@@ -45,7 +46,7 @@
 
 ### Audio
 
-- [ ] Own sound effects for:
+- [ ] Sound effects for:
   - [ ] Menus
   - [ ] Ship thrusters
   - [ ] Weapons
