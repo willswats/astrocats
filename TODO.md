@@ -3,7 +3,6 @@
 ## Refactor
 
 - [ ] Add own sounds
-- [ ] Create UI manager and move related GameManager code into it
 - [ ] Fix weapons and weapon pickup
 
 ## Features
