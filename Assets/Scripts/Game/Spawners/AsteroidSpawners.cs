@@ -59,10 +59,10 @@ public class AsteroidSpawners : Spawner
     {
         while (true)
         {
-            yield return new WaitForSeconds(10f);
-            if (this.spawnRateSeconds >= 1f)
+            yield return new WaitForSeconds(5f);
+            if (this.spawnRateSeconds >= 2f)
             {
-                this.spawnRateSeconds -= 0.5f;
+                this.spawnRateSeconds -= 0.1f;
             }
         }
     }
