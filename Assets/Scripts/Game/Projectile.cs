@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    private float projectileVelocity = 500f;
-    private float projectileLifeTimeSeconds = 10f;
+    public float projectileVelocity = 500f;
+    public float projectileLifeTimeSeconds = 10f;
     private Rigidbody2D rb2d;
     private AudioSource audiosource;
 

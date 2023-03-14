@@ -1659,7 +1659,7 @@ GameObject:
   - component: {fileID: 727662460}
   - component: {fileID: 727662459}
   m_Layer: 0
-  m_Name: AsteroidSpawners
+  m_Name: AsteroidSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1684,10 +1684,10 @@ MonoBehaviour:
   - {fileID: 635814329}
   asteroidPrefab: {fileID: 5518058203174155482, guid: 9264eaeb96651678cbe400b3c28f2e7d, type: 3}
   asteroidTarget: {fileID: 2039998187}
-  spawnRateSeconds: 4
   trajectorySpeed: 10
   minAsteroidTorque: 0
   maxAsteroidTorque: 50
+  spawnRateSeconds: 4
 --- !u!4 &727662460
 Transform:
   m_ObjectHideFlags: 0
@@ -3116,7 +3116,7 @@ MonoBehaviour:
   player: {fileID: 6631850269249061044, guid: 7e70e3a37167e71eaa65bccad1a76f22, type: 3}
   playerScore: 0
   playerLives: 3
-  asteroidSpawner: {fileID: 0}
+  asteroidSpawners: {fileID: 727662459}
 --- !u!4 &1614422410
 Transform:
   m_ObjectHideFlags: 0

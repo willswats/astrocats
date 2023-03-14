@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     private float horizontalInput;
     private Weapon weapon;
     private WeaponShotgun weaponShotgun;
+    private WeaponLaser weaponLaser;
     private Rigidbody2D rb2d;
 
     public void DamagePlayer(int damage)
@@ -26,12 +27,21 @@ public class Player : MonoBehaviour
     {
         this.weapon.gameObject.SetActive(true);
         this.weaponShotgun.gameObject.SetActive(false);
+        this.weaponLaser.gameObject.SetActive(false);
     }
 
     public void SetWeaponShotgun()
     {
         this.weapon.gameObject.SetActive(false);
         this.weaponShotgun.gameObject.SetActive(true);
+        this.weaponLaser.gameObject.SetActive(false);
+    }
+
+    public void SetWeaponLaser()
+    {
+        this.weapon.gameObject.SetActive(false);
+        this.weaponShotgun.gameObject.SetActive(false);
+        this.weaponLaser.gameObject.SetActive(true);
     }
 
     private void Awake()
@@ -44,6 +54,7 @@ public class Player : MonoBehaviour
         UIManager.Instance.SetTextPlayerHealth(this.health);
         this.weapon = GetComponentInChildren<Weapon>();
         this.weaponShotgun = GetComponentInChildren<WeaponShotgun>();
+        this.weaponLaser = GetComponentInChildren<WeaponLaser>();
         this.SetWeaponDefault();
     }
 
