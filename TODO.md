@@ -1,9 +1,5 @@
 # TODO
 
-## Refactor
-
-- [ ] Add own sounds
-
 ## Features
 
 ### Player
@@ -26,18 +22,19 @@
   - [ ] Laser
   - [ ] Cannon
 
-### Asteroids
-
-- [ ] Make smaller asteroids out of big ones when destroyed
-- [ ] Asteroids only drop points when they cannot become smaller asteroids
-- [ ] More asteroids spawn over time
-
 ### Audio
 
-- [ ] Sound effects for:
+- [ ] Own sound effects for:
   - [ ] Menus
   - [ ] Ship thrusters
   - [ ] Weapons
   - [ ] Pickups
   - [ ] Asteroids
   - [ ] Enemies
+
+### Extra
+
+- [ ] Make smaller asteroids out of big ones when destroyed
+- [ ] Asteroids only drop points when they cannot become smaller asteroids
+- [ ] Current difficulty level in HUD
+- [ ] Display score on end screen
