@@ -243,5 +243,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e6a1dc7eb7a5757b9747706364adca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupScore: 5
-  pickupLifeTimeSeconds: 1
+  points: 1
+  lifeTimeSeconds: 10
+  waitBeforeDestroySeconds: 1

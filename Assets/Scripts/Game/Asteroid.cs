@@ -63,7 +63,7 @@ public class Asteroid : MonoBehaviour
     private void UpdateAsteroidScore()
     {
         GameManager.Instance.AddPlayerScore(this.asteroidScore);
-        UIManager.Instance.SetTextPlayerScore(this.asteroidScore);
+        UIManager.Instance.SetTextPlayerScore(GameManager.Instance.GetPlayerScore());
     }
 
     private void RandomiseSprite()

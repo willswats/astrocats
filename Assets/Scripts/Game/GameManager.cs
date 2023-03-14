@@ -8,6 +8,11 @@ public class GameManager : MonoBehaviour
     public AsteroidSpawners asteroidSpawners;
     public static GameManager Instance { get; private set; }
 
+    public int GetPlayerScore()
+    {
+        return this.playerScore;
+    }
+
     public void AddPlayerScore(int score)
     {
         this.playerScore += score;
@@ -42,6 +47,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         UIManager.Instance.SetTextPlayerScore(playerScore);
+        UIManager.Instance.SetTextPlayerLives(playerLives);
         Instantiate(this.player);
     }
 }

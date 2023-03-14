@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class Pickup : MonoBehaviour, IPickup
 {
-    public int pickupScore = 5;
-    public int pickupLifeTimeSeconds = 1;
+    public int points = 1;
+    public int lifeTimeSeconds = 10;
+    public int waitBeforeDestroySeconds = 1;
     private SpriteRenderer spriteRenderer;
     private BoxCollider2D boxCollider2D;
     private AudioSource audiosource;
@@ -23,18 +24,19 @@ public class Pickup : MonoBehaviour, IPickup
         this.spriteRenderer = this.gameObject.GetComponent<SpriteRenderer>();
         this.boxCollider2D = this.gameObject.GetComponent<BoxCollider2D>();
         this.audiosource = this.gameObject.GetComponent<AudioSource>();
+        Destroy(this.gameObject, lifeTimeSeconds);
     }
 
     private void PickupDestroy()
     {
         this.spriteRenderer.enabled = false;
         this.boxCollider2D.enabled = false;
-        Destroy(this.gameObject, this.pickupLifeTimeSeconds);
+        Destroy(this.gameObject, this.waitBeforeDestroySeconds);
     }
 
     private void UpdatePickupScore()
     {
-        GameManager.Instance.AddPlayerScore(this.pickupScore);
-        UIManager.Instance.SetTextPlayerScore(this.pickupScore);
+        GameManager.Instance.AddPlayerScore(this.points);
+        UIManager.Instance.SetTextPlayerScore(GameManager.Instance.GetPlayerScore());
     }
 }
