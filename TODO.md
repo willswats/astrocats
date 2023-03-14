@@ -1,9 +1,5 @@
 # TODO
 
-## Bug fix
-
-- [ ] Multiple points spawn with shotgun
-
 ## Refactor
 
 - [ ] Add own sounds
@@ -29,11 +25,6 @@
   - [ ] Shotgun
   - [ ] Laser
   - [ ] Cannon
-- [ ] Disappear after a delay
-
-### Points
-
-- [ ] Disappear after a delay
 
 ### Asteroids
 
