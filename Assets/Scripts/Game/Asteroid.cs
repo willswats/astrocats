@@ -7,6 +7,7 @@ public class Asteroid : MonoBehaviour
     public int asteroidScore = 1;
     public int asteroidDamage = 25;
     public float lifeTimeSeconds = 30f;
+    private bool collidedProjectile = false;
     private Rigidbody2D rb2d;
     private SpriteRenderer spriteRenderer;
     private Animator anim;
@@ -31,8 +32,12 @@ public class Asteroid : MonoBehaviour
         string collisionTag = collision.gameObject.tag;
         if (collisionTag == "Projectile")
         {
-            this.DestroyAsteroid();
-            this.UpdateAsteroidScore();
+            if (this.collidedProjectile == false)
+            {
+                this.DestroyAsteroid();
+                this.UpdateAsteroidScore();
+            }
+            this.collidedProjectile = true;
         }
         if (collisionTag == "Player")
         {
@@ -48,13 +53,11 @@ public class Asteroid : MonoBehaviour
         this.anim.SetTrigger("Explode");
         this.audiosource.Play();
         this.pointSpawner.Spawn(this.transform.position);
-
         Destroy(this.gameObject, 0.5f);
     }
 
     private void DamagePlayer(Collision2D collision)
     {
-
         Player player = collision.gameObject.GetComponent<Player>();
         player.DamagePlayer(asteroidDamage);
     }

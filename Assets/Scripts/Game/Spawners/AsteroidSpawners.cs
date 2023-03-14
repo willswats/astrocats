@@ -18,7 +18,7 @@ public class AsteroidSpawners : Spawner
         InvokeRepeating(nameof(this.Spawn), this.spawnRateSeconds, this.spawnRateSeconds);
     }
 
-    private void Spawn()
+    public void Spawn()
     {
         BoxCollider2D asteroidSpawner = this.GetRandomSpawner(this.asteroidSpawners);
         Vector2 asteroidPosition = this.GetRandomSpawnerPosition(asteroidSpawner);
@@ -33,7 +33,7 @@ public class AsteroidSpawners : Spawner
         asteroidRb2d.AddTorque(Random.Range(this.minAsteroidTorque, this.maxAsteroidTorque));
     }
 
-    public void DestroyAll()
+    public void DestroyAllAsteroids()
     {
         foreach (Asteroid asteroid in this.asteroids)
         {

@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            this.asteroidSpawners.DestroyAll();
+            this.asteroidSpawners.DestroyAllAsteroids();
             Instantiate(this.player);
         }
     }
