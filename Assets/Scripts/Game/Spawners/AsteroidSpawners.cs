@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 
 public class AsteroidSpawners : Spawner
@@ -6,16 +7,17 @@ public class AsteroidSpawners : Spawner
     public BoxCollider2D[] asteroidSpawners;
     public Asteroid asteroidPrefab;
     public GameObject asteroidTarget;
-    public float spawnRateSeconds = 4f;
     public float trajectorySpeed = 10f;
     public float minAsteroidTorque = 0f;
     public float maxAsteroidTorque = 50f;
+    public float spawnRateSeconds = 4f;
     private List<Asteroid> asteroids;
 
     private void Start()
     {
         asteroids = new List<Asteroid>();
-        InvokeRepeating(nameof(this.Spawn), this.spawnRateSeconds, this.spawnRateSeconds);
+        StartCoroutine(SpawnHandler());
+        StartCoroutine(DecreaseSpawnRateSeconds());
     }
 
     public void Spawn()
@@ -40,6 +42,27 @@ public class AsteroidSpawners : Spawner
             if (asteroid != null)
             {
                 Destroy(asteroid.gameObject);
+            }
+        }
+    }
+
+    IEnumerator SpawnHandler()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(this.spawnRateSeconds);
+            Spawn();
+        }
+    }
+
+    IEnumerator DecreaseSpawnRateSeconds()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(10f);
+            if (this.spawnRateSeconds >= 1f)
+            {
+                this.spawnRateSeconds -= 0.5f;
             }
         }
     }
