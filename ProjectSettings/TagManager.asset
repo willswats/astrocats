@@ -6,8 +6,8 @@ TagManager:
   tags:
   - Projectile
   - Asteroid
-  - Pickup
-  - WeaponShotgun
+  - PickupShotgun
+  - PickupLaser
   layers:
   - Default
   - TransparentFX

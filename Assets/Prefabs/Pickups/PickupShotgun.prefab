@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 702181417006550487}
   m_Layer: 0
   m_Name: PickupShotgun
-  m_TagString: Pickup
+  m_TagString: PickupShotgun
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -240,7 +240,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3737207802471049966}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81e6a1dc7eb7a5757b9747706364adca, type: 3}
+  m_Script: {fileID: 11500000, guid: 641d2ca0cb7091019b1b3d70852f8987, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   points: 1

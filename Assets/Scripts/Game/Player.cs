@@ -23,25 +23,26 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void SetWeaponDefault()
+    public void SetWeapon(string weapon)
     {
-        this.weapon.gameObject.SetActive(true);
-        this.weaponShotgun.gameObject.SetActive(false);
-        this.weaponLaser.gameObject.SetActive(false);
-    }
-
-    public void SetWeaponShotgun()
-    {
-        this.weapon.gameObject.SetActive(false);
-        this.weaponShotgun.gameObject.SetActive(true);
-        this.weaponLaser.gameObject.SetActive(false);
-    }
-
-    public void SetWeaponLaser()
-    {
-        this.weapon.gameObject.SetActive(false);
-        this.weaponShotgun.gameObject.SetActive(false);
-        this.weaponLaser.gameObject.SetActive(true);
+        switch (weapon)
+        {
+            case "Default":
+                this.weapon.gameObject.SetActive(true);
+                this.weaponShotgun.gameObject.SetActive(false);
+                this.weaponLaser.gameObject.SetActive(false);
+                break;
+            case "Shotgun":
+                this.weapon.gameObject.SetActive(false);
+                this.weaponShotgun.gameObject.SetActive(true);
+                this.weaponLaser.gameObject.SetActive(false);
+                break;
+            case "Laser":
+                this.weapon.gameObject.SetActive(false);
+                this.weaponShotgun.gameObject.SetActive(false);
+                this.weaponLaser.gameObject.SetActive(true);
+                break;
+        }
     }
 
     private void Awake()
@@ -55,7 +56,7 @@ public class Player : MonoBehaviour
         this.weapon = GetComponentInChildren<Weapon>();
         this.weaponShotgun = GetComponentInChildren<WeaponShotgun>();
         this.weaponLaser = GetComponentInChildren<WeaponLaser>();
-        this.SetWeaponDefault();
+        this.SetWeapon("Default");
     }
 
     private void Update()
