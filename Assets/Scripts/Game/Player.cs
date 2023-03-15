@@ -45,12 +45,6 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
-    {
-        this.HandleVerticalInput();
-        this.HandleHorizontalInput();
-    }
-
     private void GetInput()
     {
         this.verticalInput = Input.GetAxisRaw("Vertical");
@@ -84,5 +78,11 @@ public class Player : MonoBehaviour
     private void Update()
     {
         this.GetInput();
+    }
+
+    private void FixedUpdate()
+    {
+        this.HandleVerticalInput();
+        this.HandleHorizontalInput();
     }
 }
