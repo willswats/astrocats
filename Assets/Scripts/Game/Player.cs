@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     private GameObject weaponDefault;
     private GameObject weaponShotgun;
     private GameObject weaponLaser;
+    private GameObject weaponCannon;
     private Rigidbody2D rb2d;
 
     public void DamagePlayer(int damage)
@@ -31,16 +32,25 @@ public class Player : MonoBehaviour
                 this.weaponDefault.SetActive(true);
                 this.weaponShotgun.SetActive(false);
                 this.weaponLaser.SetActive(false);
+                this.weaponCannon.SetActive(false);
                 break;
             case "Shotgun":
                 this.weaponDefault.SetActive(false);
                 this.weaponShotgun.SetActive(true);
                 this.weaponLaser.SetActive(false);
+                this.weaponCannon.SetActive(false);
                 break;
             case "Laser":
                 this.weaponDefault.SetActive(false);
                 this.weaponShotgun.SetActive(false);
                 this.weaponLaser.SetActive(true);
+                this.weaponCannon.SetActive(false);
+                break;
+            case "Cannon":
+                this.weaponDefault.SetActive(false);
+                this.weaponShotgun.SetActive(false);
+                this.weaponLaser.SetActive(false);
+                this.weaponCannon.SetActive(true);
                 break;
         }
     }
@@ -72,6 +82,7 @@ public class Player : MonoBehaviour
         this.weaponDefault = GameManager.Instance.GetGameObjectWithTag(this.gameObject, "WeaponDefault");
         this.weaponShotgun = GameManager.Instance.GetGameObjectWithTag(this.gameObject, "WeaponShotgun");
         this.weaponLaser = GameManager.Instance.GetGameObjectWithTag(this.gameObject, "WeaponLaser");
+        this.weaponCannon = GameManager.Instance.GetGameObjectWithTag(this.gameObject, "WeaponCannon");
         this.SetWeapon("Default");
     }
 

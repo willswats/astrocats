@@ -17,6 +17,9 @@ public class PickupWeapon : Pickup
                 case "PickupLaser":
                     player.SetWeapon("Laser");
                     break;
+                case "PickupCannon":
+                    player.SetWeapon("Cannnon");
+                    break;
             }
         }
     }
