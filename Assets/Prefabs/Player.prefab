@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1869536495670763733}
-  - component: {fileID: 3834655526078791533}
+  - component: {fileID: 6487967561331076432}
   m_Layer: 0
   m_Name: WeaponLaser
-  m_TagString: Untagged
+  m_TagString: WeaponLaser
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33,7 +33,7 @@ Transform:
   m_Father: {fileID: 6631850269249061042}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3834655526078791533
+--- !u!114 &6487967561331076432
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,7 +42,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 443519755977153630}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2809aea7cdf8d86a4af411aa568c9c3f, type: 3}
+  m_Script: {fileID: 11500000, guid: eb8d79c354c31279fa6604577b6b7b8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 1421503212304558506, guid: 0955d6a04eb6dac4e9edae9c1f261582, type: 3}
@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 6028537315122624947}
   m_Layer: 0
   m_Name: WeaponDefault
-  m_TagString: Untagged
+  m_TagString: WeaponDefault
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -455,7 +455,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6631850269543625597}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d66038c6cb8b547b093196bba9aa33b8, type: 3}
+  m_Script: {fileID: 11500000, guid: eb8d79c354c31279fa6604577b6b7b8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 1421503212304558506, guid: 27d8e6253e4aaf60ba290896b86f1821, type: 3}

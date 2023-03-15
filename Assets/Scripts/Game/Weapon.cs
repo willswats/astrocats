@@ -7,14 +7,6 @@ public class Weapon : MonoBehaviour
     public List<GameObject> projectileSpawnPoints;
     private List<Projectile> projectiles;
 
-    private void Update()
-    {
-        if (Input.GetButtonDown("Fire1"))
-        {
-            this.HandleFire();
-        }
-    }
-
     private void HandleFire()
     {
         this.projectiles = new List<Projectile>();
@@ -29,6 +21,14 @@ public class Weapon : MonoBehaviour
         foreach (Projectile projectile in this.projectiles)
         {
             projectile.SetForce(transform.up);
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            this.HandleFire();
         }
     }
 }

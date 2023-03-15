@@ -9,7 +9,6 @@ public class PickupWeapon : Pickup
         {
             Player player = collision.gameObject.GetComponent<Player>();
 
-            Debug.Log(this.gameObject.tag);
             switch (this.gameObject.tag)
             {
                 case "PickupShotgun":

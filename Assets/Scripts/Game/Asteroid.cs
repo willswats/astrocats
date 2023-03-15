@@ -13,6 +13,35 @@ public class Asteroid : MonoBehaviour
     private Animator anim;
     private AudioSource audiosource;
 
+    private void DestroyAsteroid()
+    {
+        this.rb2d.simulated = false;
+        GetComponent<Collider2D>().enabled = false;
+
+        this.anim.SetTrigger("Explode");
+        this.audiosource.Play();
+        this.pointSpawner.Spawn(this.transform.position);
+        Destroy(this.gameObject, 0.5f);
+    }
+
+    private void DamagePlayer(Collision2D collision)
+    {
+        Player player = collision.gameObject.GetComponent<Player>();
+        player.DamagePlayer(asteroidDamage);
+    }
+
+
+    private void UpdateAsteroidScore()
+    {
+        GameManager.Instance.AddPlayerScore(this.asteroidScore);
+        UIManager.Instance.SetTextPlayerScore(GameManager.Instance.GetPlayerScore());
+    }
+
+    private void RandomiseSprite()
+    {
+        this.spriteRenderer.sprite = this.sprites[Random.Range(0, this.sprites.Length)];
+    }
+
     private void Awake()
     {
         this.rb2d = GetComponent<Rigidbody2D>();
@@ -43,34 +72,5 @@ public class Asteroid : MonoBehaviour
         {
             this.DamagePlayer(collision);
         }
-    }
-
-    private void DestroyAsteroid()
-    {
-        this.rb2d.simulated = false;
-        GetComponent<Collider2D>().enabled = false;
-
-        this.anim.SetTrigger("Explode");
-        this.audiosource.Play();
-        this.pointSpawner.Spawn(this.transform.position);
-        Destroy(this.gameObject, 0.5f);
-    }
-
-    private void DamagePlayer(Collision2D collision)
-    {
-        Player player = collision.gameObject.GetComponent<Player>();
-        player.DamagePlayer(asteroidDamage);
-    }
-
-
-    private void UpdateAsteroidScore()
-    {
-        GameManager.Instance.AddPlayerScore(this.asteroidScore);
-        UIManager.Instance.SetTextPlayerScore(GameManager.Instance.GetPlayerScore());
-    }
-
-    private void RandomiseSprite()
-    {
-        this.spriteRenderer.sprite = this.sprites[Random.Range(0, this.sprites.Length)];
     }
 }

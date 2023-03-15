@@ -7,9 +7,9 @@ public class Player : MonoBehaviour
     public float rotationSpeed = 0.5f;
     private float verticalInput;
     private float horizontalInput;
-    private Weapon weapon;
-    private WeaponShotgun weaponShotgun;
-    private WeaponLaser weaponLaser;
+    private GameObject weaponDefault;
+    private GameObject weaponShotgun;
+    private GameObject weaponLaser;
     private Rigidbody2D rb2d;
 
     public void DamagePlayer(int damage)
@@ -28,40 +28,21 @@ public class Player : MonoBehaviour
         switch (weapon)
         {
             case "Default":
-                this.weapon.gameObject.SetActive(true);
-                this.weaponShotgun.gameObject.SetActive(false);
-                this.weaponLaser.gameObject.SetActive(false);
+                this.weaponDefault.SetActive(true);
+                this.weaponShotgun.SetActive(false);
+                this.weaponLaser.SetActive(false);
                 break;
             case "Shotgun":
-                this.weapon.gameObject.SetActive(false);
-                this.weaponShotgun.gameObject.SetActive(true);
-                this.weaponLaser.gameObject.SetActive(false);
+                this.weaponDefault.SetActive(false);
+                this.weaponShotgun.SetActive(true);
+                this.weaponLaser.SetActive(false);
                 break;
             case "Laser":
-                this.weapon.gameObject.SetActive(false);
-                this.weaponShotgun.gameObject.SetActive(false);
-                this.weaponLaser.gameObject.SetActive(true);
+                this.weaponDefault.SetActive(false);
+                this.weaponShotgun.SetActive(false);
+                this.weaponLaser.SetActive(true);
                 break;
         }
-    }
-
-    private void Awake()
-    {
-        this.rb2d = GetComponent<Rigidbody2D>();
-    }
-
-    private void Start()
-    {
-        UIManager.Instance.SetTextPlayerHealth(this.health);
-        this.weapon = GetComponentInChildren<Weapon>();
-        this.weaponShotgun = GetComponentInChildren<WeaponShotgun>();
-        this.weaponLaser = GetComponentInChildren<WeaponLaser>();
-        this.SetWeapon("Default");
-    }
-
-    private void Update()
-    {
-        this.GetInput();
     }
 
     private void FixedUpdate()
@@ -84,5 +65,24 @@ public class Player : MonoBehaviour
     private void HandleHorizontalInput()
     {
         this.rb2d.AddTorque(-this.horizontalInput * this.rotationSpeed);
+    }
+
+    private void Awake()
+    {
+        this.rb2d = GetComponent<Rigidbody2D>();
+    }
+
+    private void Start()
+    {
+        UIManager.Instance.SetTextPlayerHealth(this.health);
+        this.weaponDefault = GameManager.Instance.GetGameObjectWithTag(this.gameObject, "WeaponDefault");
+        this.weaponShotgun = GameManager.Instance.GetGameObjectWithTag(this.gameObject, "WeaponShotgun");
+        this.weaponLaser = GameManager.Instance.GetGameObjectWithTag(this.gameObject, "WeaponLaser");
+        this.SetWeapon("Default");
+    }
+
+    private void Update()
+    {
+        this.GetInput();
     }
 }
