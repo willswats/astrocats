@@ -19,7 +19,7 @@
 
 - [ ] Weapons:
   - [x] Shotgun
-  - [ ] Laser
+  - [x] Laser
   - [ ] Cannon
 
 ### Audio
