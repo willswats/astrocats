@@ -18,7 +18,7 @@
 ### Weapons
 
 - [ ] Weapons:
-  - [ ] Shotgun
+  - [x] Shotgun
   - [ ] Laser
   - [ ] Cannon
 
