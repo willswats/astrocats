@@ -5,7 +5,7 @@ public class GameManager : MonoBehaviour
     public Player player;
     public int playerScore = 0;
     public int playerLives = 3;
-    public AsteroidSpawners asteroidSpawners;
+    public SpawnerManager spawnerManager;
     public static GameManager Instance { get; private set; }
 
     public GameObject GetGameObjectWithTag(GameObject parent, string tag)
@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            this.asteroidSpawners.DestroyAllAsteroids();
+            this.spawnerManager.DestroyAllAsteroids();
             Instantiate(this.player);
         }
     }

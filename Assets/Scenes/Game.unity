@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 97316401}
   - component: {fileID: 97316402}
   m_Layer: 0
-  m_Name: AsteroidSpawnerLeft
+  m_Name: SpawnerLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -554,7 +554,7 @@ GameObject:
   - component: {fileID: 386093554}
   - component: {fileID: 386093555}
   m_Layer: 0
-  m_Name: AsteroidSpawnerBottom
+  m_Name: SpawnerBottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1601,7 +1601,7 @@ GameObject:
   - component: {fileID: 635814328}
   - component: {fileID: 635814329}
   m_Layer: 0
-  m_Name: AsteroidSpawnerRight
+  m_Name: SpawnerRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1657,37 +1657,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 727662460}
-  - component: {fileID: 727662459}
+  - component: {fileID: 727662461}
   m_Layer: 0
-  m_Name: AsteroidSpawner
+  m_Name: Spawners
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &727662459
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 727662458}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5426f99f97b2344db00ad84b8872cc1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  asteroidSpawners:
-  - {fileID: 1098877389}
-  - {fileID: 386093555}
-  - {fileID: 97316402}
-  - {fileID: 635814329}
-  asteroidPrefab: {fileID: 5518058203174155482, guid: 9264eaeb96651678cbe400b3c28f2e7d, type: 3}
-  asteroidTarget: {fileID: 2039998187}
-  trajectorySpeed: 10
-  minAsteroidTorque: 0
-  maxAsteroidTorque: 50
-  spawnRateSeconds: 4
 --- !u!4 &727662460
 Transform:
   m_ObjectHideFlags: 0
@@ -1708,6 +1685,26 @@ Transform:
   m_Father: {fileID: 1835046614}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &727662461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727662458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a48edc0479a8cadfdafefdacf578ef89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawners: []
+  enemyPrefabs: []
+  asteroidPrefab: {fileID: 5518058203174155482, guid: 9264eaeb96651678cbe400b3c28f2e7d, type: 3}
+  asteroidTarget: {fileID: 2039998187}
+  asteroidTrajectorySpeed: 10
+  minAsteroidTorque: 0
+  maxAsteroidTorque: 50
+  spawnRateSeconds: 4
 --- !u!1 &746217673
 GameObject:
   m_ObjectHideFlags: 0
@@ -2321,7 +2318,7 @@ GameObject:
   - component: {fileID: 1098877390}
   - component: {fileID: 1098877389}
   m_Layer: 0
-  m_Name: AsteroidSpawnerTop
+  m_Name: SpawnerTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3173,7 +3170,7 @@ MonoBehaviour:
   player: {fileID: 6631850269249061044, guid: 7e70e3a37167e71eaa65bccad1a76f22, type: 3}
   playerScore: 0
   playerLives: 3
-  asteroidSpawners: {fileID: 727662459}
+  spawnerManager: {fileID: 0}
 --- !u!4 &1614422410
 Transform:
   m_ObjectHideFlags: 0
