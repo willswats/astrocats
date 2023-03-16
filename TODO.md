@@ -8,7 +8,7 @@
 
 ### Enemies
 
-- [ ] Three different enemies:
+- [ ] Three unique enemies:
   - [ ] Cannon enemies
   - [ ] Laser enemies
   - [ ] Shotgun enemies
