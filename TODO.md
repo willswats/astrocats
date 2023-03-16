@@ -8,11 +8,8 @@
 
 ### Enemies
 
-- [ ] Three unique enemies:
-  - [ ] Cannon enemies
-  - [ ] Laser enemies
-  - [ ] Shotgun enemies
-- [ ] Enemies drop their weapon
+- [ ] Three unique enemies
+- [ ] Enemies drop a random weapon
 - [ ] More enemies spawn over time
 
 ### Audio
