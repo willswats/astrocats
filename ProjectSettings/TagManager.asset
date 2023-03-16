@@ -11,6 +11,8 @@ TagManager:
   - WeaponShotgun
   - WeaponLaser
   - WeaponDefault
+  - PickupCannon
+  - WeaponCannon
   layers:
   - Default
   - TransparentFX
