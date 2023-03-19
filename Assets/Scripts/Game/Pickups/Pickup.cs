@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Pickup : MonoBehaviour, IPickup
 {
-    public int points = 1;
+    public int points = 5;
     public int lifeTimeSeconds = 10;
     public int waitBeforeDestroySeconds = 1;
     private SpriteRenderer spriteRenderer;
