@@ -2,6 +2,10 @@
 
 ## Features
 
+### Weapons
+
+- [ ] Make shooting a hold button and at an interval
+
 ### Asteroids
 
 - [ ] Make smaller asteroids out of big ones when destroyed
@@ -20,15 +24,7 @@
 
 ### Audio
 
-- [ ] Own sound effects for:
-  - [ ] Menu button press
-  - [ ] Ship thrusters
-  - [ ] Asteroid explosion
-  - [ ] Weapon default
-  - [ ] Weaoon laser
-  - [ ] Weapon cannon
-  - [ ] Weapon shotgun
-  - [ ] Pickups
+- [ ] Wait for longer before destroying to ensure audio clip plays fully
 
 ### UI
 
