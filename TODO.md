@@ -1,19 +1,16 @@
 # TODO
 
-## Audio
-
-- [ ] Wait for longer before destroying to ensure audio clip plays fully
-
 ## Enemies
 
 - [ ] Three unique enemies
 - [ ] Enemies drop weapons
 - [ ] More enemies spawn over time
 
-## Player
+## Animation
 
 - [ ] Animated thrusters
 - [ ] Animated explosion (own sprite)
+- [ ] Fix flashing sprite after explosion
 
 ## Asteroids
 
