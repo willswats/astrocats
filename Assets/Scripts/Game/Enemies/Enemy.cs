@@ -33,7 +33,7 @@ public class Enemy : MonoBehaviour
         this.anim.SetTrigger("Explode");
         this.audiosource.Play();
         this.pointSpawner.Spawn(this.transform.position);
-        Destroy(this.gameObject, 0.5f);
+        Destroy(this.gameObject, 1f);
     }
 
     private void DamagePlayer(Collision2D collision)
