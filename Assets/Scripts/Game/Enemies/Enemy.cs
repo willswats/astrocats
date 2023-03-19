@@ -8,14 +8,12 @@ public class Enemy : MonoBehaviour
     public float lifeTimeSeconds = 30f;
     private bool collidedProjectile = false;
     private Rigidbody2D rb2d;
-    private SpriteRenderer spriteRenderer;
     private Animator anim;
     private AudioSource audiosource;
 
     public virtual void Awake()
     {
         this.rb2d = GetComponent<Rigidbody2D>();
-        this.spriteRenderer = GetComponent<SpriteRenderer>();
         this.anim = GetComponent<Animator>();
         this.audiosource = GetComponent<AudioSource>();
     }
