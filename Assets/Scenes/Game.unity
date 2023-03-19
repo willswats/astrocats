@@ -1562,8 +1562,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a48edc0479a8cadfdafefdacf578ef89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawners: []
-  enemyPrefabs: []
+  spawners:
+  - {fileID: 1098877389}
+  - {fileID: 386093555}
+  - {fileID: 97316402}
+  - {fileID: 635814329}
+  enemyPrefabs:
+  - {fileID: 0}
   asteroidPrefab: {fileID: 5518058203174155482, guid: 9264eaeb96651678cbe400b3c28f2e7d, type: 3}
   asteroidTarget: {fileID: 2039998187}
   asteroidTrajectorySpeed: 10
