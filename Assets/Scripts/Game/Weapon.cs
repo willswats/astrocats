@@ -26,7 +26,9 @@ public class Weapon : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        bool fireOnePressed = Input.GetButtonDown("Fire1");
+
+        if (fireOnePressed && !GameManager.Instance.gamePaused)
         {
             this.HandleFire();
         }

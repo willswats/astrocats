@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
     public Player player;
     public int playerScore = 0;
     public int playerLives = 3;
+    public bool gamePaused = false;
     public EnemySpawner enemySpawner;
     public static GameManager Instance { get; private set; }
 

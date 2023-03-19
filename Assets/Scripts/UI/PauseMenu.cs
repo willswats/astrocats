@@ -3,11 +3,13 @@ using UnityEngine;
 public class PauseMenu : MonoBehaviour
 {
     public Menu pauseMenu;
-    public static GameManager Instance { get; private set; }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && GameManager.Instance.playerLives >= 1)
+        bool escapePressed = Input.GetKeyDown(KeyCode.Escape);
+        bool playerAlive = GameManager.Instance.playerLives >= 1;
+
+        if (escapePressed && playerAlive)
         {
             this.pauseMenu.TogglePause();
         }
