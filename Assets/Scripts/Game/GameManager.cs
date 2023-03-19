@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     public void KillPlayer()
     {
         this.playerLives -= 1;
+        UIManager.Instance.SetTextPlayerLives(playerLives);
         if (this.playerLives <= 0)
         {
             UIManager.Instance.ToggleGameOverMenu();

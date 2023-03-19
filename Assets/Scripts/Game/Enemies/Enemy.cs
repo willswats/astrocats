@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
     public int scoreGiven = 1;
     public int damageGiven = 25;
     public float lifeTimeSeconds = 30f;
+    public float destroySelfSeconds = 2f;
     private bool collidedProjectile = false;
     private Rigidbody2D rb2d;
     private Animator anim;
@@ -31,7 +32,7 @@ public class Enemy : MonoBehaviour
         this.anim.SetTrigger("Explode");
         this.audiosource.Play();
         this.pointSpawner.Spawn(this.transform.position);
-        Destroy(this.gameObject, 1f);
+        Destroy(this.gameObject, destroySelfSeconds);
     }
 
     private void DamagePlayer(Collision2D collision)

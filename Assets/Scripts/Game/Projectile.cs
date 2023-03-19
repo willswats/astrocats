@@ -4,6 +4,7 @@ public class Projectile : MonoBehaviour
 {
     public float projectileVelocity = 500f;
     public float projectileLifeTimeSeconds = 10f;
+    public float destroySelfSeconds = 1f;
     private Rigidbody2D rb2d;
     private SpriteRenderer spriteRenderer;
     private AudioSource audiosource;
@@ -19,7 +20,7 @@ public class Projectile : MonoBehaviour
         this.rb2d.simulated = false;
         GetComponent<Collider2D>().enabled = false;
 
-        Destroy(this.gameObject, 1f);
+        Destroy(this.gameObject, destroySelfSeconds);
     }
 
     private void Awake()
