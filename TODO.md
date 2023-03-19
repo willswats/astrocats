@@ -21,12 +21,14 @@
 ### Audio
 
 - [ ] Own sound effects for:
-  - [ ] Menus
+  - [ ] Menu button press
   - [ ] Ship thrusters
-  - [ ] Weapons
+  - [ ] Asteroid explosion
+  - [ ] Weapon default
+  - [ ] Weaoon laser
+  - [ ] Weapon cannon
+  - [ ] Weapon shotgun
   - [ ] Pickups
-  - [ ] Asteroids
-  - [ ] Enemies
 
 ### UI
 
