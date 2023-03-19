@@ -15,7 +15,6 @@ public class SpawnerManager : Spawner
     private List<Asteroid> asteroids;
     private List<Enemy> enemies;
 
-
     public void DestroyAllAsteroids()
     {
         foreach (Asteroid asteroid in this.asteroids)

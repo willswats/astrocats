@@ -13,17 +13,17 @@ public class UIManager : MonoBehaviour
 
     public void SetTextPlayerHealth(int health)
     {
-        this.textPlayerHealth.text = health.ToString();
+        this.textPlayerHealth.text = $"Health: {health.ToString()}";
     }
 
     public void SetTextPlayerLives(int lives)
     {
-        this.textPlayerLives.text = lives.ToString();
+        this.textPlayerLives.text = $"Lives: {lives.ToString()}";
     }
 
     public void SetTextPlayerScore(int score)
     {
-        this.textPlayerScore.text = score.ToString();
+        this.textPlayerScore.text = $"Score: {score.ToString()}";
     }
 
     public void ToggleGameOverMenu()
