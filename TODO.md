@@ -1,35 +1,30 @@
 # TODO
 
-## Features
+## Audio
 
-### Weapons
+- [ ] Wait for longer before destroying to ensure audio clip plays fully
 
-- [ ] Make shooting a hold button and at an interval
-
-### Asteroids
-
-- [ ] Make smaller asteroids out of big ones when destroyed
-- [ ] Asteroids only drop points when they cannot become smaller asteroids
-
-### Player
-
-- [ ] Animated thrusters
-- [ ] Animated explosion (own sprite)
-
-### Enemies
+## Enemies
 
 - [ ] Three unique enemies
 - [ ] Enemies drop weapons
 - [ ] More enemies spawn over time
 
-### Audio
+## Player
 
-- [ ] Wait for longer before destroying to ensure audio clip plays fully
+- [ ] Animated thrusters
+- [ ] Animated explosion (own sprite)
 
-### UI
+## Asteroids
+
+- [ ] Make smaller asteroids out of big ones when destroyed
+- [ ] Asteroids only drop points when they cannot become smaller asteroids
+
+## UI
 
 - [ ] Display score on end screen
 
-### Extra
+## Weapons
 
+- [ ] Make shooting a hold button and at an interval
 - [ ] Make weapons more unique and useful
