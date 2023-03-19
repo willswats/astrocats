@@ -1,16 +1,17 @@
 # TODO
 
+## Animation
+
+- [ ] Fix animation causing sprite overwrite
+- [ ] Fix flashing sprite after explosion
+- [ ] Animated thrusters
+- [ ] Animated explosion (own sprite)
+
 ## Enemies
 
 - [ ] Three unique enemies
 - [ ] Enemies drop weapons
 - [ ] More enemies spawn over time
-
-## Animation
-
-- [ ] Animated thrusters
-- [ ] Animated explosion (own sprite)
-- [ ] Fix flashing sprite after explosion
 
 ## Asteroids
 
