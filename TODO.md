@@ -2,14 +2,20 @@
 
 ## Features
 
+### Asteroids
+
+- [ ] Make smaller asteroids out of big ones when destroyed
+- [ ] Asteroids only drop points when they cannot become smaller asteroids
+
 ### Player
 
 - [ ] Animated thrusters
+- [ ] Animated explosion (own sprite)
 
 ### Enemies
 
 - [ ] Three unique enemies
-- [ ] Enemies drop a random weapon
+- [ ] Enemies drop weapons
 - [ ] More enemies spawn over time
 
 ### Audio
@@ -22,10 +28,10 @@
   - [ ] Asteroids
   - [ ] Enemies
 
+### UI
+
+- [ ] Display score on end screen
+
 ### Extra
 
-- [ ] Make smaller asteroids out of big ones when destroyed
-- [ ] Asteroids only drop points when they cannot become smaller asteroids
 - [ ] Make weapons more unique and useful
-- [ ] Current difficulty level in HUD
-- [ ] Display score on end screen
