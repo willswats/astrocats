@@ -14,7 +14,7 @@ public class EnemySpawner : Spawner
     public float maxEnemyAsteroidTorque = 50f;
     private List<EnemyAsteroid> enemyAsteroids;
 
-    public EnemyCat[] enemyCatPrefabs;
+    public EnemyCat enemyCatPrefab;
     private List<EnemyCat> enemyCats;
 
     public void DestroyAllAsteroids()
@@ -28,20 +28,26 @@ public class EnemySpawner : Spawner
         }
     }
 
-    private EnemyCat GetRandomEnemyCatPrefab()
-    {
-        EnemyCat enemyCatPrefab = enemyCatPrefabs[Random.Range(0, enemyCatPrefabs.Length)];
-        return enemyCatPrefab;
-    }
+    // private EnemyCat GetRandomEnemyCatPrefab()
+    // {
+    //     EnemyCat enemyCatPrefab = enemyCatPrefabs[Random.Range(0, enemyCatPrefabs.Length)];
+    //     return enemyCatPrefab;
+    // }
 
     private void SpawnEnemyCat()
     {
         BoxCollider2D spawner = this.GetRandomSpawner(this.spawners);
         Vector2 position = this.GetRandomSpawnerPosition(spawner);
-        EnemyCat enemyCatPrefab = this.GetRandomEnemyCatPrefab();
+        // EnemyCat enemyCatPrefab = this.GetRandomEnemyCatPrefab();
 
         EnemyCat enemyCat = Instantiate(enemyCatPrefab, position, Quaternion.identity);
-        enemyCats.Add(enemyCat);
+        // enemyCats.Add(enemyCat);
+        Vector2 direction = this.enemyAsteroidTarget.transform.position - enemyCat.transform.position;
+        Rigidbody2D enemyCatRb2d = enemyCat.GetComponent<Rigidbody2D>();
+
+        enemyCatRb2d.AddForce(direction * this.enemyAsteroidTrajectorySpeed);
+        enemyCatRb2d.AddTorque(Random.Range(this.minEnemyAsteroidTorque, this.maxEnemyAsteroidTorque));
+
     }
 
     private void SpawnEnemyAsteroid()
@@ -65,6 +71,7 @@ public class EnemySpawner : Spawner
         {
             yield return new WaitForSeconds(this.spawnRateSeconds);
             SpawnEnemyAsteroid();
+            SpawnEnemyCat();
         }
     }
 

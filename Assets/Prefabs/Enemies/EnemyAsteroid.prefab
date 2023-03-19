@@ -325,6 +325,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointSpawner: {fileID: 6732064406872171360, guid: 79fb72cf68f9be786a569f178c2f965b, type: 3}
+  scoreGiven: 1
+  damageGiven: 25
+  lifeTimeSeconds: 30
   sprites:
   - {fileID: 21300000, guid: 95255c001df6ddec98834d18fd8567ff, type: 3}
   - {fileID: 21300000, guid: a00d61cac0cca58ac95a86a04548432c, type: 3}
@@ -335,9 +338,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 2fa8b05d564dd80fd8aadb0d5e0a04d9, type: 3}
   - {fileID: 21300000, guid: 0482c9c39875109c19e8e2634c294dae, type: 3}
   - {fileID: 21300000, guid: 1d7ba6efb733d47ab8052cd50ccaabba, type: 3}
-  asteroidScore: 1
-  asteroidDamage: 25
-  lifeTimeSeconds: 30
 --- !u!95 &442377838623509722
 Animator:
   serializedVersion: 5
@@ -367,7 +367,7 @@ AudioSource:
   m_GameObject: {fileID: 8228185772810121786}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: -811724228763794654, guid: 3db4c372072a3d0a2bfe7be3ed7cd4ab, type: 2}
+  OutputAudioMixerGroup: {fileID: 7211299538039789016, guid: 3db4c372072a3d0a2bfe7be3ed7cd4ab, type: 2}
   m_audioClip: {fileID: 8300000, guid: 07f697c99afd649b798e9038b5ada60e, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
