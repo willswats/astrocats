@@ -1,8 +1,8 @@
 # TODO
 
-## Animation
+## Asteroids
 
-- [ ] Animated thrusters
+- [ ] Make smaller asteroids out of big ones when destroyed
 
 ## Enemies
 
@@ -10,15 +10,15 @@
 - [ ] Enemies drop weapons
 - [ ] More enemies spawn over time
 
-## Asteroids
+## Animation
 
-- [ ] Make smaller asteroids out of big ones when destroyed
-- [ ] Asteroids only drop points when they cannot become smaller asteroids
+- [ ] Animated thrusters
 
-## Extra
+## UI
 
 - [ ] Display score on end screen
+
+## Weapons
+
 - [ ] Make shooting a hold button and at an interval
-- [ ] Flash pickups when they are about to despawn
-- [ ] Change pitch of asteroid depending upon size
 - [ ] Make weapons more unique and useful
