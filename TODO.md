@@ -1,5 +1,9 @@
 # TODO
 
+## Enemies
+
+- [ ] More spawn points
+
 ## Animation
 
 - [ ] Animated thrusters
