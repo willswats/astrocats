@@ -1,7 +1,14 @@
 using UnityEngine;
+using UnityEngine.Events;
+using System.Collections;
+using System.Collections.Generic;
 
 public class Spawner : MonoBehaviour
 {
+
+    public BoxCollider2D[] spawners;
+    public float spawnRateSeconds = 4f;
+
     public BoxCollider2D GetRandomSpawner(BoxCollider2D[] spawners)
     {
         BoxCollider2D spawner = spawners[Random.Range(0, spawners.Length)];
@@ -21,5 +28,37 @@ public class Spawner : MonoBehaviour
     {
         Quaternion rotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
         return rotation;
+    }
+
+    public void DestroyAllGameObjects(List<GameObject> gameObjects)
+    {
+        foreach (GameObject gameObject in gameObjects)
+        {
+            if (gameObject != null)
+            {
+                Destroy(gameObject);
+            }
+        }
+    }
+
+    public IEnumerator SpawnHandler(UnityAction method)
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(this.spawnRateSeconds);
+            method();
+        }
+    }
+
+    public IEnumerator DecreaseSpawnRateSeconds()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(5f);
+            if (this.spawnRateSeconds >= 2f)
+            {
+                this.spawnRateSeconds -= 0.1f;
+            }
+        }
     }
 }

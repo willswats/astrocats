@@ -6,7 +6,8 @@ public class GameManager : MonoBehaviour
     public int playerScore = 0;
     public int playerLives = 3;
     public bool gamePaused = false;
-    public EnemySpawner enemySpawner;
+    public EnemyAsteroidSpawner enemyAsteroidSpawner;
+    public EnemyCatSpawner enemyCatSpawner;
     public static GameManager Instance { get; private set; }
 
     public GameObject GetGameObjectWithTag(GameObject parent, string tag)
@@ -42,7 +43,8 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            this.enemySpawner.DestroyAllAsteroids();
+            this.enemyCatSpawner.DestroyAllGameObjects(this.enemyCatSpawner.enemyCatGameObjects);
+            this.enemyAsteroidSpawner.DestroyAllGameObjects(this.enemyAsteroidSpawner.enemyAsteroidGameObjects);
             Instantiate(this.player);
         }
     }

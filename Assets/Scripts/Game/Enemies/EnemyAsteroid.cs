@@ -38,7 +38,7 @@ public class EnemyAsteroid : Enemy
         {
             if (this.collidedProjectile == false)
             {
-                if (this.gameObject.transform.localScale.x > 0.5)
+                if (this.gameObject.transform.localScale.x > 0.5 && this.gameObject.transform.localScale.y > 0.5)
                 {
                     this.SplitEnemyAsteroid(2);
                 }
