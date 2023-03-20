@@ -2,10 +2,7 @@
 
 ## Animation
 
-- [ ] Fix animation causing sprite overwrite
-- [ ] Fix flashing sprite after explosion
 - [ ] Animated thrusters
-- [ ] Animated explosion (own sprite)
 
 ## Enemies
 
