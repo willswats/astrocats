@@ -6,7 +6,18 @@ public class EnemyCatSpawner : Spawner
     public GameObject enemyCatTarget;
     public float enemyCatTrajectorySpeed = 10f;
     public EnemyCat[] enemyCatPrefabs;
-    public List<GameObject> enemyCatGameObjects;
+    private List<EnemyCat> enemyCats;
+
+    public void DestroyAllEnemyCats()
+    {
+        foreach (EnemyCat enemyCat in enemyCats)
+        {
+            if (enemyCat != null)
+            {
+                Destroy(enemyCat.gameObject);
+            }
+        }
+    }
 
     private EnemyCat GetRandomEnemyCatPrefab()
     {
@@ -21,16 +32,15 @@ public class EnemyCatSpawner : Spawner
         EnemyCat enemyCatPrefab = this.GetRandomEnemyCatPrefab();
 
         EnemyCat enemyCat = Instantiate(enemyCatPrefab, position, Quaternion.identity);
-        enemyCatGameObjects.Add(enemyCat.gameObject);
-        Vector2 direction = this.enemyCatTarget.transform.position - enemyCat.transform.position;
-        Rigidbody2D enemyCatRb2d = enemyCat.GetComponent<Rigidbody2D>();
+        enemyCats.Add(enemyCat);
 
-        enemyCatRb2d.AddForce(direction * this.enemyCatTrajectorySpeed);
+        Vector2 direction = this.enemyCatTarget.transform.position - enemyCat.transform.position;
+        enemyCat.rb2d.AddForce(direction * this.enemyCatTrajectorySpeed);
     }
 
     private void Start()
     {
-        enemyCatGameObjects = new List<GameObject>();
+        enemyCats = new List<EnemyCat>();
         StartCoroutine(this.SpawnHandler(SpawnEnemyCat));
         StartCoroutine(this.DecreaseSpawnRateSeconds());
     }

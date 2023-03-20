@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public PickupSpawner pointSpawner;
+    public PickupSpawner pickupSpawner;
     public int scoreGiven = 10;
     public int damageGiven = 25;
     public float lifeTimeSeconds = 30f;
@@ -32,7 +32,7 @@ public class Enemy : MonoBehaviour
         GetComponent<Collider2D>().enabled = false;
 
         this.audiosource.Play();
-        this.pointSpawner.Spawn(this.transform.position);
+        this.pickupSpawner.Spawn(this.transform.position);
         Destroy(this.gameObject, destroySelfSeconds);
     }
 

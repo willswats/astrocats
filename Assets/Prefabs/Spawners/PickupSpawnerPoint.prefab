@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3863793885597226056}
   - component: {fileID: 6732064406872171360}
   m_Layer: 0
-  m_Name: PointSpawner
+  m_Name: PickupSpawnerPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

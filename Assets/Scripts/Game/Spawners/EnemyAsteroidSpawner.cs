@@ -8,7 +8,18 @@ public class EnemyAsteroidSpawner : Spawner
     public float enemyAsteroidTrajectorySpeed = 10f;
     public float minEnemyAsteroidTorque = 0f;
     public float maxEnemyAsteroidTorque = 50f;
-    public List<GameObject> enemyAsteroidGameObjects;
+    private List<EnemyAsteroid> enemyAsteroids;
+
+    public void DestroyAllEnemyAsteroids()
+    {
+        foreach (EnemyAsteroid enemyAsteroid in enemyAsteroids)
+        {
+            if (enemyAsteroid != null)
+            {
+                Destroy(enemyAsteroid.gameObject);
+            }
+        }
+    }
 
     private void SpawnEnemyAsteroid()
     {
@@ -17,7 +28,7 @@ public class EnemyAsteroidSpawner : Spawner
         Quaternion rotation = this.GetRandomRotation();
 
         EnemyAsteroid enemyAsteroid = Instantiate(this.enemyAsteroidPrefab, position, rotation);
-        enemyAsteroidGameObjects.Add(enemyAsteroid.gameObject);
+        enemyAsteroids.Add(enemyAsteroid);
         Vector2 direction = this.enemyAsteroidTarget.transform.position - enemyAsteroid.transform.position;
         Rigidbody2D enemyAsteroidRb2d = enemyAsteroid.GetComponent<Rigidbody2D>();
 
@@ -27,7 +38,7 @@ public class EnemyAsteroidSpawner : Spawner
 
     private void Start()
     {
-        enemyAsteroidGameObjects = new List<GameObject>();
+        enemyAsteroids = new List<EnemyAsteroid>();
         StartCoroutine(this.SpawnHandler(SpawnEnemyAsteroid));
         StartCoroutine(this.DecreaseSpawnRateSeconds());
     }

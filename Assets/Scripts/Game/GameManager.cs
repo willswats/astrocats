@@ -43,8 +43,8 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            this.enemyCatSpawner.DestroyAllGameObjects(this.enemyCatSpawner.enemyCatGameObjects);
-            this.enemyAsteroidSpawner.DestroyAllGameObjects(this.enemyAsteroidSpawner.enemyAsteroidGameObjects);
+            this.enemyCatSpawner.DestroyAllEnemyCats();
+            this.enemyAsteroidSpawner.DestroyAllEnemyAsteroids();
             Instantiate(this.player);
         }
     }

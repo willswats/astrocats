@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
 using System.Collections;
-using System.Collections.Generic;
 
 public class Spawner : MonoBehaviour
 {
@@ -28,17 +27,6 @@ public class Spawner : MonoBehaviour
     {
         Quaternion rotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
         return rotation;
-    }
-
-    public void DestroyAllGameObjects(List<GameObject> gameObjects)
-    {
-        foreach (GameObject gameObject in gameObjects)
-        {
-            if (gameObject != null)
-            {
-                Destroy(gameObject);
-            }
-        }
     }
 
     public IEnumerator SpawnHandler(UnityAction method)

@@ -7,7 +7,7 @@ public class Weapon : MonoBehaviour
     public List<GameObject> projectileSpawnPoints;
     private List<Projectile> projectiles;
 
-    private void HandleFire()
+    public void HandleFire()
     {
         this.projectiles = new List<Projectile>();
 
