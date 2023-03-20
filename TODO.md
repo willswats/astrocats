@@ -1,10 +1,5 @@
 # TODO
 
-## Enemies
-
-- [ ] Enemies float across the top of screen, shooting down on the player
-- [ ] Three unique enemies (shoot different projectiles)
-
 ## Animation
 
 - [ ] Animated thrusters
