@@ -1,14 +1,9 @@
 # TODO
 
-## Asteroids
-
-- [ ] Make smaller asteroids out of big ones when destroyed
-
 ## Enemies
 
-- [ ] Three unique enemies
-- [ ] Enemies drop weapons
-- [ ] More enemies spawn over time
+- [ ] Enemies float across the top of screen, shooting down on the player
+- [ ] Three unique enemies (shoot different projectiles)
 
 ## Animation
 
@@ -18,7 +13,15 @@
 
 - [ ] Display score on end screen
 
+## Spawners
+
+- [ ] Spawn less enemies
+- [ ] Make difficulty curve longer and harder
+
+## Refactor
+
+- [ ] Remove public variables and use get and set
+
 ## Weapons
 
 - [ ] Make shooting a hold button and at an interval
-- [ ] Make weapons more unique and useful
