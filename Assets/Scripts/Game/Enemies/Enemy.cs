@@ -3,14 +3,14 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public PickupSpawner pointSpawner;
-    public int scoreGiven = 1;
+    public int scoreGiven = 10;
     public int damageGiven = 25;
     public float lifeTimeSeconds = 30f;
     public float destroySelfSeconds = 2f;
-    private bool collidedProjectile = false;
+    public bool collidedProjectile = false;
 
     public SpriteRenderer spriteRenderer;
-    private Rigidbody2D rb2d;
+    public Rigidbody2D rb2d;
     private AudioSource audiosource;
 
     public virtual void Awake()
@@ -25,7 +25,7 @@ public class Enemy : MonoBehaviour
         Destroy(this.gameObject, this.lifeTimeSeconds);
     }
 
-    private void DestroySelf()
+    public void DestroySelf()
     {
         this.spriteRenderer.enabled = false;
         this.rb2d.simulated = false;
@@ -36,19 +36,19 @@ public class Enemy : MonoBehaviour
         Destroy(this.gameObject, destroySelfSeconds);
     }
 
-    private void DamagePlayer(Collision2D collision)
+    public void DamagePlayer(Collision2D collision)
     {
         Player player = collision.gameObject.GetComponent<Player>();
         player.DamagePlayer(damageGiven);
     }
 
-    private void UpdateScore()
+    public void UpdateScore()
     {
         GameManager.Instance.AddPlayerScore(this.scoreGiven);
         UIManager.Instance.SetTextPlayerScore(GameManager.Instance.GetPlayerScore());
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public virtual void OnCollisionEnter2D(Collision2D collision)
     {
         string collisionTag = collision.gameObject.tag;
         if (collisionTag == "Projectile")

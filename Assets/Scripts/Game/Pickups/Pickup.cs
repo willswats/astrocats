@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Pickup : MonoBehaviour, IPickup
 {
-    public int points = 5;
+    public int score = 10;
     public int lifeTimeSeconds = 10;
     public int waitBeforeDestroySeconds = 1;
     private SpriteRenderer spriteRenderer;
@@ -18,7 +18,7 @@ public class Pickup : MonoBehaviour, IPickup
 
     private void UpdatePickupScore()
     {
-        GameManager.Instance.AddPlayerScore(this.points);
+        GameManager.Instance.AddPlayerScore(this.score);
         UIManager.Instance.SetTextPlayerScore(GameManager.Instance.GetPlayerScore());
     }
 
