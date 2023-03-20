@@ -8,14 +8,15 @@ public class Enemy : MonoBehaviour
     public float lifeTimeSeconds = 30f;
     public float destroySelfSeconds = 2f;
     private bool collidedProjectile = false;
+
+    public SpriteRenderer spriteRenderer;
     private Rigidbody2D rb2d;
-    private Animator anim;
     private AudioSource audiosource;
 
     public virtual void Awake()
     {
+        this.spriteRenderer = GetComponent<SpriteRenderer>();
         this.rb2d = GetComponent<Rigidbody2D>();
-        this.anim = GetComponent<Animator>();
         this.audiosource = GetComponent<AudioSource>();
     }
 
@@ -26,10 +27,10 @@ public class Enemy : MonoBehaviour
 
     private void DestroySelf()
     {
+        this.spriteRenderer.enabled = false;
         this.rb2d.simulated = false;
         GetComponent<Collider2D>().enabled = false;
 
-        this.anim.SetTrigger("Explode");
         this.audiosource.Play();
         this.pointSpawner.Spawn(this.transform.position);
         Destroy(this.gameObject, destroySelfSeconds);

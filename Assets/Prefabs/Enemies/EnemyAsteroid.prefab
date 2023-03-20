@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 7790885737760952476}
   - component: {fileID: 7313079887782645170}
   - component: {fileID: 5518058203174155482}
-  - component: {fileID: 442377838623509722}
   - component: {fileID: -866842257712856850}
   m_Layer: 8
   m_Name: EnemyAsteroid
@@ -328,6 +327,7 @@ MonoBehaviour:
   scoreGiven: 1
   damageGiven: 25
   lifeTimeSeconds: 30
+  destroySelfSeconds: 2
   sprites:
   - {fileID: 21300000, guid: 95255c001df6ddec98834d18fd8567ff, type: 3}
   - {fileID: 21300000, guid: a00d61cac0cca58ac95a86a04548432c, type: 3}
@@ -338,26 +338,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 2fa8b05d564dd80fd8aadb0d5e0a04d9, type: 3}
   - {fileID: 21300000, guid: 0482c9c39875109c19e8e2634c294dae, type: 3}
   - {fileID: 21300000, guid: 1d7ba6efb733d47ab8052cd50ccaabba, type: 3}
---- !u!95 &442377838623509722
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8228185772810121786}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d9d10e0a267dc6597abcfce97992ae07, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
 --- !u!82 &-866842257712856850
 AudioSource:
   m_ObjectHideFlags: 0
