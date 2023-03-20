@@ -158,8 +158,9 @@ GameObject:
   - component: {fileID: 5356282510529247031}
   - component: {fileID: 3855644092376619031}
   - component: {fileID: 6516770366653415017}
-  - component: {fileID: 4174351783305232478}
   - component: {fileID: 5766333670566954483}
+  - component: {fileID: 7225505024320581112}
+  - component: {fileID: 4174351783305232478}
   m_Layer: 8
   m_Name: EnemyCatOne
   m_TagString: Asteroid
@@ -352,26 +353,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &4174351783305232478
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7086489037101457445}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2826b30f9c7319452ad3e0a745508bbf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pickupSpawner: {fileID: 6732064406872171360, guid: 5e1e4f5b6a0c4d080bbc479eb6747320, type: 3}
-  scoreGiven: 10
-  damageGiven: 25
-  lifeTimeSeconds: 30
-  destroySelfSeconds: 2
-  collidedProjectile: 0
-  spriteRenderer: {fileID: 0}
-  rb2d: {fileID: 0}
 --- !u!61 &5766333670566954483
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -398,3 +379,43 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5784698, y: 0.7503028}
   m_EdgeRadius: 0
+--- !u!114 &7225505024320581112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7086489037101457445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c90a43f762a3c62d2aca7e7580e9a405, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupSpawner: {fileID: 6732064406872171360, guid: 5e1e4f5b6a0c4d080bbc479eb6747320, type: 3}
+  scoreGiven: 10
+  damageGiven: 25
+  lifeTimeSeconds: 30
+  destroySelfSeconds: 2
+  collidedProjectile: 0
+  spriteRenderer: {fileID: 0}
+  rb2d: {fileID: 0}
+--- !u!114 &4174351783305232478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7086489037101457445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2826b30f9c7319452ad3e0a745508bbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupSpawner: {fileID: 6732064406872171360, guid: 5e1e4f5b6a0c4d080bbc479eb6747320, type: 3}
+  scoreGiven: 10
+  damageGiven: 25
+  lifeTimeSeconds: 30
+  destroySelfSeconds: 2
+  collidedProjectile: 0
+  spriteRenderer: {fileID: 0}
+  rb2d: {fileID: 0}

@@ -15,7 +15,6 @@ public class Weapon : MonoBehaviour
         {
             Vector2 direction = this.projectileSpawnPoints[i].transform.position;
             Quaternion rotation = this.projectileSpawnPoints[i].transform.rotation;
-            Debug.Log(rotation);
             projectiles.Add(Instantiate(this.projectilePrefab, direction, rotation));
         }
 

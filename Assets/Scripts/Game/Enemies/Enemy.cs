@@ -53,6 +53,7 @@ public class Enemy : MonoBehaviour
         string collisionTag = collision.gameObject.tag;
         if (collisionTag == "Projectile")
         {
+            this.collidedProjectile = true;
             if (this.collidedProjectile == false)
             {
                 this.DestroySelf();
