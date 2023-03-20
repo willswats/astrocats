@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1869536495670763733}
-  - component: {fileID: 6487967561331076432}
+  - component: {fileID: 4383818039611190450}
   m_Layer: 0
   m_Name: WeaponLaser
   m_TagString: WeaponLaser
@@ -64,7 +64,7 @@ Transform:
   m_Father: {fileID: 6631850269249061042}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6487967561331076432
+--- !u!114 &4383818039611190450
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -73,7 +73,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 443519755977153630}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb8d79c354c31279fa6604577b6b7b8f, type: 3}
+  m_Script: {fileID: 11500000, guid: 658743319773aeb46acda238700e3688, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 1421503212304558506, guid: 0955d6a04eb6dac4e9edae9c1f261582, type: 3}
@@ -88,7 +88,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5741388596714040269}
-  - component: {fileID: 8938670947566350896}
+  - component: {fileID: 3324808798960146625}
   m_Layer: 0
   m_Name: WeaponCannon
   m_TagString: WeaponCannon
@@ -112,7 +112,7 @@ Transform:
   m_Father: {fileID: 6631850269249061042}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8938670947566350896
+--- !u!114 &3324808798960146625
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5118731245331346961}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb8d79c354c31279fa6604577b6b7b8f, type: 3}
+  m_Script: {fileID: 11500000, guid: 658743319773aeb46acda238700e3688, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 1421503212304558506, guid: 38709424346b842399dea007444a8cd8, type: 3}
@@ -167,7 +167,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6631850268907350617}
-  - component: {fileID: 6028537315122624947}
+  - component: {fileID: 3008874922110899852}
   m_Layer: 0
   m_Name: WeaponDefault
   m_TagString: WeaponDefault
@@ -191,7 +191,7 @@ Transform:
   m_Father: {fileID: 6631850269249061042}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6028537315122624947
+--- !u!114 &3008874922110899852
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -200,7 +200,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6631850268907350616}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb8d79c354c31279fa6604577b6b7b8f, type: 3}
+  m_Script: {fileID: 11500000, guid: 658743319773aeb46acda238700e3688, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 1421503212304558506, guid: 27d8e6253e4aaf60ba290896b86f1821, type: 3}
@@ -500,7 +500,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6631850269543625594}
-  - component: {fileID: 8628859430527512287}
+  - component: {fileID: 5802334027963922423}
   m_Layer: 0
   m_Name: WeaponShotgun
   m_TagString: WeaponShotgun
@@ -526,7 +526,7 @@ Transform:
   m_Father: {fileID: 6631850269249061042}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8628859430527512287
+--- !u!114 &5802334027963922423
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -535,10 +535,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6631850269543625597}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb8d79c354c31279fa6604577b6b7b8f, type: 3}
+  m_Script: {fileID: 11500000, guid: 658743319773aeb46acda238700e3688, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 1421503212304558506, guid: 27d8e6253e4aaf60ba290896b86f1821, type: 3}
+  projectilePrefab: {fileID: 1421503212304558506, guid: e4fd52b70b2f9a3759d47e1b76ef6f73, type: 3}
   projectileSpawnPoints:
   - {fileID: 6631850269447247930}
   - {fileID: 6631850268325041940}

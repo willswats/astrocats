@@ -15,22 +15,13 @@ public class Weapon : MonoBehaviour
         {
             Vector2 direction = this.projectileSpawnPoints[i].transform.position;
             Quaternion rotation = this.projectileSpawnPoints[i].transform.rotation;
+            Debug.Log(rotation);
             projectiles.Add(Instantiate(this.projectilePrefab, direction, rotation));
         }
 
         foreach (Projectile projectile in this.projectiles)
         {
             projectile.SetForce(transform.up);
-        }
-    }
-
-    private void Update()
-    {
-        bool fireOnePressed = Input.GetButtonDown("Fire1");
-
-        if (fireOnePressed && !GameManager.Instance.gamePaused)
-        {
-            this.HandleFire();
         }
     }
 }

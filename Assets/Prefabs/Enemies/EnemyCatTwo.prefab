@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1463553328431655083}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.7, z: 0}
+  m_LocalPosition: {x: 0, y: 0.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1196809396962385152}
-  - component: {fileID: 1776574852292264146}
+  - component: {fileID: 8612544381871965565}
   m_Layer: 0
   m_Name: WeaponLaser
   m_TagString: WeaponLaser
@@ -55,7 +55,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4554229853187629943}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -1, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -63,8 +63,8 @@ Transform:
   - {fileID: 6794650187986762259}
   m_Father: {fileID: 4872466656833204355}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1776574852292264146
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
+--- !u!114 &8612544381871965565
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -73,12 +73,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 4554229853187629943}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb8d79c354c31279fa6604577b6b7b8f, type: 3}
+  m_Script: {fileID: 11500000, guid: 8220509b28bda5e888aac5d2a6e31b28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 1421503212304558506, guid: 0955d6a04eb6dac4e9edae9c1f261582, type: 3}
   projectileSpawnPoints:
   - {fileID: 1463553328431655083}
+  projectileSeconds: 1
 --- !u!1 &8255218830205709624
 GameObject:
   m_ObjectHideFlags: 0
@@ -108,7 +109,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8255218830205709624}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.126903, y: 3.7201276, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -305,7 +306,6 @@ MonoBehaviour:
   collidedProjectile: 0
   spriteRenderer: {fileID: 0}
   rb2d: {fileID: 0}
-  projectileSeconds: 0
 --- !u!61 &7547192422176445441
 BoxCollider2D:
   m_ObjectHideFlags: 0
