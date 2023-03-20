@@ -3012,6 +3012,7 @@ MonoBehaviour:
   player: {fileID: 6631850269249061044, guid: 7e70e3a37167e71eaa65bccad1a76f22, type: 3}
   playerScore: 0
   playerLives: 3
+  gamePaused: 0
   enemySpawner: {fileID: 727662461}
 --- !u!4 &1614422410
 Transform:
