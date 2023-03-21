@@ -73,19 +73,23 @@ public class Player : MonoBehaviour
     {
         if (horizontalInput != 0)
         {
+            anim.SetTrigger("Thruster");
             audioSource.Play();
         }
         if (horizontalInput == 0)
         {
             audioSource.Stop();
+            anim.ResetTrigger("Thruster");
         }
         if (verticalInput != 0)
         {
+            anim.SetTrigger("Thruster");
             audioSource.Play();
         }
         if (verticalInput == 0)
         {
             audioSource.Stop();
+            anim.ResetTrigger("Thruster");
         }
     }
 
@@ -104,7 +108,6 @@ public class Player : MonoBehaviour
         this.weaponLaser = GameManager.Instance.GetGameObjectWithTag(this.gameObject, "WeaponLaser");
         this.weaponCannon = GameManager.Instance.GetGameObjectWithTag(this.gameObject, "WeaponCannon");
         this.SetWeapon("Default");
-        InvokeRepeating(nameof(PlayThrusterAudio), 1f, 1f);
     }
 
     private void Update()
@@ -115,5 +118,6 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         this.Move();
+        this.PlayThrusterAudio();
     }
 }
