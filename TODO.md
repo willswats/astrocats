@@ -1,9 +1,5 @@
 # TODO
 
-## 1.0
-
-- [ ] Replace audio for player hit
-
 ## Weapons
 
 - [ ] Make shooting a hold button and at an interval
@@ -15,6 +11,10 @@
 - [ ] End screen:
   - [ ] Score
   - [ ] Time alive
+
+## Spawners
+
+- [ ] Delete all pickups on player death (was causing issues in build)
 
 ## Refactor
 
