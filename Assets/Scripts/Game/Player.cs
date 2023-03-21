@@ -71,25 +71,29 @@ public class Player : MonoBehaviour
 
     private void PlayThrusterAudio()
     {
-        if (horizontalInput != 0)
+        if (verticalInput != 0)
         {
-            anim.SetTrigger("Thruster");
-            audioSource.Play();
+            if (!audioSource.isPlaying)
+            {
+
+                audioSource.Play();
+            }
         }
-        if (horizontalInput == 0)
+        else
         {
-            audioSource.Stop();
-            anim.ResetTrigger("Thruster");
+            if (audioSource.isPlaying)
+            {
+                audioSource.Stop();
+            }
         }
+    }
+
+    private void PlayThrusterAnimation()
+    {
+
         if (verticalInput != 0)
         {
             anim.SetTrigger("Thruster");
-            audioSource.Play();
-        }
-        if (verticalInput == 0)
-        {
-            audioSource.Stop();
-            anim.ResetTrigger("Thruster");
         }
     }
 
@@ -113,11 +117,12 @@ public class Player : MonoBehaviour
     private void Update()
     {
         this.GetInput();
+        this.PlayThrusterAudio();
+        this.PlayThrusterAnimation();
     }
 
     private void FixedUpdate()
     {
         this.Move();
-        this.PlayThrusterAudio();
     }
 }
