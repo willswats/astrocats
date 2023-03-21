@@ -133,9 +133,12 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        this.GetInput();
-        this.PlayThrusterAudio();
-        this.PlayThrusterAnimation();
+        if (!GameManager.Instance.gamePaused)
+        {
+            this.GetInput();
+            this.PlayThrusterAudio();
+            this.PlayThrusterAnimation();
+        }
     }
 
     private void FixedUpdate()
