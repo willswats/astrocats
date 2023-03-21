@@ -7,6 +7,15 @@
 
 - [ ] Animated thrusters
 
+## Refactor
+
+- [ ] Rename:
+  - [ ] Variables
+  - [ ] Sprites
+  - [ ] Audio
+  - [ ] Prefabs
+- [ ] Remove public variables and use get and set
+
 ## UI
 
 - [ ] HUD:
