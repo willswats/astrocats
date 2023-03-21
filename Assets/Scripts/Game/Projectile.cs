@@ -5,6 +5,7 @@ public class Projectile : MonoBehaviour
     public float projectileVelocity = 500f;
     public float projectileLifeTimeSeconds = 10f;
     public float destroySelfSeconds = 1f;
+    public int damageGiven = 25;
     private Rigidbody2D rb2d;
     private SpriteRenderer spriteRenderer;
     private AudioSource audiosource;
@@ -23,6 +24,12 @@ public class Projectile : MonoBehaviour
         Destroy(this.gameObject, destroySelfSeconds);
     }
 
+    public void DamagePlayer(Collision2D collision)
+    {
+        Player player = collision.gameObject.GetComponent<Player>();
+        player.DamagePlayer(damageGiven);
+    }
+
     private void Awake()
     {
         this.rb2d = GetComponent<Rigidbody2D>();
@@ -36,8 +43,13 @@ public class Projectile : MonoBehaviour
         this.audiosource.Play();
     }
 
-    private void OnCollisionEnter2D(Collision2D collison)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
+        string collisionTag = collision.gameObject.tag;
         DestroySelf();
+        if (collisionTag == "Player")
+        {
+            DamagePlayer(collision);
+        }
     }
 }
