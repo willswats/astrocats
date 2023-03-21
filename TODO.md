@@ -1,14 +1,15 @@
 # TODO
 
+## Bug fix
+
+- [ ] Shooting on player death will result in game over
+- [ ] Thruster plays twice on respawn
+- [ ] Polygon collider is incorrect shape on certain asteroids
+
 ## Audio
 
 - [ ] Player hit
 - [ ] Player death
-- [ ] Thruster plays twice on respawn
-
-## Asteroids
-
-- [ ] Polygon collider is incorrect shape on certain asteroids
 
 ## Weapons
 
