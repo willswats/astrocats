@@ -2,6 +2,7 @@
 
 ## 1.0
 
+- [ ] Thruster audio
 - [ ] Animated thrusters
 
 ## Refactor
