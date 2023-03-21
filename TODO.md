@@ -1,10 +1,8 @@
 # TODO
 
+## 1.0
+
 - [ ] Take damage from projectile
-- [ ] Cleanup points on death
-
-## Animation
-
 - [ ] Animated thrusters
 
 ## Refactor
@@ -23,6 +21,10 @@
 - [ ] End screen:
   - [ ] Score
   - [ ] Time alive
+
+## Spawner
+
+- [ ] Cleanup points on death
 
 ## Weapons
 
