@@ -4,10 +4,6 @@
 
 - [ ] Replace audio for player hit
 
-## Spawner
-
-- [ ] Cleanup points on death
-
 ## Weapons
 
 - [ ] Make shooting a hold button and at an interval
