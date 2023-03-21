@@ -2,15 +2,7 @@
 
 ## 1.0
 
-- [ ] Explode noise on player death
-
-## UI
-
-- [ ] HUD:
-  - [ ] Time alive
-- [ ] End screen:
-  - [ ] Score
-  - [ ] Time alive
+- [ ] Replace audio for player hit
 
 ## Spawner
 
@@ -19,6 +11,14 @@
 ## Weapons
 
 - [ ] Make shooting a hold button and at an interval
+
+## UI
+
+- [ ] HUD:
+  - [ ] Time alive
+- [ ] End screen:
+  - [ ] Score
+  - [ ] Time alive
 
 ## Refactor
 
