@@ -5,7 +5,7 @@ public class Projectile : MonoBehaviour
     public float projectileVelocity = 500f;
     public float projectileLifeTimeSeconds = 10f;
     public float destroySelfSeconds = 1f;
-    public int damageGiven = 25;
+    public int damageGiven = 100;
     private Rigidbody2D rb2d;
     private SpriteRenderer spriteRenderer;
     private AudioSource audiosource;

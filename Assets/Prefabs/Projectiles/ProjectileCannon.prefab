@@ -149,6 +149,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileVelocity: 250
   projectileLifeTimeSeconds: 10
+  destroySelfSeconds: 1
+  damageGiven: 100
 --- !u!82 &-7593325710442085414
 AudioSource:
   m_ObjectHideFlags: 0

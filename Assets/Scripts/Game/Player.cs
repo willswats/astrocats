@@ -75,7 +75,6 @@ public class Player : MonoBehaviour
         {
             if (!audioSource.isPlaying)
             {
-
                 audioSource.Play();
             }
         }
@@ -90,7 +89,6 @@ public class Player : MonoBehaviour
 
     private void PlayThrusterAnimation()
     {
-
         if (verticalInput != 0)
         {
             anim.SetTrigger("Thruster");
