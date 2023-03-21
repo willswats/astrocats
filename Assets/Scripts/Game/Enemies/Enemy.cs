@@ -33,7 +33,14 @@ public class Enemy : MonoBehaviour
 
         this.audioSource.Play();
         this.pickupSpawner.Spawn(this.transform.position);
-        Destroy(this.gameObject, destroySelfSeconds);
+
+        int childCount = this.transform.childCount;
+        for (int i = 0; i < childCount; i++)
+        {
+            Destroy(transform.GetChild(i).gameObject);
+        }
+
+        Destroy(this.gameObject, this.destroySelfSeconds);
     }
 
     public void DamagePlayer(Collision2D collision)
