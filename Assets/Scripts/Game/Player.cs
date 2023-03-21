@@ -12,16 +12,22 @@ public class Player : MonoBehaviour
     private GameObject weaponLaser;
     private GameObject weaponCannon;
     private Rigidbody2D rb2d;
-    private AudioSource audioSource;
+    private SpriteRenderer spriteRenderer;
+    private AudioSource audioSourceExplosion;
+    private AudioSource audioSourceThruster;
     private Animator anim;
 
     public void DamagePlayer(int damage)
     {
         this.health -= damage;
         UIManager.Instance.SetTextPlayerHealth(this.health);
+
+        audioSourceExplosion.Play();
+
         if (this.health <= 0)
         {
-            Destroy(this.gameObject);
+            spriteRenderer.enabled = false;
+            Destroy(this.gameObject, 2f);
             GameManager.Instance.KillPlayer();
         }
     }
@@ -73,16 +79,16 @@ public class Player : MonoBehaviour
     {
         if (verticalInput != 0)
         {
-            if (!audioSource.isPlaying)
+            if (!audioSourceThruster.isPlaying)
             {
-                audioSource.Play();
+                audioSourceThruster.Play();
             }
         }
         else
         {
-            if (audioSource.isPlaying)
+            if (audioSourceThruster.isPlaying)
             {
-                audioSource.Stop();
+                audioSourceThruster.Stop();
             }
         }
     }
@@ -108,7 +114,11 @@ public class Player : MonoBehaviour
     {
         this.rb2d = GetComponent<Rigidbody2D>();
         this.anim = GetComponent<Animator>();
-        this.audioSource = GetComponent<AudioSource>();
+        this.spriteRenderer = GetComponent<SpriteRenderer>();
+
+        AudioSource[] audioSources = GetComponents<AudioSource>();
+        this.audioSourceThruster = audioSources[0];
+        this.audioSourceExplosion = audioSources[1];
     }
 
     private void Start()
