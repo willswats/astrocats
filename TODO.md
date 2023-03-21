@@ -2,7 +2,6 @@
 
 ## 1.0
 
-- [ ] Take damage from projectile
 - [ ] Animated thrusters
 
 ## Refactor
@@ -13,6 +12,8 @@
   - [ ] Audio
   - [ ] Prefabs
 - [ ] Remove public variables and use get and set
+- [ ] Reduce repetition:
+  - [ ] DamagePlayer method
 
 ## UI
 
