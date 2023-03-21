@@ -5,12 +5,12 @@ public class EnemyCatSpawner : Spawner
 {
     public GameObject enemyCatTarget;
     public float enemyCatSpeed = 10f;
-    public EnemyCat[] enemyCatPrefabs;
-    private List<EnemyCat> enemyCats;
+    public Enemy[] enemyCatPrefabs;
+    private List<Enemy> enemyCats;
 
     public void DestroyAllEnemyCats()
     {
-        foreach (EnemyCat enemyCat in enemyCats)
+        foreach (Enemy enemyCat in enemyCats)
         {
             if (enemyCat != null)
             {
@@ -19,9 +19,9 @@ public class EnemyCatSpawner : Spawner
         }
     }
 
-    private EnemyCat GetRandomEnemyCatPrefab()
+    private Enemy GetRandomEnemyCatPrefab()
     {
-        EnemyCat enemyCatPrefab = enemyCatPrefabs[Random.Range(0, enemyCatPrefabs.Length)];
+        Enemy enemyCatPrefab = enemyCatPrefabs[Random.Range(0, enemyCatPrefabs.Length)];
         return enemyCatPrefab;
     }
 
@@ -29,9 +29,9 @@ public class EnemyCatSpawner : Spawner
     {
         BoxCollider2D spawner = this.GetRandomSpawner(this.spawners);
         Vector2 position = this.GetRandomSpawnerPosition(spawner);
-        EnemyCat enemyCatPrefab = this.GetRandomEnemyCatPrefab();
+        Enemy enemyCatPrefab = this.GetRandomEnemyCatPrefab();
 
-        EnemyCat enemyCat = Instantiate(enemyCatPrefab, position, Quaternion.identity);
+        Enemy enemyCat = Instantiate(enemyCatPrefab, position, Quaternion.identity);
         enemyCats.Add(enemyCat);
 
         Vector2 direction = this.enemyCatTarget.transform.position - enemyCat.transform.position;
@@ -40,7 +40,7 @@ public class EnemyCatSpawner : Spawner
 
     private void Start()
     {
-        enemyCats = new List<EnemyCat>();
+        enemyCats = new List<Enemy>();
         StartCoroutine(this.SpawnHandler(SpawnEnemyCat));
         StartCoroutine(this.DecreaseSpawnRateSeconds());
     }

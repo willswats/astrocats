@@ -4,12 +4,12 @@ using System.Collections;
 public class EnemyCatWeapon : Weapon
 {
     public float projectileSeconds = 1f;
-    private EnemyCat enemyCat;
+    private Enemy enemyCat;
     private bool parentCollided = false;
 
     private void Start()
     {
-        enemyCat = GetComponentInParent<EnemyCat>();
+        enemyCat = GetComponentInParent<Enemy>();
         StartCoroutine(this.HandleFireEnemy());
     }
 

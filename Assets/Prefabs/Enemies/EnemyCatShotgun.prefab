@@ -159,7 +159,7 @@ GameObject:
   - component: {fileID: 3855644092376619031}
   - component: {fileID: 6516770366653415017}
   - component: {fileID: 5766333670566954483}
-  - component: {fileID: 4174351783305232478}
+  - component: {fileID: 3003170230942626008}
   m_Layer: 8
   m_Name: EnemyCatShotgun
   m_TagString: Asteroid
@@ -378,7 +378,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5784698, y: 0.7503028}
   m_EdgeRadius: 0
---- !u!114 &4174351783305232478
+--- !u!114 &3003170230942626008
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -387,7 +387,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7086489037101457445}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2826b30f9c7319452ad3e0a745508bbf, type: 3}
+  m_Script: {fileID: 11500000, guid: c90a43f762a3c62d2aca7e7580e9a405, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pickupSpawner: {fileID: 6732064406872171360, guid: 5e1e4f5b6a0c4d080bbc479eb6747320, type: 3}

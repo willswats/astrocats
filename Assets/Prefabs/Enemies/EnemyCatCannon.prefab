@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 7803115777871694745}
   - component: {fileID: 6618605094149012714}
   - component: {fileID: 1496184779753230371}
-  - component: {fileID: 4668670632323331883}
   - component: {fileID: 6630515928352938032}
+  - component: {fileID: 1367098899854510130}
   m_Layer: 8
   m_Name: EnemyCatCannon
   m_TagString: Asteroid
@@ -206,26 +206,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &4668670632323331883
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3435571341206064353}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2826b30f9c7319452ad3e0a745508bbf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pickupSpawner: {fileID: 6732064406872171360, guid: 0af315b4cab45aeb98f507b7a3b27e32, type: 3}
-  scoreGiven: 10
-  damageGiven: 25
-  lifeTimeSeconds: 30
-  destroySelfSeconds: 2
-  collidedProjectile: 0
-  spriteRenderer: {fileID: 0}
-  rb2d: {fileID: 0}
 --- !u!61 &6630515928352938032
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -252,6 +232,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.4967704, y: 1.5161022}
   m_EdgeRadius: 0
+--- !u!114 &1367098899854510130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3435571341206064353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c90a43f762a3c62d2aca7e7580e9a405, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupSpawner: {fileID: 6732064406872171360, guid: 0af315b4cab45aeb98f507b7a3b27e32, type: 3}
+  scoreGiven: 10
+  damageGiven: 25
+  lifeTimeSeconds: 30
+  destroySelfSeconds: 2
+  collidedProjectile: 0
 --- !u!1 &5245378236140581611
 GameObject:
   m_ObjectHideFlags: 0

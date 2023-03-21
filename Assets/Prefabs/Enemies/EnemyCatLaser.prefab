@@ -92,8 +92,8 @@ GameObject:
   - component: {fileID: 1582373017320712011}
   - component: {fileID: 3416697751258468230}
   - component: {fileID: 2364919516592824491}
-  - component: {fileID: 5121407769035742560}
   - component: {fileID: 7547192422176445441}
+  - component: {fileID: -4778129971430088536}
   m_Layer: 8
   m_Name: EnemyCatLaser
   m_TagString: Asteroid
@@ -286,24 +286,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &5121407769035742560
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8255218830205709624}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2826b30f9c7319452ad3e0a745508bbf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pickupSpawner: {fileID: 6732064406872171360, guid: 4a537618f8acfe846ab5c6d913c5ea71, type: 3}
-  scoreGiven: 10
-  damageGiven: 25
-  lifeTimeSeconds: 30
-  destroySelfSeconds: 2
-  collidedProjectile: 0
 --- !u!61 &7547192422176445441
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -330,3 +312,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.4871054, y: 1.0328164}
   m_EdgeRadius: 0
+--- !u!114 &-4778129971430088536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8255218830205709624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c90a43f762a3c62d2aca7e7580e9a405, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupSpawner: {fileID: 6732064406872171360, guid: 4a537618f8acfe846ab5c6d913c5ea71, type: 3}
+  scoreGiven: 10
+  damageGiven: 25
+  lifeTimeSeconds: 30
+  destroySelfSeconds: 2
+  collidedProjectile: 0
