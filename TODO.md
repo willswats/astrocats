@@ -4,6 +4,7 @@
 
 - [ ] Player hit
 - [ ] Player death
+- [ ] Thruster plays twice on respawn
 
 ## Weapons
 
