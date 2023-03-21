@@ -4,6 +4,7 @@
 
 - [ ] Thruster audio
 - [ ] Animated thrusters
+- [ ] Explode noise on player death
 
 ## Refactor
 
