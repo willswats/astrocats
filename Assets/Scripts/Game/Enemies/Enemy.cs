@@ -11,13 +11,13 @@ public class Enemy : MonoBehaviour
 
     public SpriteRenderer spriteRenderer { get; private set; }
     public Rigidbody2D rb2d { get; private set; }
-    private AudioSource audiosource;
+    private AudioSource audioSource;
 
     public virtual void Awake()
     {
         this.spriteRenderer = GetComponent<SpriteRenderer>();
         this.rb2d = GetComponent<Rigidbody2D>();
-        this.audiosource = GetComponent<AudioSource>();
+        this.audioSource = GetComponent<AudioSource>();
     }
 
     public virtual void Start()
@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour
         this.rb2d.simulated = false;
         GetComponent<Collider2D>().enabled = false;
 
-        this.audiosource.Play();
+        this.audioSource.Play();
         this.pickupSpawner.Spawn(this.transform.position);
         Destroy(this.gameObject, destroySelfSeconds);
     }

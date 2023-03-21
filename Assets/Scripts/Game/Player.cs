@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
     private GameObject weaponLaser;
     private GameObject weaponCannon;
     private Rigidbody2D rb2d;
+    private AudioSource audioSource;
+    private Animator anim;
 
     public void DamagePlayer(int damage)
     {
@@ -61,19 +63,37 @@ public class Player : MonoBehaviour
         this.horizontalInput = Input.GetAxisRaw("Horizontal");
     }
 
-    private void HandleVerticalInput()
+    private void Move()
     {
         this.rb2d.AddRelativeForce(new Vector2(0, -this.verticalInput) * this.moveSpeed);
+        this.rb2d.AddTorque(-this.horizontalInput * this.rotationSpeed);
     }
 
-    private void HandleHorizontalInput()
+    private void PlayThrusterAudio()
     {
-        this.rb2d.AddTorque(-this.horizontalInput * this.rotationSpeed);
+        if (horizontalInput != 0)
+        {
+            audioSource.Play();
+        }
+        if (horizontalInput == 0)
+        {
+            audioSource.Stop();
+        }
+        if (verticalInput != 0)
+        {
+            audioSource.Play();
+        }
+        if (verticalInput == 0)
+        {
+            audioSource.Stop();
+        }
     }
 
     private void Awake()
     {
         this.rb2d = GetComponent<Rigidbody2D>();
+        this.anim = GetComponent<Animator>();
+        this.audioSource = GetComponent<AudioSource>();
     }
 
     private void Start()
@@ -84,6 +104,7 @@ public class Player : MonoBehaviour
         this.weaponLaser = GameManager.Instance.GetGameObjectWithTag(this.gameObject, "WeaponLaser");
         this.weaponCannon = GameManager.Instance.GetGameObjectWithTag(this.gameObject, "WeaponCannon");
         this.SetWeapon("Default");
+        InvokeRepeating(nameof(PlayThrusterAudio), 1f, 1f);
     }
 
     private void Update()
@@ -93,7 +114,6 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        this.HandleVerticalInput();
-        this.HandleHorizontalInput();
+        this.Move();
     }
 }
