@@ -93,6 +93,15 @@ public class Player : MonoBehaviour
         {
             anim.SetTrigger("Thruster");
         }
+        else
+        {
+            this.anim.speed = 1;
+        }
+    }
+
+    private void AnimationEventPause()
+    {
+        this.anim.speed = 0;
     }
 
     private void Awake()
