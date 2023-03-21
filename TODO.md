@@ -2,20 +2,7 @@
 
 ## 1.0
 
-- [ ] Thruster audio
-- [ ] Animated thrusters
 - [ ] Explode noise on player death
-
-## Refactor
-
-- [ ] Rename:
-  - [ ] Variables
-  - [ ] Sprites
-  - [ ] Audio
-  - [ ] Prefabs
-- [ ] Remove public variables and use get and set
-- [ ] Reduce repetition:
-  - [ ] DamagePlayer method
 
 ## UI
 
@@ -32,3 +19,14 @@
 ## Weapons
 
 - [ ] Make shooting a hold button and at an interval
+
+## Refactor
+
+- [ ] Rename:
+  - [ ] Variables
+  - [ ] Sprites
+  - [ ] Audio
+  - [ ] Prefabs
+- [ ] Remove public variables and use get and set
+- [ ] Reduce repetition:
+  - [ ] DamagePlayer method
