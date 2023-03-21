@@ -1,5 +1,10 @@
 # TODO
 
+## Audio
+
+- [ ] Player hit
+- [ ] Player death
+
 ## Weapons
 
 - [ ] Make shooting a hold button and at an interval
