@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class EnemyCatSpawner : Spawner
 {
     public GameObject enemyCatTarget;
-    public float enemyCatTrajectorySpeed = 10f;
+    public float enemyCatSpeed = 10f;
     public EnemyCat[] enemyCatPrefabs;
     private List<EnemyCat> enemyCats;
 
@@ -35,7 +35,7 @@ public class EnemyCatSpawner : Spawner
         enemyCats.Add(enemyCat);
 
         Vector2 direction = this.enemyCatTarget.transform.position - enemyCat.transform.position;
-        enemyCat.rb2d.AddForce(direction * this.enemyCatTrajectorySpeed);
+        enemyCat.rb2d.AddForce(direction * this.enemyCatSpeed);
     }
 
     private void Start()

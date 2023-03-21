@@ -14,6 +14,7 @@ public class EnemyAsteroidSpawner : Spawner
     {
         foreach (EnemyAsteroid enemyAsteroid in enemyAsteroids)
         {
+            enemyAsteroid.DestroyAllSplitAsteroids();
             if (enemyAsteroid != null)
             {
                 Destroy(enemyAsteroid.gameObject);

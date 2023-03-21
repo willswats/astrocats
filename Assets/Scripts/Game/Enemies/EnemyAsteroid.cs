@@ -1,17 +1,30 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class EnemyAsteroid : Enemy
 {
     public Sprite[] sprites;
     public float size = 1f;
     public float splitEnemyAsteroidSpeed = 100f;
+    private List<EnemyAsteroid> splitEnemyAsteroids;
 
     public override void Start()
     {
         base.Start();
         this.RandomiseSprite();
+        this.splitEnemyAsteroids = new List<EnemyAsteroid>();
     }
 
+    public void DestroyAllSplitAsteroids()
+    {
+        foreach (EnemyAsteroid splitEnemyAsteroid in splitEnemyAsteroids)
+        {
+            if (splitEnemyAsteroid != null)
+            {
+                Destroy(splitEnemyAsteroid.gameObject);
+            }
+        }
+    }
     private void RandomiseSprite()
     {
         this.spriteRenderer.sprite = this.sprites[Random.Range(0, this.sprites.Length)];
@@ -25,6 +38,7 @@ public class EnemyAsteroid : Enemy
             splitEnemyAsteroidPosition += Random.insideUnitCircle;
 
             EnemyAsteroid splitEnemyAsteroid = Instantiate(this, splitEnemyAsteroidPosition, transform.rotation);
+            splitEnemyAsteroids.Add(splitEnemyAsteroid);
             splitEnemyAsteroid.gameObject.transform.localScale = this.gameObject.transform.localScale / 2;
 
             splitEnemyAsteroid.rb2d.AddForce(Random.insideUnitCircle.normalized * splitEnemyAsteroidSpeed);

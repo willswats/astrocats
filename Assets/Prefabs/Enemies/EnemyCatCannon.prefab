@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4668670632323331883}
   - component: {fileID: 6630515928352938032}
   m_Layer: 8
-  m_Name: EnemyCatThree
+  m_Name: EnemyCatCannon
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

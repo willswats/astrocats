@@ -9,8 +9,8 @@ public class Enemy : MonoBehaviour
     public float destroySelfSeconds = 2f;
     public bool collidedProjectile = false;
 
-    public SpriteRenderer spriteRenderer;
-    public Rigidbody2D rb2d;
+    public SpriteRenderer spriteRenderer { get; private set; }
+    public Rigidbody2D rb2d { get; private set; }
     private AudioSource audiosource;
 
     public virtual void Awake()
@@ -53,7 +53,6 @@ public class Enemy : MonoBehaviour
         string collisionTag = collision.gameObject.tag;
         if (collisionTag == "Projectile")
         {
-            this.collidedProjectile = true;
             if (this.collidedProjectile == false)
             {
                 this.DestroySelf();

@@ -6,7 +6,7 @@ public class Spawner : MonoBehaviour
 {
 
     public BoxCollider2D[] spawners;
-    public float spawnRateSeconds = 4f;
+    public float spawnRateSeconds = 6f;
 
     public BoxCollider2D GetRandomSpawner(BoxCollider2D[] spawners)
     {
@@ -42,8 +42,8 @@ public class Spawner : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(5f);
-            if (this.spawnRateSeconds >= 2f)
+            yield return new WaitForSeconds(4f);
+            if (this.spawnRateSeconds >= 1f)
             {
                 this.spawnRateSeconds -= 0.1f;
             }

@@ -119,7 +119,7 @@ AudioMixerGroupController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CatThree
+  m_Name: CatCannon
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: daf281a0f1e5440a29b20cb9d6d02851
   m_Children: []
@@ -176,7 +176,7 @@ AudioMixerGroupController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CatOne
+  m_Name: CatShotgun
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 1d1052abb7ab5fc2db0a403582d4d195
   m_Children: []
@@ -381,7 +381,7 @@ AudioMixerSnapshotController:
     93a6fd36535e244319cc16f9cd4e8fcb: 1
     6705e0c70cb1bb1f29a76c7f80d90909: 0.6
     2df5064b6e8ec3465a9d45b63841fcc6: -5
-    54a2afcb4d32ad570a109a6de3765a05: 5
+    54a2afcb4d32ad570a109a6de3765a05: 10
     70847ead560ff19529199449454e6308: 1
   m_TransitionOverrides: {}
 --- !u!244 &357112880805536329
@@ -503,7 +503,7 @@ AudioMixerGroupController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CatTwo
+  m_Name: CatLaser
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: c6dc1977aafb30c58bfaf5c41a507d0f
   m_Children: []
