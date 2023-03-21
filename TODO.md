@@ -1,8 +1,10 @@
 # TODO
 
-## Enemies
-
-- [ ] More spawn points
+- [ ] Take damage from projectile
+- [ ] Cleanup points on death
+- [ ] Remove public variables and use get and set
+- [ ] Fix shotgun spawning twice
+- [ ] Cannot play disabled audio (player death)
 
 ## Animation
 
@@ -10,16 +12,11 @@
 
 ## UI
 
-- [ ] Display score on end screen
-
-## Spawners
-
-- [ ] Spawn less enemies
-- [ ] Make difficulty curve longer and harder
-
-## Refactor
-
-- [ ] Remove public variables and use get and set
+- [ ] HUD:
+  - [ ] Time alive
+- [ ] End screen:
+  - [ ] Score
+  - [ ] Time alive
 
 ## Weapons
 
