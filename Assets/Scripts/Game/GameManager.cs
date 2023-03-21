@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public bool gamePaused = false;
     public EnemyAsteroidSpawner enemyAsteroidSpawner;
     public EnemyCatSpawner enemyCatSpawner;
-    public PickupSpawner[] pickupSpawners;
+    public PickupSpawner pickupSpawner;
     public static GameManager Instance { get; private set; }
 
     public GameObject GetGameObjectWithTag(GameObject parent, string tag)
@@ -46,10 +46,6 @@ public class GameManager : MonoBehaviour
         {
             this.enemyCatSpawner.DestroyAllEnemyCats();
             this.enemyAsteroidSpawner.DestroyAllEnemyAsteroids();
-            foreach (PickupSpawner pickupSpawner in pickupSpawners)
-            {
-                pickupSpawner.DestroyAllPickups();
-            }
             Instantiate(this.player);
         }
     }

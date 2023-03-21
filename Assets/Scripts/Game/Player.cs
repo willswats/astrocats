@@ -27,6 +27,13 @@ public class Player : MonoBehaviour
         if (this.health <= 0)
         {
             spriteRenderer.enabled = false;
+
+            int childCount = this.transform.childCount;
+            for (int i = 0; i < childCount; i++)
+            {
+                Destroy(transform.GetChild(i).gameObject);
+            }
+
             Destroy(this.gameObject, 2f);
             GameManager.Instance.KillPlayer();
         }
