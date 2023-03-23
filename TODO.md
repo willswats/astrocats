@@ -3,6 +3,7 @@
 ## Bug fix
 
 - [ ] Polygon collider is incorrect shape on asteroids
+- [ ] Boundaries are different in build and editor (not at edges)
 
 ## Audio
 
