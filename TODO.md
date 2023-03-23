@@ -2,9 +2,6 @@
 
 ## Bug fix
 
-- [ ] Player shooting on death will result in the player shooting itself
-- [ ] Thruster plays twice on respawn
-- [ ] Thruster keeps playing on game over
 - [ ] Polygon collider is incorrect shape on asteroids
 
 ## Audio
@@ -26,10 +23,12 @@
 
 ## Spawners
 
-- [ ] Delete all pickups on player death (was causing issues in build)
+- [ ] Delete all projectiles on player death
+- [ ] Delete all pickups on player death
 
 ## Refactor
 
+- [ ] Remove unnecessary code
 - [ ] Rename:
   - [ ] Variables
   - [ ] Sprites

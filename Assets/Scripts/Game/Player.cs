@@ -26,6 +26,9 @@ public class Player : MonoBehaviour
 
         if (this.health <= 0)
         {
+            audioSourceThruster.volume = 0;
+            this.rb2d.simulated = false;
+            GetComponent<Collider2D>().enabled = false;
             spriteRenderer.enabled = false;
 
             int childCount = this.transform.childCount;
