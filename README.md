@@ -8,7 +8,7 @@ A Unity Asteroids clone, but with cats.
 
 ## General Information
 
-All of the assets were created for this project, including the sprites and sounds.
+I built this project for an assignment. All of the assets were created for this project, including the sprites and sounds.
 
 ## Features
 
