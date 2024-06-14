@@ -10,7 +10,7 @@ A Unity Asteroids clone, but with cats.
 
 ## General Information
 
-The gameplay is similar to Asteroids, however, instead of asteroids, the enemies are astrocats (cats in the form of a spaceship). The astrocats spawn either at the top-left or top-right side of the screen and move horizontally across it. The player must shoot the astrocats, dodge their projectiles, and pick up their weapons and points to achieve a high score.
+The gameplay is similar to Asteroids, however, it includes a few additions, including new enemies and weapons. The enemies spawn either at the top-left or top-right side of the screen and move horizontally across it, they can be destroyed by the player, and upon which they drop their weapons, as well as points.
 
 I built this project for a College assignment and all of the assets were created by me (William Watson).
 
