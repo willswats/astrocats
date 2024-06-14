@@ -2,13 +2,15 @@
 
 A Unity Asteroids clone, but with cats.
 
+[willswats.itch.io/astrocats](https://willswats.itch.io/astrocats)
+
 ## Table of Contents
 
 - [General Information](#general-information)
 
 ## General Information
 
-I built this project for an assignment. All of the assets were created for this project, including the sprites and sounds.
+I built this project for a College assignment. All of the assets were created by me (William Watson).
 
 ## Features
 
