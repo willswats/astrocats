@@ -4,7 +4,7 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
-    public TextMeshProUGUI textPlayerScore;
+    public TextMeshProUGUI[] textPlayerScores;
     public TextMeshProUGUI textPlayerLives;
     public TextMeshProUGUI textPlayerHealth;
     public Menu gameOverMenu;
@@ -23,7 +23,10 @@ public class UIManager : MonoBehaviour
 
     public void SetTextPlayerScore(int score)
     {
-        this.textPlayerScore.text = $"Score: {score.ToString()}";
+        foreach (TextMeshProUGUI textPlayerScore in this.textPlayerScores)
+        {
+            textPlayerScore.text = $"Score: {score.ToString()}";
+        }
     }
 
     public void ToggleGameOverMenu()
