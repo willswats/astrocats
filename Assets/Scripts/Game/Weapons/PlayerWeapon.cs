@@ -1,14 +1,26 @@
 using UnityEngine;
+using System.Collections;
+
 
 public class PlayerWeapon : Weapon
 {
+    public bool coroutineRunning = false;
+
     private void Update()
     {
-        bool fireOnePressed = Input.GetButtonDown("Fire1");
+        bool fireOnePressed = Input.GetButton("Fire1");
 
-        if (fireOnePressed && !GameManager.Instance.gamePaused)
+        if (coroutineRunning == false && fireOnePressed && !GameManager.Instance.gamePaused)
         {
-            this.HandleFire();
+            StartCoroutine(WaitHandleFire());
         }
+    }
+
+    public IEnumerator WaitHandleFire()
+    {
+        coroutineRunning = true;
+        this.HandleFire();
+        yield return new WaitForSeconds(0.2f);
+        coroutineRunning = false;
     }
 }
