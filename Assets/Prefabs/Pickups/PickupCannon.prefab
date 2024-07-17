@@ -269,5 +269,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 10
-  lifeTimeSeconds: 10
-  waitBeforeDestroySeconds: 1
+  lifeTimeSeconds: 30

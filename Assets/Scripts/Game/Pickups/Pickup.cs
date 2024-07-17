@@ -4,7 +4,7 @@ public class Pickup : MonoBehaviour, IPickup
 {
     public int score = 10;
     public int lifeTimeSeconds = 10;
-    public int waitBeforeDestroySeconds = 1;
+    private int waitBeforeDestroySeconds = 1;
     private SpriteRenderer spriteRenderer;
     private BoxCollider2D boxCollider2D;
     private AudioSource audiosource;

@@ -3,7 +3,6 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public PickupSpawner pickupSpawner;
-    public int scoreGiven = 10;
     public int damageGiven = 25;
     public float lifeTimeSeconds = 30f;
     public float destroySelfSeconds = 2f;
@@ -51,7 +50,6 @@ public class Enemy : MonoBehaviour
 
     public void UpdateScore()
     {
-        GameManager.Instance.AddPlayerScore(this.scoreGiven);
         UIManager.Instance.SetTextPlayerScore(GameManager.Instance.GetPlayerScore());
     }
 
