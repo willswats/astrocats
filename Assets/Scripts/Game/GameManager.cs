@@ -8,7 +8,10 @@ public class GameManager : MonoBehaviour
     public bool gamePaused = false;
     public EnemyAsteroidSpawner enemyAsteroidSpawner;
     public EnemyCatSpawner enemyCatSpawner;
-    public PickupSpawner pickupSpawner;
+    public PickupSpawner pickupSpawnerPoint;
+    public PickupSpawner pickupSpawnerShotgun;
+    public PickupSpawner pickupSpawnerLaser;
+    public PickupSpawner pickupSpawnerCannon;
     public static GameManager Instance { get; private set; }
 
     public GameObject GetGameObjectWithTag(GameObject parent, string tag)
@@ -46,6 +49,10 @@ public class GameManager : MonoBehaviour
         {
             this.enemyCatSpawner.DestroyAllEnemyCats();
             this.enemyAsteroidSpawner.DestroyAllEnemyAsteroids();
+            this.pickupSpawnerPoint.DestroyAllPickups();
+            this.pickupSpawnerShotgun.DestroyAllPickups();
+            this.pickupSpawnerLaser.DestroyAllPickups();
+            this.pickupSpawnerCannon.DestroyAllPickups();
             Instantiate(this.player);
         }
     }
