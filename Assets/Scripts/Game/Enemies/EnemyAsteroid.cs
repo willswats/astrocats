@@ -19,6 +19,7 @@ public class EnemyAsteroid : Enemy
     {
         foreach (EnemyAsteroid splitEnemyAsteroid in splitEnemyAsteroids)
         {
+            splitEnemyAsteroid.DestroyPickups();
             if (splitEnemyAsteroid != null)
             {
                 Destroy(splitEnemyAsteroid.gameObject);

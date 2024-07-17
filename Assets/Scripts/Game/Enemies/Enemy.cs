@@ -42,6 +42,11 @@ public class Enemy : MonoBehaviour
         Destroy(this.gameObject, this.destroySelfSeconds);
     }
 
+    public void DestroyPickups()
+    {
+        this.pickupSpawner.DestroyPickups();
+    }
+
     public void DamagePlayer(Collision2D collision)
     {
         Player player = collision.gameObject.GetComponent<Player>();

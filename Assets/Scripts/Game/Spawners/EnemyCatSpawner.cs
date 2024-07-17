@@ -12,6 +12,7 @@ public class EnemyCatSpawner : Spawner
     {
         foreach (Enemy enemyCat in enemyCats)
         {
+            enemyCat.DestroyPickups();
             if (enemyCat != null)
             {
                 EnemyCatWeapon enemyCatWeapon = enemyCat.GetComponentInChildren<EnemyCatWeapon>();
