@@ -3932,9 +3932,6 @@ MonoBehaviour:
   enemyAsteroidSpawner: {fileID: 727662461}
   enemyCatSpawner: {fileID: 790983696}
   pickupSpawnerPoint: {fileID: 6732064406872171360, guid: 79fb72cf68f9be786a569f178c2f965b, type: 3}
-  pickupSpawnerShotgun: {fileID: 6732064406872171360, guid: 5e1e4f5b6a0c4d080bbc479eb6747320, type: 3}
-  pickupSpawnerLaser: {fileID: 6732064406872171360, guid: 4a537618f8acfe846ab5c6d913c5ea71, type: 3}
-  pickupSpawnerCannon: {fileID: 6732064406872171360, guid: 0af315b4cab45aeb98f507b7a3b27e32, type: 3}
 --- !u!4 &1614422410
 Transform:
   m_ObjectHideFlags: 0
