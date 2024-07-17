@@ -25,10 +25,10 @@ public class PickupSpawner : Spawner
         Quaternion rotation = this.GetRandomRotation();
 
         Pickup point = Instantiate(this.pickupPrefab, position, rotation);
-        Rigidbody2D pointRb2d = point.GetComponent<Rigidbody2D>();
+        pickups.Add(point);
 
+        Rigidbody2D pointRb2d = point.GetComponent<Rigidbody2D>();
         pointRb2d.AddTorque(Random.Range(this.minPointTorque, this.maxPointTorque));
 
-        pickups.Add(point);
     }
 }

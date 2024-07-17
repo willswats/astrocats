@@ -14,13 +14,10 @@ public class EnemyCatSpawner : Spawner
         {
             if (enemyCat != null)
             {
-                EnemyCatWeapon[] enemyCatWeapons = enemyCat.GetComponentsInChildren<EnemyCatWeapon>();
-                foreach (EnemyCatWeapon enemyCatWeapon in enemyCatWeapons)
+                EnemyCatWeapon enemyCatWeapon = enemyCat.GetComponentInChildren<EnemyCatWeapon>();
+                if (enemyCatWeapon != null)
                 {
-                    if (enemyCatWeapon != null)
-                    {
-                        enemyCatWeapon.DestroyAllProjectiles();
-                    }
+                    enemyCatWeapon.DestroyAllProjectiles();
                 }
                 Destroy(enemyCat.gameObject);
             }
