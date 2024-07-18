@@ -10,14 +10,4 @@ A Unity Asteroids clone, but with cats.
 
 ## General Information
 
-The gameplay is similar to Asteroids, however, it includes a few additions, including new enemies and weapons. The enemies spawn either at the top-left or top-right side of the screen and move horizontally across it, they can be destroyed by the player, and upon which they drop their weapons, as well as points.
-
-I built this project for a College assignment and all of the assets were created by me (William Watson).
-
-## Features
-
-- Multiple lives
-- Weapon pick-ups
-- Health pick-ups
-- Different types of enemies
-- Unique sound effects
+The gameplay is similar to Asteroids with a few additions, this includes; new enemies, weapons and a weapon upgrade system. Just like in Asteroids, the goal of the game is to get a high score, however, instead of destroying asteroids to get a high score, you must pick up points. As you play the game, the difficulty will increase, therefore, it is a good idea to upgrade your weapons by picking up the same ones over and over, the weapons are dropped by the Astrocats (enemies).
