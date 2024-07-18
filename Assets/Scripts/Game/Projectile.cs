@@ -38,6 +38,7 @@ public class Projectile : MonoBehaviour
 
     private void Start()
     {
+        GameManager.Instance.AddProjectile(this);
         Destroy(this.gameObject, this.projectileLifeTimeSeconds);
         this.audiosource = GetComponent<AudioSource>();
         this.audiosource.Play();

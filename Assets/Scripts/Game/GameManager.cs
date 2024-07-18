@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public EnemyAsteroidSpawner enemyAsteroidSpawner;
     public EnemyCatSpawner enemyCatSpawner;
     private List<Pickup> pickups;
+    private List<Projectile> projectiles;
     public static GameManager Instance { get; private set; }
 
     public GameObject GetGameObjectWithTag(GameObject parent, string tag)
@@ -48,6 +49,7 @@ public class GameManager : MonoBehaviour
             this.enemyCatSpawner.DestroyAllEnemyCats();
             this.enemyAsteroidSpawner.DestroyAllEnemyAsteroids();
             this.DeleteAllPickups();
+            this.DeleteAllProjectiles();
             Instantiate(this.player);
         }
     }
@@ -68,6 +70,22 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void AddProjectile(Projectile projectile)
+    {
+        projectiles.Add(projectile);
+    }
+
+    public void DeleteAllProjectiles()
+    {
+        foreach (Projectile projectile in projectiles)
+        {
+            if (projectile != null)
+            {
+                Destroy(projectile.gameObject);
+            }
+        }
+    }
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -83,6 +101,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         pickups = new List<Pickup>();
+        projectiles = new List<Projectile>();
         UIManager.Instance.SetTextPlayerScore(playerScore);
         UIManager.Instance.SetTextPlayerLives(playerLives);
         Instantiate(this.player);
