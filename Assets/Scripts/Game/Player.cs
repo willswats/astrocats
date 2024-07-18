@@ -7,38 +7,52 @@ public class Player : MonoBehaviour
     public float rotationSpeed = 0.5f;
     private float verticalInput;
     private float horizontalInput;
+
+    public float hitProtection = 1f;
+    private bool availableForAttack;
+    private float lastAttackedAt = -9999f;
+
     private GameObject weaponDefault;
     private GameObject weaponShotgun;
     private GameObject weaponLaser;
     private GameObject weaponCannon;
+
     private Rigidbody2D rb2d;
     private SpriteRenderer spriteRenderer;
+
     private AudioSource audioSourceExplosion;
     private AudioSource audioSourceThruster;
+
     private Animator anim;
 
     public void DamagePlayer(int damage)
     {
-        this.health -= damage;
-        UIManager.Instance.SetTextPlayerHealth(this.health);
-
-        audioSourceExplosion.Play();
-
-        if (this.health <= 0)
+        if (this.availableForAttack == true)
         {
-            audioSourceThruster.volume = 0;
-            this.rb2d.simulated = false;
-            GetComponent<Collider2D>().enabled = false;
-            spriteRenderer.enabled = false;
+            this.availableForAttack = false;
+            this.lastAttackedAt = Time.time;
 
-            int childCount = this.transform.childCount;
-            for (int i = 0; i < childCount; i++)
+            this.health -= damage;
+            UIManager.Instance.SetTextPlayerHealth(this.health);
+
+            this.audioSourceExplosion.Play();
+
+            if (this.health <= 0)
             {
-                Destroy(transform.GetChild(i).gameObject);
-            }
+                this.audioSourceThruster.volume = 0;
+                this.rb2d.simulated = false;
+                GetComponent<Collider2D>().enabled = false;
+                this.spriteRenderer.enabled = false;
 
-            Destroy(this.gameObject, 2f);
-            GameManager.Instance.KillPlayer();
+                int childCount = this.transform.childCount;
+                for (int i = 0; i < childCount; i++)
+                {
+                    Destroy(transform.GetChild(i).gameObject);
+                }
+
+                Destroy(this.gameObject, 2f);
+                GameManager.Instance.KillPlayer();
+            }
         }
     }
 
@@ -148,6 +162,12 @@ public class Player : MonoBehaviour
             this.GetInput();
             this.PlayThrusterAudio();
             this.PlayThrusterAnimation();
+        }
+
+        float availableForAttackTime = this.lastAttackedAt + this.hitProtection;
+        if (Time.time > availableForAttackTime)
+        {
+            availableForAttack = true;
         }
     }
 
