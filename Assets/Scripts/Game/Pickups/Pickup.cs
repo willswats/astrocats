@@ -3,7 +3,7 @@ using UnityEngine;
 public class Pickup : MonoBehaviour, IPickup
 {
     public int score = 10;
-    public int lifeTimeSeconds = 30;
+    public int lifeTimeSeconds = 60;
     private int waitBeforeDestroySeconds = 1;
     private SpriteRenderer spriteRenderer;
     private BoxCollider2D boxCollider2D;

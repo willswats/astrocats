@@ -269,4 +269,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
-  lifeTimeSeconds: 30
+  lifeTimeSeconds: 60
