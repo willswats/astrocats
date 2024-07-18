@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class GameManager : MonoBehaviour
     public bool gamePaused = false;
     public EnemyAsteroidSpawner enemyAsteroidSpawner;
     public EnemyCatSpawner enemyCatSpawner;
+    private List<Pickup> pickups;
     public static GameManager Instance { get; private set; }
 
     public GameObject GetGameObjectWithTag(GameObject parent, string tag)
@@ -45,7 +47,24 @@ public class GameManager : MonoBehaviour
         {
             this.enemyCatSpawner.DestroyAllEnemyCats();
             this.enemyAsteroidSpawner.DestroyAllEnemyAsteroids();
+            this.DeleteAllPickups();
             Instantiate(this.player);
+        }
+    }
+
+    public void AddPickup(Pickup pickup)
+    {
+        pickups.Add(pickup);
+    }
+
+    public void DeleteAllPickups()
+    {
+        foreach (Pickup pickup in pickups)
+        {
+            if (pickup != null)
+            {
+                Destroy(pickup.gameObject);
+            }
         }
     }
 
@@ -63,6 +82,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        pickups = new List<Pickup>();
         UIManager.Instance.SetTextPlayerScore(playerScore);
         UIManager.Instance.SetTextPlayerLives(playerLives);
         Instantiate(this.player);

@@ -14,11 +14,6 @@ public class EnemyCatSpawner : Spawner
         {
             if (enemyCat != null)
             {
-                EnemyCatWeapon enemyCatWeapon = enemyCat.GetComponentInChildren<EnemyCatWeapon>();
-                if (enemyCatWeapon != null)
-                {
-                    enemyCatWeapon.DestroyAllProjectiles();
-                }
                 Destroy(enemyCat.gameObject);
             }
 

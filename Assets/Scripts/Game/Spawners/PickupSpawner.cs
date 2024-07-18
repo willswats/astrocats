@@ -3,16 +3,19 @@ using UnityEngine;
 public class PickupSpawner : Spawner
 {
     public Pickup pickupPrefab;
-    public float minPointTorque = 25f;
-    public float maxPointTorque = 50f;
+    public float minPickupTorque = 25f;
+    public float maxPickupTorque = 50f;
 
-    public void Spawn(Vector2 position)
+    public Pickup Spawn(Vector2 position)
     {
         Quaternion rotation = this.GetRandomRotation();
 
-        Pickup point = Instantiate(this.pickupPrefab, position, rotation);
-        Rigidbody2D pointRb2d = point.GetComponent<Rigidbody2D>();
+        Pickup pickup = Instantiate(this.pickupPrefab, position, rotation);
+        GameManager.Instance.AddPickup(pickup);
 
-        pointRb2d.AddTorque(Random.Range(this.minPointTorque, this.maxPointTorque));
+        Rigidbody2D pickupRb2d = pickup.GetComponent<Rigidbody2D>();
+        pickupRb2d.AddTorque(Random.Range(this.minPickupTorque, this.maxPickupTorque));
+
+        return pickup;
     }
 }

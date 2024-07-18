@@ -23,15 +23,4 @@ public class Weapon : MonoBehaviour
             projectile.SetForce(transform.up);
         }
     }
-
-    public void DestroyAllProjectiles()
-    {
-        foreach (Projectile projectile in projectiles)
-        {
-            if (projectile != null)
-            {
-                Destroy(projectile.gameObject);
-            }
-        }
-    }
 }
