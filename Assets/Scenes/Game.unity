@@ -2128,7 +2128,10 @@ MonoBehaviour:
   - {fileID: 386093555}
   - {fileID: 97316402}
   - {fileID: 635814329}
-  spawnRateSeconds: 4
+  spawnRateSeconds: 5
+  spawnRateDecreaseSeconds: 10
+  spawnRateDecreaseBySeconds: 0.1
+  spawnRateDecreaseSecondsLimit: 1
   enemyAsteroidPrefab: {fileID: 5518058203174155482, guid: 9264eaeb96651678cbe400b3c28f2e7d, type: 3}
   enemyAsteroidTarget: {fileID: 2039998187}
   enemyAsteroidTrajectorySpeed: 10
@@ -2275,7 +2278,10 @@ MonoBehaviour:
   spawners:
   - {fileID: 2139263513}
   - {fileID: 1674476094}
-  spawnRateSeconds: 10
+  spawnRateSeconds: 20
+  spawnRateDecreaseSeconds: 10
+  spawnRateDecreaseBySeconds: 0.5
+  spawnRateDecreaseSecondsLimit: 5
   enemyCatTarget: {fileID: 1083826459}
   enemyCatSpeed: 10
   enemyCatPrefabs:
