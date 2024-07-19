@@ -2281,7 +2281,7 @@ MonoBehaviour:
   spawnRateSeconds: 20
   spawnRateDecreaseSeconds: 10
   spawnRateDecreaseBySeconds: 0.5
-  spawnRateDecreaseSecondsLimit: 5
+  spawnRateDecreaseSecondsLimit: 10
   enemyCatTarget: {fileID: 1083826459}
   enemyCatSpeed: 10
   enemyCatPrefabs:
