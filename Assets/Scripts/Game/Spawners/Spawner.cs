@@ -46,7 +46,7 @@ public class Spawner : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(spawnRateDecreaseSeconds);
-            if (this.spawnRateSeconds >= this.spawnRateDecreaseSecondsLimit)
+            if (this.spawnRateSeconds > this.spawnRateDecreaseSecondsLimit)
             {
                 this.spawnRateSeconds -= this.spawnRateDecreaseBySeconds;
             }
