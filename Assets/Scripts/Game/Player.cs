@@ -65,24 +65,28 @@ public class Player : MonoBehaviour
                 this.weaponShotgun.SetActive(false);
                 this.weaponLaser.SetActive(false);
                 this.weaponCannon.SetActive(false);
+                GameManager.Instance.SetCurrentWeapon("Default");
                 break;
             case "Shotgun":
                 this.weaponDefault.SetActive(false);
                 this.weaponShotgun.SetActive(true);
                 this.weaponLaser.SetActive(false);
                 this.weaponCannon.SetActive(false);
+                GameManager.Instance.SetCurrentWeapon("Shotgun");
                 break;
             case "Laser":
                 this.weaponDefault.SetActive(false);
                 this.weaponShotgun.SetActive(false);
                 this.weaponLaser.SetActive(true);
                 this.weaponCannon.SetActive(false);
+                GameManager.Instance.SetCurrentWeapon("Laser");
                 break;
             case "Cannon":
                 this.weaponDefault.SetActive(false);
                 this.weaponShotgun.SetActive(false);
                 this.weaponLaser.SetActive(false);
                 this.weaponCannon.SetActive(true);
+                GameManager.Instance.SetCurrentWeapon("Cannon");
                 break;
         }
     }
@@ -152,7 +156,7 @@ public class Player : MonoBehaviour
         this.weaponShotgun = GameManager.Instance.GetGameObjectWithTag(this.gameObject, "WeaponShotgun");
         this.weaponLaser = GameManager.Instance.GetGameObjectWithTag(this.gameObject, "WeaponLaser");
         this.weaponCannon = GameManager.Instance.GetGameObjectWithTag(this.gameObject, "WeaponCannon");
-        this.SetWeapon("Default");
+        this.SetWeapon(GameManager.Instance.GetCurrentWeapon());
     }
 
     private void Update()

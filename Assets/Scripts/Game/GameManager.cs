@@ -7,11 +7,37 @@ public class GameManager : MonoBehaviour
     public int playerScore = 0;
     public int playerLives = 3;
     public bool gamePaused = false;
+    private string currentWeapon = "Default";
     public EnemyAsteroidSpawner enemyAsteroidSpawner;
     public EnemyCatSpawner enemyCatSpawner;
     private List<Pickup> pickups;
     private List<Projectile> projectiles;
     public static GameManager Instance { get; private set; }
+
+    public string GetCurrentWeapon()
+    {
+        return this.currentWeapon;
+    }
+
+    public void SetCurrentWeapon(string weapon)
+    {
+
+        switch (weapon)
+        {
+            case "Default":
+                this.currentWeapon = "Default";
+                break;
+            case "Shotgun":
+                this.currentWeapon = "Shotgun";
+                break;
+            case "Laser":
+                this.currentWeapon = "Laser";
+                break;
+            case "Cannon":
+                this.currentWeapon = "Cannon";
+                break;
+        }
+    }
 
     public GameObject GetGameObjectWithTag(GameObject parent, string tag)
     {
