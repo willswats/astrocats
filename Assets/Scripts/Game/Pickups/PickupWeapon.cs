@@ -23,12 +23,15 @@ public class PickupWeapon : Pickup
             {
                 case "PickupShotgun":
                     player.SetWeapon("Shotgun");
+                    player.UpgradeWeapon("Shotgun");
                     break;
                 case "PickupLaser":
                     player.SetWeapon("Laser");
+                    player.UpgradeWeapon("Laser");
                     break;
                 case "PickupCannon":
                     player.SetWeapon("Cannon");
+                    player.UpgradeWeapon("Cannon");
                     break;
             }
         }

@@ -17,6 +17,10 @@ public class Player : MonoBehaviour
     public GameObject weaponLaser;
     public GameObject weaponCannon;
 
+    private PlayerWeapon playerWeaponShotgun;
+    private PlayerWeapon playerWeaponLaser;
+    private PlayerWeapon playerWeaponCannon;
+
     private Rigidbody2D rb2d;
     private SpriteRenderer spriteRenderer;
 
@@ -91,6 +95,22 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void UpgradeWeapon(string weapon)
+    {
+        switch (weapon)
+        {
+            case "Shotgun":
+                playerWeaponShotgun.IncreaseFireRate();
+                break;
+            case "Laser":
+                playerWeaponLaser.IncreaseFireRate();
+                break;
+            case "Cannon":
+                playerWeaponCannon.IncreaseFireRate();
+                break;
+        }
+    }
+
     private void GetInput()
     {
         this.verticalInput = Input.GetAxisRaw("Vertical");
@@ -153,6 +173,14 @@ public class Player : MonoBehaviour
     {
         UIManager.Instance.SetTextPlayerHealth(this.health);
         this.SetWeapon(GameManager.Instance.GetCurrentWeapon());
+
+        playerWeaponShotgun = this.weaponShotgun.GetComponent<PlayerWeapon>();
+        playerWeaponLaser = this.weaponLaser.GetComponent<PlayerWeapon>();
+        playerWeaponCannon = this.weaponCannon.GetComponent<PlayerWeapon>();
+        playerWeaponShotgun.fireRate = 0.4f;
+        playerWeaponLaser.fireRate = 0.8f;
+        playerWeaponCannon.fireRate = 0.6f;
+
     }
 
     private void Update()

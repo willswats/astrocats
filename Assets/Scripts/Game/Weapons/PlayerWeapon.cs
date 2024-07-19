@@ -24,4 +24,14 @@ public class PlayerWeapon : Weapon
         yield return new WaitForSeconds(fireRate);
         coroutineRunning = false;
     }
+
+    public void IncreaseFireRate()
+    {
+        if (this.fireRate > 0.1f)
+        {
+            this.fireRate -= 0.1f;
+            StopCoroutine(WaitHandleFire());
+            this.coroutineRunning = false;
+        }
+    }
 }
