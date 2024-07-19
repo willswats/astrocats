@@ -12,10 +12,10 @@ public class Player : MonoBehaviour
     private bool availableForAttack;
     private float lastAttackedAt = -9999f;
 
-    private GameObject weaponDefault;
-    private GameObject weaponShotgun;
-    private GameObject weaponLaser;
-    private GameObject weaponCannon;
+    public GameObject weaponDefault;
+    public GameObject weaponShotgun;
+    public GameObject weaponLaser;
+    public GameObject weaponCannon;
 
     private Rigidbody2D rb2d;
     private SpriteRenderer spriteRenderer;
@@ -152,10 +152,6 @@ public class Player : MonoBehaviour
     private void Start()
     {
         UIManager.Instance.SetTextPlayerHealth(this.health);
-        this.weaponDefault = GameManager.Instance.GetGameObjectWithTag(this.gameObject, "WeaponDefault");
-        this.weaponShotgun = GameManager.Instance.GetGameObjectWithTag(this.gameObject, "WeaponShotgun");
-        this.weaponLaser = GameManager.Instance.GetGameObjectWithTag(this.gameObject, "WeaponLaser");
-        this.weaponCannon = GameManager.Instance.GetGameObjectWithTag(this.gameObject, "WeaponCannon");
         this.SetWeapon(GameManager.Instance.GetCurrentWeapon());
     }
 

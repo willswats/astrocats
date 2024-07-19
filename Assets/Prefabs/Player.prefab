@@ -496,6 +496,10 @@ MonoBehaviour:
   moveSpeed: 4
   rotationSpeed: 0.5
   hitProtection: 1
+  weaponDefault: {fileID: 6631850268907350616}
+  weaponShotgun: {fileID: 6631850269543625597}
+  weaponLaser: {fileID: 443519755977153630}
+  weaponCannon: {fileID: 5118731245331346961}
 --- !u!82 &-1530630519635453756
 AudioSource:
   m_ObjectHideFlags: 0
