@@ -4,7 +4,7 @@ using System.Collections;
 
 public class PlayerWeapon : Weapon
 {
-    public float fireRate = 0.6f;
+    public float waitFireAmount = 0.6f;
     public bool coroutineRunning = false;
 
     private void Update()
@@ -21,17 +21,17 @@ public class PlayerWeapon : Weapon
     {
         coroutineRunning = true;
         this.HandleFire();
-        yield return new WaitForSeconds(fireRate);
+        yield return new WaitForSeconds(waitFireAmount);
         coroutineRunning = false;
     }
 
-    public void IncreaseFireRate(int amount = 1)
+    public void DecreaseWaitAmount(float decreaseAmount, float decreaseLimit, int amount = 1)
     {
         for (int i = 0; i < amount; i++)
         {
-            if (this.fireRate > 0.1f)
+            if (this.waitFireAmount > decreaseLimit)
             {
-                this.fireRate -= 0.05f;
+                this.waitFireAmount -= decreaseAmount;
                 StopCoroutine(WaitHandleFire());
                 this.coroutineRunning = false;
             }

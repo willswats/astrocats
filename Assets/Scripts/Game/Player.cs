@@ -100,13 +100,13 @@ public class Player : MonoBehaviour
         switch (weapon)
         {
             case "Shotgun":
-                playerWeaponShotgun.IncreaseFireRate(amount);
+                playerWeaponShotgun.DecreaseWaitAmount(0.025f, 0.075f, amount);
                 break;
             case "Laser":
-                playerWeaponLaser.IncreaseFireRate(amount);
+                playerWeaponLaser.DecreaseWaitAmount(0.05f, 0.05f, amount);
                 break;
             case "Cannon":
-                playerWeaponCannon.IncreaseFireRate(amount);
+                playerWeaponCannon.DecreaseWaitAmount(0.05f, 0.05f, amount);
                 break;
         }
     }
@@ -185,9 +185,9 @@ public class Player : MonoBehaviour
         playerWeaponShotgun = this.weaponShotgun.GetComponent<PlayerWeapon>();
         playerWeaponLaser = this.weaponLaser.GetComponent<PlayerWeapon>();
         playerWeaponCannon = this.weaponCannon.GetComponent<PlayerWeapon>();
-        playerWeaponShotgun.fireRate = 0.4f;
-        playerWeaponLaser.fireRate = 0.8f;
-        playerWeaponCannon.fireRate = 0.6f;
+        playerWeaponShotgun.waitFireAmount = 0.6f;
+        playerWeaponLaser.waitFireAmount = 1f;
+        playerWeaponCannon.waitFireAmount = 0.8f;
 
         this.UpgradeWeaponsToCurrentCount();
     }

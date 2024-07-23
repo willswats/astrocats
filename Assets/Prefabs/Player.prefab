@@ -79,7 +79,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 1421503212304558506, guid: 0955d6a04eb6dac4e9edae9c1f261582, type: 3}
   projectileSpawnPoints:
   - {fileID: 7047042348882667427}
-  fireRate: 0.6
+  waitFireAmount: 0.6
   coroutineRunning: 0
 --- !u!1 &5118731245331346961
 GameObject:
@@ -129,7 +129,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 1421503212304558506, guid: 38709424346b842399dea007444a8cd8, type: 3}
   projectileSpawnPoints:
   - {fileID: 203186557678653069}
-  fireRate: 0.4
+  waitFireAmount: 0.6
   coroutineRunning: 0
 --- !u!1 &6631850268325041940
 GameObject:
@@ -210,7 +210,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 1421503212304558506, guid: 27d8e6253e4aaf60ba290896b86f1821, type: 3}
   projectileSpawnPoints:
   - {fileID: 6631850269894008752}
-  fireRate: 0.8
+  waitFireAmount: 0.8
   coroutineRunning: 0
 --- !u!1 &6631850269090079131
 GameObject:
@@ -796,7 +796,7 @@ MonoBehaviour:
   - {fileID: 6631850269447247930}
   - {fileID: 6631850268325041940}
   - {fileID: 6631850269090079131}
-  fireRate: 0.4
+  waitFireAmount: 0.6
   coroutineRunning: 0
 --- !u!1 &6631850269894008752
 GameObject:
