@@ -95,20 +95,28 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void UpgradeWeapon(string weapon)
+    public void UpgradeWeapon(string weapon, int amount = 1)
     {
         switch (weapon)
         {
             case "Shotgun":
-                playerWeaponShotgun.IncreaseFireRate();
+                playerWeaponShotgun.IncreaseFireRate(amount);
                 break;
             case "Laser":
-                playerWeaponLaser.IncreaseFireRate();
+                playerWeaponLaser.IncreaseFireRate(amount);
                 break;
             case "Cannon":
-                playerWeaponCannon.IncreaseFireRate();
+                playerWeaponCannon.IncreaseFireRate(amount);
                 break;
         }
+    }
+
+    public void UpgradeWeaponsToCurrentCount()
+    {
+        // -1 the weapon count as we do not upgrade the weapon on the first pickup
+        this.UpgradeWeapon("Shotgun", GameManager.Instance.GetWeaponCount("Shotgun") - 1);
+        this.UpgradeWeapon("Laser", GameManager.Instance.GetWeaponCount("Laser") - 1);
+        this.UpgradeWeapon("Cannon", GameManager.Instance.GetWeaponCount("Cannon") - 1);
     }
 
     private void GetInput()
@@ -181,6 +189,7 @@ public class Player : MonoBehaviour
         playerWeaponLaser.fireRate = 0.8f;
         playerWeaponCannon.fireRate = 0.6f;
 
+        this.UpgradeWeaponsToCurrentCount();
     }
 
     private void Update()
