@@ -7,6 +7,9 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI[] textPlayerScores;
     public TextMeshProUGUI textPlayerLives;
     public TextMeshProUGUI textPlayerHealth;
+    public TextMeshProUGUI textShotgunUpgrades;
+    public TextMeshProUGUI textLaserUpgrades;
+    public TextMeshProUGUI textCannonUpgrades;
     public Menu gameOverMenu;
     public Button gameOverMenuSelected;
     public static UIManager Instance { get; private set; }
@@ -26,6 +29,23 @@ public class UIManager : MonoBehaviour
         foreach (TextMeshProUGUI textPlayerScore in this.textPlayerScores)
         {
             textPlayerScore.text = $"Score: {score.ToString()}";
+        }
+    }
+
+
+    public void SetTextWeaponUpgrades(string weapon)
+    {
+        switch (weapon)
+        {
+            case "Shotgun":
+                this.textShotgunUpgrades.text = $"Shotgun: {GameManager.Instance.GetWeaponCount(weapon)}";
+                break;
+            case "Laser":
+                this.textLaserUpgrades.text = $"Laser: {GameManager.Instance.GetWeaponCount(weapon)}";
+                break;
+            case "Cannon":
+                this.textCannonUpgrades.text = $"Cannon: {GameManager.Instance.GetWeaponCount(weapon)}";
+                break;
         }
     }
 

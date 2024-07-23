@@ -154,6 +154,9 @@ public class GameManager : MonoBehaviour
         projectiles = new List<Projectile>();
         UIManager.Instance.SetTextPlayerScore(playerScore);
         UIManager.Instance.SetTextPlayerLives(playerLives);
+        UIManager.Instance.SetTextWeaponUpgrades("Shotgun");
+        UIManager.Instance.SetTextWeaponUpgrades("Laser");
+        UIManager.Instance.SetTextWeaponUpgrades("Cannon");
         Instantiate(this.player);
     }
 }
