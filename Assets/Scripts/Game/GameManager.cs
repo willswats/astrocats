@@ -39,19 +39,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public GameObject GetGameObjectWithTag(GameObject parent, string tag)
-    {
-        for (int i = 0; i < parent.transform.childCount; i++)
-        {
-            if (parent.transform.GetChild(i).gameObject.tag == tag)
-            {
-                return parent.transform.GetChild(i).gameObject;
-            }
-        }
-
-        return null;
-    }
-
     public int GetPlayerScore()
     {
         return this.playerScore;
