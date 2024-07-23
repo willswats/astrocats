@@ -159,4 +159,9 @@ public class GameManager : MonoBehaviour
         UIManager.Instance.SetTextWeaponUpgrades("Cannon");
         Instantiate(this.player);
     }
+
+    private void Update()
+    {
+        UIManager.Instance.SetTextTime(Time.time);
+    }
 }

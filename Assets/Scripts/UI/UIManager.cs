@@ -4,6 +4,7 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
+    public TextMeshProUGUI textTime;
     public TextMeshProUGUI[] textPlayerScores;
     public TextMeshProUGUI textPlayerLives;
     public TextMeshProUGUI textPlayerHealth;
@@ -13,6 +14,15 @@ public class UIManager : MonoBehaviour
     public Menu gameOverMenu;
     public Button gameOverMenuSelected;
     public static UIManager Instance { get; private set; }
+
+    public void SetTextTime(float time)
+    {
+        int timeInt = (int)time;
+        int minutes = timeInt / 60;
+        int seconds = timeInt % 60;
+        string timeText = $"{minutes}m{seconds}s";
+        this.textTime.text = $"{timeText}";
+    }
 
     public void SetTextPlayerHealth(int health)
     {
