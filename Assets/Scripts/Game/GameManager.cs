@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour
     public int playerLives = 3;
     public bool gamePaused = false;
     private string currentWeapon = "Default";
+    private int weaponShotgunCount = 0;
+    private int weaponLaserCount = 0;
+    private int weaponCannonCount = 0;
     public EnemyAsteroidSpawner enemyAsteroidSpawner;
     public EnemyCatSpawner enemyCatSpawner;
     private List<Pickup> pickups;
@@ -35,6 +38,40 @@ public class GameManager : MonoBehaviour
                 break;
             case "Cannon":
                 this.currentWeapon = "Cannon";
+                break;
+        }
+    }
+
+    public int GetWeaponCount(string weapon)
+    {
+
+        switch (weapon)
+        {
+            case "Shotgun":
+                return this.weaponShotgunCount;
+            case "Laser":
+                return this.weaponLaserCount;
+            case "Cannon":
+                return this.weaponCannonCount;
+            default:
+                return 0;
+        }
+    }
+
+
+    public void AddToWeaponCount(string weapon)
+    {
+
+        switch (weapon)
+        {
+            case "Shotgun":
+                this.weaponShotgunCount += 1;
+                break;
+            case "Laser":
+                this.weaponLaserCount += 1;
+                break;
+            case "Cannon":
+                this.weaponCannonCount += 1;
                 break;
         }
     }

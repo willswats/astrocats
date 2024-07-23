@@ -25,13 +25,16 @@ public class PlayerWeapon : Weapon
         coroutineRunning = false;
     }
 
-    public void IncreaseFireRate()
+    public void IncreaseFireRate(int amount = 1)
     {
-        if (this.fireRate > 0.1f)
+        for (int i = 0; i < amount; i++)
         {
-            this.fireRate -= 0.1f;
-            StopCoroutine(WaitHandleFire());
-            this.coroutineRunning = false;
+            if (this.fireRate > 0.1f)
+            {
+                this.fireRate -= 0.05f;
+                StopCoroutine(WaitHandleFire());
+                this.coroutineRunning = false;
+            }
         }
     }
 }

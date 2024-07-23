@@ -19,19 +19,26 @@ public class PickupWeapon : Pickup
                 playerWeapon.StopAllCoroutines();
             }
 
+            void pickupWeapon(string weapon)
+            {
+                player.SetWeapon(weapon);
+                GameManager.Instance.AddToWeaponCount(weapon);
+                if (GameManager.Instance.GetWeaponCount(weapon) >= 2)
+                {
+                    player.UpgradeWeapon(weapon);
+                }
+            }
+
             switch (this.gameObject.tag)
             {
                 case "PickupShotgun":
-                    player.SetWeapon("Shotgun");
-                    player.UpgradeWeapon("Shotgun");
+                    pickupWeapon("Shotgun");
                     break;
                 case "PickupLaser":
-                    player.SetWeapon("Laser");
-                    player.UpgradeWeapon("Laser");
+                    pickupWeapon("Laser");
                     break;
                 case "PickupCannon":
-                    player.SetWeapon("Cannon");
-                    player.UpgradeWeapon("Cannon");
+                    pickupWeapon("Cannon");
                     break;
             }
         }
