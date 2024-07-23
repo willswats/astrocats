@@ -162,6 +162,6 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        UIManager.Instance.SetTextTime(Time.time);
+        UIManager.Instance.SetTextTime(Time.timeSinceLevelLoad);
     }
 }
