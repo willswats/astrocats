@@ -57,7 +57,6 @@ public class EnemyAsteroid : Enemy
                     this.SplitEnemyAsteroid(2);
                 }
                 this.DestroySelf();
-                this.UpdateScore();
             }
             this.collidedProjectile = true;
         }

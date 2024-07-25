@@ -3,8 +3,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public int health = 100;
-    public float moveSpeed = 4f;
-    public float rotationSpeed = 0.5f;
+    public float moveSpeed = 2f;
+    public float rotationSpeed = 0.3f;
     private float verticalInput;
     private float horizontalInput;
 
@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
             this.lastAttackedAt = Time.time;
 
             this.health -= damage;
-            UIManager.Instance.SetTextPlayerHealth(this.health);
+            UIManager.Instance.SetTextPlayerHealth(this.health, GameManager.Instance.playerLives);
 
             this.audioSourceExplosion.Play();
 
@@ -93,6 +93,32 @@ public class Player : MonoBehaviour
                 GameManager.Instance.SetCurrentWeapon("Cannon");
                 break;
         }
+    }
+
+    public void LevelUp()
+    {
+        int experiencePoints = GameManager.Instance.GetPlayerExperiencePoints();
+        if (experiencePoints >= 10000)
+            if (experiencePoints >= 5000)
+            {
+                this.moveSpeed = 4f;
+                this.rotationSpeed = 0.5f;
+            }
+            else if (experiencePoints >= 1000)
+            {
+                this.moveSpeed = 3.5f;
+                this.rotationSpeed = 0.45f;
+            }
+            else if (experiencePoints >= 500)
+            {
+                this.moveSpeed = 3f;
+                this.rotationSpeed = 0.4f;
+            }
+            else if (experiencePoints >= 100)
+            {
+                this.moveSpeed = 2.5f;
+                this.rotationSpeed = 0.35f;
+            }
     }
 
     public void UpgradeWeapon(string weapon, int amount = 1)
@@ -179,7 +205,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        UIManager.Instance.SetTextPlayerHealth(this.health);
+        UIManager.Instance.SetTextPlayerHealth(this.health, GameManager.Instance.playerLives);
         this.SetWeapon(GameManager.Instance.GetCurrentWeapon());
 
         playerWeaponShotgun = this.weaponShotgun.GetComponent<PlayerWeapon>();
@@ -190,6 +216,7 @@ public class Player : MonoBehaviour
         playerWeaponCannon.waitFireAmount = 0.8f;
 
         this.UpgradeWeaponsToCurrentCount();
+        this.LevelUp();
     }
 
     private void Update()

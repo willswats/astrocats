@@ -5,8 +5,7 @@ using TMPro;
 public class UIManager : MonoBehaviour
 {
     public TextMeshProUGUI textTime;
-    public TextMeshProUGUI[] textPlayerScores;
-    public TextMeshProUGUI textPlayerLives;
+    public TextMeshProUGUI[] textsPlayerExperiencePoints;
     public TextMeshProUGUI textPlayerHealth;
     public TextMeshProUGUI textShotgunUpgrades;
     public TextMeshProUGUI textLaserUpgrades;
@@ -24,21 +23,45 @@ public class UIManager : MonoBehaviour
         this.textTime.text = $"{timeText}";
     }
 
-    public void SetTextPlayerHealth(int health)
+    public void SetTextPlayerHealth(int health, int lives)
     {
-        this.textPlayerHealth.text = $"Health: {health.ToString()}";
+        this.textPlayerHealth.text = $"Health: {health.ToString()} ({lives.ToString()})";
     }
 
-    public void SetTextPlayerLives(int lives)
+    public void SetTextPlayerExperiencePoints(int experiencePoints)
     {
-        this.textPlayerLives.text = $"Lives: {lives.ToString()}";
-    }
-
-    public void SetTextPlayerScore(int score)
-    {
-        foreach (TextMeshProUGUI textPlayerScore in this.textPlayerScores)
+        Debug.Log(experiencePoints);
+        int level = 0;
+        int experiencePointsNeededToLevelUp = 100 - experiencePoints;
+        if (experiencePoints >= 10000)
         {
-            textPlayerScore.text = $"Score: {score.ToString()}";
+            level = 5;
+            experiencePointsNeededToLevelUp = 0;
+        }
+        else if (experiencePoints >= 5000)
+        {
+            level = 4;
+            experiencePointsNeededToLevelUp = 10000 - experiencePoints;
+        }
+        else if (experiencePoints >= 1000)
+        {
+            level = 3;
+            experiencePointsNeededToLevelUp = 5000 - experiencePoints;
+        }
+        else if (experiencePoints >= 500)
+        {
+            level = 2;
+            experiencePointsNeededToLevelUp = 1000 - experiencePoints;
+        }
+        else if (experiencePoints >= 100)
+        {
+            level = 1;
+            experiencePointsNeededToLevelUp = 500 - experiencePoints;
+        }
+
+        foreach (TextMeshProUGUI textPlayerExperiencePoints in this.textsPlayerExperiencePoints)
+        {
+            textPlayerExperiencePoints.text = $"Level: {level} ({experiencePointsNeededToLevelUp})";
         }
     }
 

@@ -48,11 +48,6 @@ public class Enemy : MonoBehaviour
         player.DamagePlayer(damageGiven);
     }
 
-    public void UpdateScore()
-    {
-        UIManager.Instance.SetTextPlayerScore(GameManager.Instance.GetPlayerScore());
-    }
-
     public virtual void OnCollisionEnter2D(Collision2D collision)
     {
         string collisionTag = collision.gameObject.tag;
@@ -61,7 +56,6 @@ public class Enemy : MonoBehaviour
             if (this.collidedProjectile == false)
             {
                 this.DestroySelf();
-                this.UpdateScore();
             }
             this.collidedProjectile = true;
         }

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Pickup : MonoBehaviour, IPickup
 {
-    public int score = 10;
+    public int experiencePoints = 10;
     public int lifeTimeSeconds = 60;
     private int waitBeforeDestroySeconds = 1;
     private SpriteRenderer spriteRenderer;
@@ -16,10 +16,10 @@ public class Pickup : MonoBehaviour, IPickup
         Destroy(this.gameObject, this.waitBeforeDestroySeconds);
     }
 
-    private void UpdatePickupScore()
+    private void UpdatePickupExperiencePoints()
     {
-        GameManager.Instance.AddPlayerScore(this.score);
-        UIManager.Instance.SetTextPlayerScore(GameManager.Instance.GetPlayerScore());
+        GameManager.Instance.AddPlayerExperiencePoints(this.experiencePoints);
+        UIManager.Instance.SetTextPlayerExperiencePoints(GameManager.Instance.GetPlayerExperiencePoints());
     }
 
     private void Start()
@@ -35,8 +35,11 @@ public class Pickup : MonoBehaviour, IPickup
         if (collision.gameObject.tag == "Player")
         {
             this.audiosource.Play();
-            this.UpdatePickupScore();
+            this.UpdatePickupExperiencePoints();
             this.PickupDestroy();
+
+            Player player = collision.gameObject.GetComponent<Player>();
+            player.LevelUp();
         }
     }
 }

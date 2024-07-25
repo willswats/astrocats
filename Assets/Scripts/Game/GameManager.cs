@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class GameManager : MonoBehaviour
 {
     public Player player;
-    public int playerScore = 0;
+    public int experiencePoints = 0;
     public int playerLives = 3;
     public bool gamePaused = false;
     private string currentWeapon = "Default";
@@ -76,20 +76,20 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public int GetPlayerScore()
+    public int GetPlayerExperiencePoints()
     {
-        return this.playerScore;
+        return this.experiencePoints;
     }
 
-    public void AddPlayerScore(int score)
+    public void AddPlayerExperiencePoints(int experiencePoints)
     {
-        this.playerScore += score;
+        this.experiencePoints += experiencePoints;
     }
 
     public void KillPlayer()
     {
         this.playerLives -= 1;
-        UIManager.Instance.SetTextPlayerLives(playerLives);
+        UIManager.Instance.SetTextPlayerHealth(this.player.health, this.playerLives);
         if (this.playerLives <= 0)
         {
             UIManager.Instance.ToggleGameOverMenu();
@@ -152,8 +152,8 @@ public class GameManager : MonoBehaviour
     {
         pickups = new List<Pickup>();
         projectiles = new List<Projectile>();
-        UIManager.Instance.SetTextPlayerScore(playerScore);
-        UIManager.Instance.SetTextPlayerLives(playerLives);
+        UIManager.Instance.SetTextPlayerExperiencePoints(experiencePoints);
+        UIManager.Instance.SetTextPlayerHealth(this.player.health, this.playerLives);
         UIManager.Instance.SetTextWeaponUpgrades("Shotgun");
         UIManager.Instance.SetTextWeaponUpgrades("Laser");
         UIManager.Instance.SetTextWeaponUpgrades("Cannon");
