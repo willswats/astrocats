@@ -162,6 +162,8 @@ public class GameManager : MonoBehaviour
     {
         pickups = new List<Pickup>();
         projectiles = new List<Projectile>();
+        this.experiencePoints = 9980;
+        this.playerLives = 1;
         UIManager.Instance.SetTextPlayerExperiencePoints(experiencePoints);
         UIManager.Instance.SetTextPlayerHealth(this.player.health, this.playerLives);
         UIManager.Instance.SetTextWeaponUpgrades("Shotgun");
@@ -172,6 +174,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        UIManager.Instance.SetTextTime(Time.timeSinceLevelLoad);
+        UIManager.Instance.SetTextTime();
+        UIManager.Instance.SetTextsTimeEndScreen();
     }
 }

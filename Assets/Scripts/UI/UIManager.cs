@@ -7,13 +7,18 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI textTime;
     public TextMeshProUGUI textPlayerExperiencePoints;
     public TextMeshProUGUI textPlayerHealth;
+
     public TextMeshProUGUI textShotgunUpgrades;
     public TextMeshProUGUI textLaserUpgrades;
     public TextMeshProUGUI textCannonUpgrades;
+
+    public TextMeshProUGUI[] textsTimeEndScreen;
+
     public Menu gameOverMenu;
     public Button gameOverMenuSelected;
     public Menu winMenu;
     public Button winMenuSelected;
+
     public static UIManager Instance { get; private set; }
 
     private string GetPlayerLevelAndExperienceNeeded(int experiencePoints)
@@ -49,13 +54,30 @@ public class UIManager : MonoBehaviour
         return $"{level} (XP: {experiencePoints}/{experiencePointsNeededToLevelUp})";
     }
 
-    public void SetTextTime(float time)
+    private string GetTime(float time)
     {
+
         int timeInt = (int)time;
         int minutes = timeInt / 60;
         int seconds = timeInt % 60;
         string timeText = $"{minutes}m{seconds}s";
+
+        return timeText;
+    }
+
+    public void SetTextTime()
+    {
+        string timeText = GetTime(Time.timeSinceLevelLoad);
         this.textTime.text = $"{timeText}";
+    }
+
+    public void SetTextsTimeEndScreen()
+    {
+        string timeString = GetTime(Time.timeSinceLevelLoad);
+        foreach (TextMeshProUGUI textsTimeEndScreen in this.textsTimeEndScreen)
+        {
+            textsTimeEndScreen.text = $"Time: {timeString}";
+        }
     }
 
     public void SetTextPlayerHealth(int health, int lives)
@@ -68,7 +90,6 @@ public class UIManager : MonoBehaviour
         string playerLevelAndExperienceNeeded = GetPlayerLevelAndExperienceNeeded(experiencePoints);
         textPlayerExperiencePoints.text = $"Level: {playerLevelAndExperienceNeeded}";
     }
-
 
     public void SetTextWeaponUpgrades(string weapon)
     {
