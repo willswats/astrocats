@@ -126,13 +126,19 @@ public class Player : MonoBehaviour
         switch (weapon)
         {
             case "Shotgun":
-                playerWeaponShotgun.DecreaseWaitAmount(0.025f, 0.075f, amount);
+                float shotgunDecreaseAmount = 0.025f;
+                float shotgunDecreaseLimit = 0.05f;
+                playerWeaponShotgun.DecreaseWaitAmount(shotgunDecreaseAmount, shotgunDecreaseLimit, amount);
                 break;
             case "Laser":
-                playerWeaponLaser.DecreaseWaitAmount(0.05f, 0.05f, amount);
+                float laserDecreaseAmount = 0.075f;
+                float laserDecreaseLimit = 0.1f;
+                playerWeaponLaser.DecreaseWaitAmount(laserDecreaseAmount, laserDecreaseLimit, amount);
                 break;
             case "Cannon":
-                playerWeaponCannon.DecreaseWaitAmount(0.05f, 0.05f, amount);
+                float cannonDecreaseAmount = 0.05f;
+                float cannonDecreaseLimit = 0.075f;
+                playerWeaponCannon.DecreaseWaitAmount(cannonDecreaseAmount, cannonDecreaseLimit, amount);
                 break;
         }
     }
