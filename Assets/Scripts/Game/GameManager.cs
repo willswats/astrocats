@@ -66,13 +66,22 @@ public class GameManager : MonoBehaviour
         switch (weapon)
         {
             case "Shotgun":
-                this.weaponShotgunCount += 1;
+                if (this.weaponShotgunCount <= 20)
+                {
+                    this.weaponShotgunCount += 1;
+                }
                 break;
             case "Laser":
-                this.weaponLaserCount += 1;
+                if (this.weaponLaserCount <= 20)
+                {
+                    this.weaponLaserCount += 1;
+                }
                 break;
             case "Cannon":
-                this.weaponCannonCount += 1;
+                if (this.weaponCannonCount <= 20)
+                {
+                    this.weaponCannonCount += 1;
+                }
                 break;
         }
     }
