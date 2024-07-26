@@ -12,6 +12,8 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI textCannonUpgrades;
     public Menu gameOverMenu;
     public Button gameOverMenuSelected;
+    public Menu winMenu;
+    public Button winMenuSelected;
     public static UIManager Instance { get; private set; }
 
     private string GetPlayerLevelAndExperienceNeeded(int experiencePoints)
@@ -88,6 +90,13 @@ public class UIManager : MonoBehaviour
     {
         this.gameOverMenu.TogglePause();
         this.gameOverMenuSelected.Select();
+    }
+
+
+    public void ToggleWinMenu()
+    {
+        this.winMenu.TogglePause();
+        this.winMenuSelected.Select();
     }
 
     private void Awake()

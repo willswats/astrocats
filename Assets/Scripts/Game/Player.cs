@@ -99,26 +99,29 @@ public class Player : MonoBehaviour
     {
         int experiencePoints = GameManager.Instance.GetPlayerExperiencePoints();
         if (experiencePoints >= 10000)
-            if (experiencePoints >= 5000)
-            {
-                this.moveSpeed = 4f;
-                this.rotationSpeed = 0.5f;
-            }
-            else if (experiencePoints >= 1000)
-            {
-                this.moveSpeed = 3.5f;
-                this.rotationSpeed = 0.45f;
-            }
-            else if (experiencePoints >= 500)
-            {
-                this.moveSpeed = 3f;
-                this.rotationSpeed = 0.4f;
-            }
-            else if (experiencePoints >= 100)
-            {
-                this.moveSpeed = 2.5f;
-                this.rotationSpeed = 0.35f;
-            }
+        {
+            UIManager.Instance.ToggleWinMenu();
+        }
+        else if (experiencePoints >= 5000)
+        {
+            this.moveSpeed = 4f;
+            this.rotationSpeed = 0.5f;
+        }
+        else if (experiencePoints >= 1000)
+        {
+            this.moveSpeed = 3.5f;
+            this.rotationSpeed = 0.45f;
+        }
+        else if (experiencePoints >= 500)
+        {
+            this.moveSpeed = 3f;
+            this.rotationSpeed = 0.4f;
+        }
+        else if (experiencePoints >= 100)
+        {
+            this.moveSpeed = 2.5f;
+            this.rotationSpeed = 0.35f;
+        }
     }
 
     public void UpgradeWeapon(string weapon, int amount = 1)
