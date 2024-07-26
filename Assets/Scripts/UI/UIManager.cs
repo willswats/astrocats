@@ -5,7 +5,7 @@ using TMPro;
 public class UIManager : MonoBehaviour
 {
     public TextMeshProUGUI textTime;
-    public TextMeshProUGUI[] textsPlayerExperiencePoints;
+    public TextMeshProUGUI textPlayerExperiencePoints;
     public TextMeshProUGUI textPlayerHealth;
     public TextMeshProUGUI textShotgunUpgrades;
     public TextMeshProUGUI textLaserUpgrades;
@@ -14,23 +14,8 @@ public class UIManager : MonoBehaviour
     public Button gameOverMenuSelected;
     public static UIManager Instance { get; private set; }
 
-    public void SetTextTime(float time)
+    private string GetPlayerLevelAndExperienceNeeded(int experiencePoints)
     {
-        int timeInt = (int)time;
-        int minutes = timeInt / 60;
-        int seconds = timeInt % 60;
-        string timeText = $"{minutes}m{seconds}s";
-        this.textTime.text = $"{timeText}";
-    }
-
-    public void SetTextPlayerHealth(int health, int lives)
-    {
-        this.textPlayerHealth.text = $"Health: {health.ToString()} ({lives.ToString()})";
-    }
-
-    public void SetTextPlayerExperiencePoints(int experiencePoints)
-    {
-        Debug.Log(experiencePoints);
         int level = 0;
         int experiencePointsNeededToLevelUp = 100 - experiencePoints;
         if (experiencePoints >= 10000)
@@ -59,10 +44,27 @@ public class UIManager : MonoBehaviour
             experiencePointsNeededToLevelUp = 500 - experiencePoints;
         }
 
-        foreach (TextMeshProUGUI textPlayerExperiencePoints in this.textsPlayerExperiencePoints)
-        {
-            textPlayerExperiencePoints.text = $"Level: {level} ({experiencePointsNeededToLevelUp})";
-        }
+        return $"{level} ({experiencePointsNeededToLevelUp})";
+    }
+
+    public void SetTextTime(float time)
+    {
+        int timeInt = (int)time;
+        int minutes = timeInt / 60;
+        int seconds = timeInt % 60;
+        string timeText = $"{minutes}m{seconds}s";
+        this.textTime.text = $"{timeText}";
+    }
+
+    public void SetTextPlayerHealth(int health, int lives)
+    {
+        this.textPlayerHealth.text = $"Health: {health.ToString()} ({lives.ToString()})";
+    }
+
+    public void SetTextPlayerExperiencePoints(int experiencePoints)
+    {
+        string playerLevelAndExperienceNeeded = GetPlayerLevelAndExperienceNeeded(experiencePoints);
+        textPlayerExperiencePoints.text = $"Level: {playerLevelAndExperienceNeeded}";
     }
 
 
