@@ -54,7 +54,7 @@ public class UIManager : MonoBehaviour
         return $"{level} (XP: {experiencePoints}/{experiencePointsNeededToLevelUp})";
     }
 
-    private string GetTime(float time)
+    private string GetTimeTextMinutesSeconds(float time)
     {
 
         int timeInt = (int)time;
@@ -65,15 +65,27 @@ public class UIManager : MonoBehaviour
         return timeText;
     }
 
+
+    private string GetTimeTextMinutesSecondsMilliseconds(float time)
+    {
+        int timeInt = (int)time;
+        int minutes = timeInt / 60;
+        int seconds = timeInt % 60;
+        string milliseconds = time.ToString("N").Split(".")[1];
+        string timeText = $"{minutes}m{seconds}s{milliseconds}ms";
+
+        return timeText;
+    }
+
     public void SetTextTime()
     {
-        string timeText = GetTime(Time.timeSinceLevelLoad);
+        string timeText = GetTimeTextMinutesSeconds(Time.timeSinceLevelLoad);
         this.textTime.text = $"{timeText}";
     }
 
     public void SetTextsTimeEndScreen()
     {
-        string timeString = GetTime(Time.timeSinceLevelLoad);
+        string timeString = GetTimeTextMinutesSecondsMilliseconds(Time.timeSinceLevelLoad);
         foreach (TextMeshProUGUI textsTimeEndScreen in this.textsTimeEndScreen)
         {
             textsTimeEndScreen.text = $"Time: {timeString}";
