@@ -3,13 +3,14 @@ using UnityEngine.UI;
 
 public class VolumeManager : MonoBehaviour
 {
+    public float initialVolume = 0.5f;
     [SerializeField] Slider volumeSlider;
 
     private void Start()
     {
-        if (!PlayerPrefs.HasKey("musicVolume"))
+        if (!PlayerPrefs.HasKey("volume"))
         {
-            PlayerPrefs.SetFloat("musicVolume", 1);
+            PlayerPrefs.SetFloat("volume", initialVolume);
             Load();
         }
         else
@@ -26,12 +27,12 @@ public class VolumeManager : MonoBehaviour
 
     public void Load()
     {
-        volumeSlider.value = PlayerPrefs.GetFloat("musicVolume");
-        AudioListener.volume = PlayerPrefs.GetFloat("musicVolume");
+        volumeSlider.value = PlayerPrefs.GetFloat("volume");
+        AudioListener.volume = PlayerPrefs.GetFloat("volume");
     }
 
     private void Save()
     {
-        PlayerPrefs.SetFloat("musicVolume", volumeSlider.value);
+        PlayerPrefs.SetFloat("volume", volumeSlider.value);
     }
 }
