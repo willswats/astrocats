@@ -7,6 +7,7 @@ public class Menu : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
         Time.timeScale = 1f;
+        AudioListener.pause = false;
     }
 
     public void ExitGame()
@@ -21,12 +22,14 @@ public class Menu : MonoBehaviour
             gameObject.SetActive(false);
             Time.timeScale = 1f;
             GameManager.Instance.gamePaused = false;
+            AudioListener.pause = false;
         }
         else
         {
             gameObject.SetActive(true);
             Time.timeScale = 0f;
             GameManager.Instance.gamePaused = true;
+            AudioListener.pause = true;
         }
     }
 }
