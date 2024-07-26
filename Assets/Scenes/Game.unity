@@ -2262,7 +2262,7 @@ MonoBehaviour:
   - {fileID: 386093555}
   - {fileID: 97316402}
   - {fileID: 635814329}
-  spawnRateSeconds: 10
+  spawnRateSeconds: 5
   spawnRateDecreaseSeconds: 10
   spawnRateDecreaseBySeconds: 0.1
   spawnRateDecreaseSecondsLimit: 1
@@ -2415,7 +2415,7 @@ MonoBehaviour:
   spawners:
   - {fileID: 2139263513}
   - {fileID: 1674476094}
-  spawnRateSeconds: 60
+  spawnRateSeconds: 30
   spawnRateDecreaseSeconds: 5
   spawnRateDecreaseBySeconds: 0.5
   spawnRateDecreaseSecondsLimit: 10
@@ -4055,6 +4055,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 6631850269249061044, guid: 7e70e3a37167e71eaa65bccad1a76f22, type: 3}
+  currentPlayer: {fileID: 0}
   experiencePoints: 0
   playerLives: 3
   gamePaused: 0
@@ -4822,6 +4823,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 241872e7e0e28e8c2a6c1c39a10e923e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialVolume: 0.5
   volumeSlider: {fileID: 598585316}
 --- !u!4 &2012523958
 Transform:
