@@ -28,6 +28,9 @@ public class EnemyAsteroid : Enemy
     private void RandomiseSprite()
     {
         this.spriteRenderer.sprite = this.sprites[Random.Range(0, this.sprites.Length)];
+        // Refresh the polgyon collider to be set to the current sprite
+        Destroy(this.GetComponent<PolygonCollider2D>());
+        this.gameObject.AddComponent<PolygonCollider2D>();
     }
 
     public void SplitEnemyAsteroid(int count)
