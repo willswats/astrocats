@@ -204,8 +204,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6050d6a9c5188c879bf696fa3369845a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 10
-  lifeTimeSeconds: 60
+  healthGiven: 0
+  experiencePoints: 10
+  lifeTimeSeconds: 30
 --- !u!82 &3911978866155781212
 AudioSource:
   m_ObjectHideFlags: 0

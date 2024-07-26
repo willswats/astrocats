@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Pickup : MonoBehaviour, IPickup
 {
+    public int healthGiven = 0;
     public int experiencePoints = 10;
     public int lifeTimeSeconds = 60;
     private int waitBeforeDestroySeconds = 1;
@@ -39,6 +40,7 @@ public class Pickup : MonoBehaviour, IPickup
             this.PickupDestroy();
 
             Player player = collision.gameObject.GetComponent<Player>();
+            player.GainHealth(this.healthGiven);
             player.LevelUp();
         }
     }

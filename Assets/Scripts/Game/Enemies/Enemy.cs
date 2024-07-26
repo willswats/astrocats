@@ -3,6 +3,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public PickupSpawner pickupSpawner;
+    public PickupSpawner pickupSpawnerHealth;
     public int damageGiven = 25;
     public float lifeTimeSeconds = 30f;
     public float destroySelfSeconds = 2f;
@@ -31,7 +32,17 @@ public class Enemy : MonoBehaviour
         GetComponent<Collider2D>().enabled = false;
 
         this.audioSource.Play();
-        this.pickupSpawner.Spawn(this.transform.position);
+
+        int randomNumber = UnityEngine.Random.Range(1, 11);
+        if (randomNumber == 1 && pickupSpawnerHealth != null)
+        {
+            this.pickupSpawnerHealth.Spawn(this.transform.position);
+        }
+        else
+        {
+            this.pickupSpawner.Spawn(this.transform.position);
+        }
+
 
         int childCount = this.transform.childCount;
         for (int i = 0; i < childCount; i++)

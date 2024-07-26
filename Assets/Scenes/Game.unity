@@ -2502,7 +2502,7 @@ MonoBehaviour:
   - {fileID: 97316402}
   - {fileID: 635814329}
   spawnRateSeconds: 5
-  spawnRateDecreaseSeconds: 10
+  spawnRateDecreaseSeconds: 20
   spawnRateDecreaseBySeconds: 0.1
   spawnRateDecreaseSecondsLimit: 1
   enemyAsteroidPrefab: {fileID: 5518058203174155482, guid: 9264eaeb96651678cbe400b3c28f2e7d, type: 3}

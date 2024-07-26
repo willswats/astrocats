@@ -95,6 +95,15 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void GainHealth(int health)
+    {
+        if ((this.health + health) <= 100)
+        {
+            this.health += health;
+            UIManager.Instance.SetTextPlayerHealth(this.health, GameManager.Instance.playerLives);
+        }
+    }
+
     public void LevelUp()
     {
         int experiencePoints = GameManager.Instance.GetPlayerExperiencePoints();
