@@ -1,12 +1,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Runtime.InteropServices;
 
 public class Menu : MonoBehaviour
 {
-    [DllImport("__Internal")]
-    private static extern void Back();
-
     public void LoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
@@ -15,11 +11,7 @@ public class Menu : MonoBehaviour
 
     public void ExitGame()
     {
-    #if UNITY_WEBGL
-        Back();
-    #else
         Application.Quit();
-    #endif
     }
 
     public void TogglePause()
