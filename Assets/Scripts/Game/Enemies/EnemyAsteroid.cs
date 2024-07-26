@@ -29,8 +29,7 @@ public class EnemyAsteroid : Enemy
     private void RandomiseSprite()
     {
         this.spriteRenderer.sprite = this.sprites[UnityEngine.Random.Range(0, this.sprites.Length)];
-        // Refresh the polgyon collider to be set to the current sprite
-        Destroy(this.GetComponent<PolygonCollider2D>());
+        // Add the polygon colldier after setting the sprite to make it the correct shape
         this.gameObject.AddComponent<PolygonCollider2D>();
     }
 
