@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System;
 
 public class EnemyAsteroid : Enemy
 {
@@ -27,7 +28,7 @@ public class EnemyAsteroid : Enemy
     }
     private void RandomiseSprite()
     {
-        this.spriteRenderer.sprite = this.sprites[Random.Range(0, this.sprites.Length)];
+        this.spriteRenderer.sprite = this.sprites[UnityEngine.Random.Range(0, this.sprites.Length)];
         // Refresh the polgyon collider to be set to the current sprite
         Destroy(this.GetComponent<PolygonCollider2D>());
         this.gameObject.AddComponent<PolygonCollider2D>();
@@ -35,16 +36,33 @@ public class EnemyAsteroid : Enemy
 
     public void SplitEnemyAsteroid(int count)
     {
+        double distanceBetweenTwoPoints(float x1, float x2, float y1, float y2)
+        {
+            double distance = Math.Sqrt(Math.Pow((x1 - x2), 2) + Math.Pow((y1 - y2), 2));
+            return distance;
+
+        }
+
         for (var i = 0; i < count; i++)
         {
-            Vector2 splitEnemyAsteroidPosition = transform.position;
-            splitEnemyAsteroidPosition += Random.insideUnitCircle;
+            Vector2 splitEnemyAsteroidPosition = this.transform.position;
+            Vector2 randomSplitEnemyAsteroidPosition = splitEnemyAsteroidPosition + UnityEngine.Random.insideUnitCircle;
 
-            EnemyAsteroid splitEnemyAsteroid = Instantiate(this, splitEnemyAsteroidPosition, transform.rotation);
+            Vector3 playerPosition = GameManager.Instance.currentPlayer.gameObject.transform.position;
+
+            // find distance between two points (asteroid pos and player pos), if the distance is too small, then re-calculate the split enemy asteroid position
+            double distanceBetweenEnemyAsteroidAndPlayer = distanceBetweenTwoPoints(playerPosition.x, randomSplitEnemyAsteroidPosition.x, playerPosition.y, randomSplitEnemyAsteroidPosition.y);
+            while (distanceBetweenEnemyAsteroidAndPlayer <= 1)
+            {
+                randomSplitEnemyAsteroidPosition = splitEnemyAsteroidPosition + UnityEngine.Random.insideUnitCircle;
+                distanceBetweenEnemyAsteroidAndPlayer = distanceBetweenTwoPoints(playerPosition.x, randomSplitEnemyAsteroidPosition.x, playerPosition.y, randomSplitEnemyAsteroidPosition.y);
+            }
+
+            EnemyAsteroid splitEnemyAsteroid = Instantiate(this, randomSplitEnemyAsteroidPosition, transform.rotation);
             splitEnemyAsteroids.Add(splitEnemyAsteroid);
             splitEnemyAsteroid.gameObject.transform.localScale = this.gameObject.transform.localScale / 2;
 
-            splitEnemyAsteroid.rb2d.AddForce(Random.insideUnitCircle.normalized * splitEnemyAsteroidSpeed);
+            splitEnemyAsteroid.rb2d.AddForce(UnityEngine.Random.insideUnitCircle.normalized * splitEnemyAsteroidSpeed);
         }
     }
 

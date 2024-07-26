@@ -4,6 +4,7 @@ using System.Collections.Generic;
 public class GameManager : MonoBehaviour
 {
     public Player player;
+    public Player currentPlayer;
     public int experiencePoints = 0;
     public int playerLives = 3;
     public bool gamePaused = false;
@@ -100,7 +101,7 @@ public class GameManager : MonoBehaviour
             this.enemyAsteroidSpawner.DestroyAllEnemyAsteroids();
             this.DeleteAllPickups();
             this.DeleteAllProjectiles();
-            Instantiate(this.player);
+            currentPlayer = Instantiate(this.player);
         }
     }
 
@@ -157,7 +158,7 @@ public class GameManager : MonoBehaviour
         UIManager.Instance.SetTextWeaponUpgrades("Shotgun");
         UIManager.Instance.SetTextWeaponUpgrades("Laser");
         UIManager.Instance.SetTextWeaponUpgrades("Cannon");
-        Instantiate(this.player);
+        currentPlayer = Instantiate(this.player);
     }
 
     private void Update()
