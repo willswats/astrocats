@@ -9,9 +9,9 @@ public class GameManager : MonoBehaviour
     public int playerLives = 3;
     public bool gamePaused = false;
     private string currentWeapon = "Default";
-    private int weaponShotgunCount = 0;
-    private int weaponLaserCount = 0;
-    private int weaponCannonCount = 0;
+    public int weaponShotgunCount = 0;
+    public int weaponLaserCount = 0;
+    public int weaponCannonCount = 0;
     public EnemyAsteroidSpawner enemyAsteroidSpawner;
     public EnemyCatSpawner enemyCatSpawner;
     private List<Pickup> pickups;

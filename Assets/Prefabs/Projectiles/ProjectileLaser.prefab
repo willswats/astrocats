@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileVelocity: 1000
-  projectileLifeTimeSeconds: 1
+  projectileLifeTimeSeconds: 0.3
   destroySelfSeconds: 1
   damageGiven: 100
 --- !u!82 &-7593325710442085414

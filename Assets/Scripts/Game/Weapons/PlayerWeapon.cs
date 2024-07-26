@@ -25,16 +25,13 @@ public class PlayerWeapon : Weapon
         coroutineRunning = false;
     }
 
-    public void DecreaseWaitAmount(float decreaseAmount, float decreaseLimit, int amount = 1)
+    public void DecreaseWaitAmount(float decreaseAmount, int amount = 1)
     {
         for (int i = 0; i < amount; i++)
         {
-            if (this.waitFireAmount > decreaseLimit)
-            {
-                this.waitFireAmount -= decreaseAmount;
-                StopCoroutine(WaitHandleFire());
-                this.coroutineRunning = false;
-            }
+            this.waitFireAmount -= decreaseAmount;
+            StopCoroutine(WaitHandleFire());
+            this.coroutineRunning = false;
         }
     }
 }
