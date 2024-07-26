@@ -138,21 +138,21 @@ public class Player : MonoBehaviour
         switch (weapon)
         {
             case "Shotgun":
-                if (GameManager.Instance.weaponShotgunCount <= 20)
+                if (GameManager.Instance.weaponShotgunCount < 20)
                 {
                     float shotgunDecreaseAmount = 0.027f;
                     playerWeaponShotgun.DecreaseWaitAmount(shotgunDecreaseAmount, amount);
                 }
                 break;
             case "Laser":
-                if (GameManager.Instance.weaponLaserCount <= 20)
+                if (GameManager.Instance.weaponLaserCount < 20)
                 {
                     float laserDecreaseAmount = 0.045f;
                     playerWeaponLaser.DecreaseWaitAmount(laserDecreaseAmount, amount);
                 }
                 break;
             case "Cannon":
-                if (GameManager.Instance.weaponCannonCount <= 20)
+                if (GameManager.Instance.weaponCannonCount < 20)
                 {
                     float cannonDecreaseAmount = 0.036f;
                     playerWeaponCannon.DecreaseWaitAmount(cannonDecreaseAmount, amount);
