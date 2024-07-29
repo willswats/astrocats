@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
     public Player player;
     public Player currentPlayer;
     public int experiencePoints = 0;
+    public int experiencePointsWinCondition = 5000;
+    public int playerLevel = 0;
     public int playerLives = 3;
     public bool gamePaused = false;
     private string currentWeapon = "Default";
@@ -94,6 +96,21 @@ public class GameManager : MonoBehaviour
     public void AddPlayerExperiencePoints(int experiencePoints)
     {
         this.experiencePoints += experiencePoints;
+    }
+
+    public void ResetPlayerExperiencePoints()
+    {
+        this.experiencePoints = 0;
+    }
+
+    public int GetPlayerLevel()
+    {
+        return this.playerLevel;
+    }
+
+    public void AddPlayerLevel()
+    {
+        this.playerLevel += 1;
     }
 
     public void KillPlayer()

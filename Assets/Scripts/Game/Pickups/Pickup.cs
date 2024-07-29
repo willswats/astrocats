@@ -17,12 +17,6 @@ public class Pickup : MonoBehaviour, IPickup
         Destroy(this.gameObject, this.waitBeforeDestroySeconds);
     }
 
-    private void UpdatePickupExperiencePoints()
-    {
-        GameManager.Instance.AddPlayerExperiencePoints(this.experiencePoints);
-        UIManager.Instance.SetTextPlayerExperiencePoints(GameManager.Instance.GetPlayerExperiencePoints());
-    }
-
     private void Start()
     {
         this.spriteRenderer = this.gameObject.GetComponent<SpriteRenderer>();
@@ -36,12 +30,15 @@ public class Pickup : MonoBehaviour, IPickup
         if (collision.gameObject.tag == "Player")
         {
             this.audiosource.Play();
-            this.UpdatePickupExperiencePoints();
             this.PickupDestroy();
+
+            GameManager.Instance.AddPlayerExperiencePoints(this.experiencePoints);
 
             Player player = collision.gameObject.GetComponent<Player>();
             player.GainHealth(this.healthGiven);
             player.LevelUp();
+
+            UIManager.Instance.SetTextPlayerExperiencePoints(GameManager.Instance.GetPlayerExperiencePoints());
         }
     }
 }

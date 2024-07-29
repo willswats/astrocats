@@ -23,35 +23,29 @@ public class UIManager : MonoBehaviour
 
     private string GetPlayerLevelAndExperienceNeeded(int experiencePoints)
     {
-        int level = 0;
+        int playerLevel = GameManager.Instance.GetPlayerLevel();
+
         int experiencePointsNeededToLevelUp = 100;
-        if (experiencePoints >= 10000)
+        switch (playerLevel)
         {
-            level = 5;
-            experiencePointsNeededToLevelUp = 0;
-        }
-        else if (experiencePoints >= 5000)
-        {
-            level = 4;
-            experiencePointsNeededToLevelUp = 10000;
-        }
-        else if (experiencePoints >= 1000)
-        {
-            level = 3;
-            experiencePointsNeededToLevelUp = 5000;
-        }
-        else if (experiencePoints >= 500)
-        {
-            level = 2;
-            experiencePointsNeededToLevelUp = 1000;
-        }
-        else if (experiencePoints >= 100)
-        {
-            level = 1;
-            experiencePointsNeededToLevelUp = 500;
+            case 0:
+                experiencePointsNeededToLevelUp = 100;
+                break;
+            case 1:
+                experiencePointsNeededToLevelUp = 500;
+                break;
+            case 2:
+                experiencePointsNeededToLevelUp = 1000;
+                break;
+            case 3:
+                experiencePointsNeededToLevelUp = 2500;
+                break;
+            case 4:
+                experiencePointsNeededToLevelUp = 5000;
+                break;
         }
 
-        return $"{level} (XP: {experiencePoints}/{experiencePointsNeededToLevelUp})";
+        return $"{playerLevel} (XP: {experiencePoints}/{experiencePointsNeededToLevelUp})";
     }
 
     private string GetTimeTextMinutesSeconds(float time)

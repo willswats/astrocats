@@ -107,29 +107,37 @@ public class Player : MonoBehaviour
     public void LevelUp()
     {
         int experiencePoints = GameManager.Instance.GetPlayerExperiencePoints();
-        if (experiencePoints >= 10000)
+        if (experiencePoints >= GameManager.Instance.experiencePointsWinCondition)
         {
             UIManager.Instance.ToggleWinMenu();
         }
-        else if (experiencePoints >= 5000)
+        else if (experiencePoints >= 2500 && GameManager.Instance.GetPlayerLevel() == 3)
         {
             this.moveSpeed = 4f;
             this.rotationSpeed = 0.5f;
+            GameManager.Instance.AddPlayerLevel();
+            GameManager.Instance.ResetPlayerExperiencePoints();
         }
-        else if (experiencePoints >= 1000)
+        else if (experiencePoints >= 1000 && GameManager.Instance.GetPlayerLevel() == 2)
         {
             this.moveSpeed = 3.5f;
             this.rotationSpeed = 0.45f;
+            GameManager.Instance.AddPlayerLevel();
+            GameManager.Instance.ResetPlayerExperiencePoints();
         }
-        else if (experiencePoints >= 500)
+        else if (experiencePoints >= 500 && GameManager.Instance.GetPlayerLevel() == 1)
         {
             this.moveSpeed = 3f;
             this.rotationSpeed = 0.4f;
+            GameManager.Instance.AddPlayerLevel();
+            GameManager.Instance.ResetPlayerExperiencePoints();
         }
-        else if (experiencePoints >= 100)
+        else if (experiencePoints >= 100 && GameManager.Instance.GetPlayerLevel() == 0)
         {
             this.moveSpeed = 2.5f;
             this.rotationSpeed = 0.35f;
+            GameManager.Instance.AddPlayerLevel();
+            GameManager.Instance.ResetPlayerExperiencePoints();
         }
     }
 
