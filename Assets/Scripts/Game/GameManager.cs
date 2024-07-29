@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
     public Player player;
     public Player currentPlayer;
     public int experiencePoints = 0;
-    public int experiencePointsWinCondition = 5000;
+    public int experiencePointsWinCondition = 4000;
     public int playerLevel = 0;
     public int playerLives = 3;
     public bool gamePaused = false;

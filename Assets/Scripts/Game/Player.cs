@@ -111,7 +111,7 @@ public class Player : MonoBehaviour
         {
             UIManager.Instance.ToggleWinMenu();
         }
-        else if (experiencePoints >= 2500 && GameManager.Instance.GetPlayerLevel() == 3)
+        else if (experiencePoints >= 2000 && GameManager.Instance.GetPlayerLevel() == 3)
         {
             this.moveSpeed = 4f;
             this.rotationSpeed = 0.5f;
