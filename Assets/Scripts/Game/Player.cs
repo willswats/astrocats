@@ -106,75 +106,102 @@ public class Player : MonoBehaviour
 
     public void LevelUp()
     {
+        int playerLevel = GameManager.Instance.GetPlayerLevel();
         int experiencePoints = GameManager.Instance.GetPlayerExperiencePoints();
         if (experiencePoints >= GameManager.Instance.experiencePointsWinCondition)
         {
             UIManager.Instance.ToggleWinMenu();
         }
-        else if (experiencePoints >= 2000 && GameManager.Instance.GetPlayerLevel() == 3)
+        else if (experiencePoints >= 2000 && playerLevel == 3)
         {
-            this.moveSpeed = 4f;
-            this.rotationSpeed = 0.5f;
             GameManager.Instance.AddPlayerLevel();
             GameManager.Instance.ResetPlayerExperiencePoints();
+            SetLevel();
         }
-        else if (experiencePoints >= 1000 && GameManager.Instance.GetPlayerLevel() == 2)
+        else if (experiencePoints >= 1000 && playerLevel == 2)
         {
-            this.moveSpeed = 3.5f;
-            this.rotationSpeed = 0.45f;
             GameManager.Instance.AddPlayerLevel();
             GameManager.Instance.ResetPlayerExperiencePoints();
+            SetLevel();
         }
-        else if (experiencePoints >= 500 && GameManager.Instance.GetPlayerLevel() == 1)
+        else if (experiencePoints >= 500 && playerLevel == 1)
         {
-            this.moveSpeed = 3f;
-            this.rotationSpeed = 0.4f;
             GameManager.Instance.AddPlayerLevel();
             GameManager.Instance.ResetPlayerExperiencePoints();
+            SetLevel();
         }
-        else if (experiencePoints >= 100 && GameManager.Instance.GetPlayerLevel() == 0)
+        else if (experiencePoints >= 100 && playerLevel == 0)
         {
-            this.moveSpeed = 2.5f;
-            this.rotationSpeed = 0.35f;
             GameManager.Instance.AddPlayerLevel();
             GameManager.Instance.ResetPlayerExperiencePoints();
+            SetLevel();
         }
     }
 
+    public void SetLevel()
+    {
+        int playerLevel = GameManager.Instance.GetPlayerLevel();
+
+        if (playerLevel == 4)
+        {
+            this.moveSpeed = 4f;
+            this.rotationSpeed = 0.5f;
+        }
+        else if (playerLevel == 3)
+        {
+            this.moveSpeed = 3.5f;
+            this.rotationSpeed = 0.45f;
+        }
+        else if (playerLevel == 2)
+        {
+            this.moveSpeed = 3f;
+            this.rotationSpeed = 0.4f;
+        }
+        else if (playerLevel == 1)
+        {
+            this.moveSpeed = 2.5f;
+            this.rotationSpeed = 0.35f;
+        }
+    }
+
+
     public void UpgradeWeapon(string weapon, int amount = 1)
     {
-        switch (weapon)
+        // Don't upgrade on first pickup
+        if (GameManager.Instance.GetWeaponCount(weapon) >= 2)
         {
-            case "Shotgun":
-                if (GameManager.Instance.weaponShotgunCount < 20)
-                {
-                    float shotgunDecreaseAmount = 0.027f;
-                    playerWeaponShotgun.DecreaseWaitAmount(shotgunDecreaseAmount, amount);
-                }
-                break;
-            case "Laser":
-                if (GameManager.Instance.weaponLaserCount < 20)
-                {
-                    float laserDecreaseAmount = 0.045f;
-                    playerWeaponLaser.DecreaseWaitAmount(laserDecreaseAmount, amount);
-                }
-                break;
-            case "Cannon":
-                if (GameManager.Instance.weaponCannonCount < 20)
-                {
-                    float cannonDecreaseAmount = 0.036f;
-                    playerWeaponCannon.DecreaseWaitAmount(cannonDecreaseAmount, amount);
-                }
-                break;
+            switch (weapon)
+            {
+                case "Shotgun":
+                    if (GameManager.Instance.weaponShotgunCount < 20)
+                    {
+                        float shotgunDecreaseAmount = 0.027f;
+                        playerWeaponShotgun.DecreaseWaitAmount(shotgunDecreaseAmount, amount);
+                    }
+                    break;
+                case "Laser":
+                    if (GameManager.Instance.weaponLaserCount < 20)
+                    {
+                        float laserDecreaseAmount = 0.045f;
+                        playerWeaponLaser.DecreaseWaitAmount(laserDecreaseAmount, amount);
+                    }
+                    break;
+                case "Cannon":
+                    if (GameManager.Instance.weaponCannonCount < 20)
+                    {
+                        float cannonDecreaseAmount = 0.036f;
+                        playerWeaponCannon.DecreaseWaitAmount(cannonDecreaseAmount, amount);
+                    }
+                    break;
+            }
         }
     }
 
     public void UpgradeWeaponsToCurrentCount()
     {
-        // -1 the weapon count as we do not upgrade the weapon on the first pickup
-        this.UpgradeWeapon("Shotgun", GameManager.Instance.GetWeaponCount("Shotgun") - 1);
-        this.UpgradeWeapon("Laser", GameManager.Instance.GetWeaponCount("Laser") - 1);
-        this.UpgradeWeapon("Cannon", GameManager.Instance.GetWeaponCount("Cannon") - 1);
+        this.UpgradeWeapon("Shotgun", GameManager.Instance.GetWeaponCount("Shotgun"));
+        this.UpgradeWeapon("Laser", GameManager.Instance.GetWeaponCount("Laser"));
+        this.UpgradeWeapon("Cannon", GameManager.Instance.GetWeaponCount("Cannon"));
     }
 
     private void GetInput()
@@ -248,7 +275,7 @@ public class Player : MonoBehaviour
         playerWeaponCannon.waitFireAmount = 0.8f;
 
         this.UpgradeWeaponsToCurrentCount();
-        this.LevelUp();
+        this.SetLevel();
     }
 
     private void Update()

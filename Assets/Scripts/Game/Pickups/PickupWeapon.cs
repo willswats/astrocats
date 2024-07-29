@@ -24,10 +24,7 @@ public class PickupWeapon : Pickup
                 player.SetWeapon(weapon);
                 GameManager.Instance.AddToWeaponCount(weapon);
                 UIManager.Instance.SetTextWeaponUpgrades(weapon);
-                if (GameManager.Instance.GetWeaponCount(weapon) >= 2)
-                {
-                    player.UpgradeWeapon(weapon);
-                }
+                player.UpgradeWeapon(weapon);
             }
 
             switch (this.gameObject.tag)
