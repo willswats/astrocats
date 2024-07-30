@@ -7,8 +7,8 @@ public class PauseMenu : MonoBehaviour
     private void Update()
     {
         bool escapePressed = Input.GetKeyDown(KeyCode.Escape);
-        bool playerAlive = GameManager.Instance.playerLives >= 1;
-        bool gameWon = GameManager.Instance.experiencePoints >= GameManager.Instance.GetExperiencePointsForLevel(5);
+        bool playerAlive = GameManager.Instance.GetPlayerLives() >= 1;
+        bool gameWon = GameManager.Instance.GetPlayerExperiencePoints() >= GameManager.Instance.GetExperiencePointsForLevel(4);
 
         if (escapePressed && playerAlive && !gameWon)
         {

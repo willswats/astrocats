@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
             this.lastAttackedAt = Time.time;
 
             this.health -= damage;
-            UIManager.Instance.SetTextPlayerHealth(this.health, GameManager.Instance.playerLives);
+            UIManager.Instance.SetTextPlayerHealth(this.health, GameManager.Instance.GetPlayerLevel());
 
             this.audioSourceExplosion.Play();
 
@@ -100,7 +100,7 @@ public class Player : MonoBehaviour
         if ((this.health + health) <= 100)
         {
             this.health += health;
-            UIManager.Instance.SetTextPlayerHealth(this.health, GameManager.Instance.playerLives);
+            UIManager.Instance.SetTextPlayerHealth(this.health, GameManager.Instance.GetPlayerLevel());
         }
     }
 
@@ -174,21 +174,21 @@ public class Player : MonoBehaviour
             switch (weapon)
             {
                 case "Shotgun":
-                    if (GameManager.Instance.weaponShotgunCount < 20)
+                    if (GameManager.Instance.GetWeaponCount(weapon) < 20)
                     {
                         float shotgunDecreaseAmount = 0.027f;
                         playerWeaponShotgun.DecreaseWaitAmount(shotgunDecreaseAmount, amount);
                     }
                     break;
                 case "Laser":
-                    if (GameManager.Instance.weaponLaserCount < 20)
+                    if (GameManager.Instance.GetWeaponCount(weapon) < 20)
                     {
                         float laserDecreaseAmount = 0.045f;
                         playerWeaponLaser.DecreaseWaitAmount(laserDecreaseAmount, amount);
                     }
                     break;
                 case "Cannon":
-                    if (GameManager.Instance.weaponCannonCount < 20)
+                    if (GameManager.Instance.GetWeaponCount(weapon) < 20)
                     {
                         float cannonDecreaseAmount = 0.036f;
                         playerWeaponCannon.DecreaseWaitAmount(cannonDecreaseAmount, amount);
@@ -265,7 +265,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        UIManager.Instance.SetTextPlayerHealth(this.health, GameManager.Instance.playerLives);
+        UIManager.Instance.SetTextPlayerHealth(this.health, GameManager.Instance.GetPlayerLevel());
         this.SetWeapon(GameManager.Instance.GetCurrentWeapon());
 
         playerWeaponShotgun = this.weaponShotgun.GetComponent<PlayerWeapon>();
@@ -281,7 +281,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if (!GameManager.Instance.gamePaused)
+        if (!GameManager.Instance.GetGamePaused())
         {
             this.GetInput();
             this.PlayThrusterAudio();

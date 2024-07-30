@@ -23,7 +23,6 @@ public class PickupWeapon : Pickup
             {
                 player.SetWeapon(weapon);
                 GameManager.Instance.AddToWeaponCount(weapon);
-                UIManager.Instance.SetTextWeaponUpgrades(weapon);
                 player.UpgradeWeapon(weapon);
             }
 

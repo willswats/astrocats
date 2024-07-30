@@ -6,22 +6,22 @@ public class GameManager : MonoBehaviour
     public Player player;
     public Player currentPlayer;
 
-    public int experiencePoints = 0;
-    public int experiencePointsForLevel5 = 1000;
-    public int experiencePointsForLevel4 = 750;
-    public int experiencePointsForLevel3 = 500;
-    public int experiencePointsForLevel2 = 250;
-    public int experiencePointsForLevel1 = 100;
+    private int experiencePoints = 0;
+    private int experiencePointsForLevel5 = 1000;
+    private int experiencePointsForLevel4 = 750;
+    private int experiencePointsForLevel3 = 500;
+    private int experiencePointsForLevel2 = 250;
+    private int experiencePointsForLevel1 = 100;
 
-    public int playerLevel = 0;
-    public int playerLives = 3;
+    private int playerLevel = 0;
+    private int playerLives = 3;
 
-    public bool gamePaused = false;
+    private bool gamePaused = false;
 
     private string currentWeapon = "Default";
-    public int weaponShotgunCount = 0;
-    public int weaponLaserCount = 0;
-    public int weaponCannonCount = 0;
+    private int weaponShotgunCount = 0;
+    private int weaponLaserCount = 0;
+    private int weaponCannonCount = 0;
 
     public EnemyAsteroidSpawner enemyAsteroidSpawner;
     public EnemyCatSpawner enemyCatSpawner;
@@ -30,6 +30,8 @@ public class GameManager : MonoBehaviour
     private List<Projectile> projectiles;
 
     public static GameManager Instance { get; private set; }
+
+    // WEAPON
 
     public string GetCurrentWeapon()
     {
@@ -68,10 +70,9 @@ public class GameManager : MonoBehaviour
             case "Cannon":
                 return this.weaponCannonCount;
             default:
-                return 0;
+                return -1;
         }
     }
-
 
     public void AddToWeaponCount(string weapon)
     {
@@ -97,7 +98,21 @@ public class GameManager : MonoBehaviour
                 }
                 break;
         }
+
+        UIManager.Instance.SetTextWeaponUpgrades(weapon);
     }
+
+    public void SetWeaponCount(string weapon, int count)
+    {
+        int upgrades = 0;
+        while (upgrades < count)
+        {
+            upgrades += 1;
+            AddToWeaponCount(weapon);
+        }
+    }
+
+    // EXPERIENCE AND LEVEL
 
     public int GetExperiencePointsForLevel(int level)
     {
@@ -142,6 +157,23 @@ public class GameManager : MonoBehaviour
     public void AddPlayerLevel()
     {
         this.playerLevel += 1;
+    }
+
+    public int GetPlayerLives()
+    {
+        return this.playerLives;
+    }
+
+    // OTHER
+
+    public bool GetGamePaused()
+    {
+        return this.gamePaused;
+    }
+
+    public void SetGamePaused(bool gamePaused)
+    {
+        this.gamePaused = gamePaused;
     }
 
     public void KillPlayer()
