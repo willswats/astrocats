@@ -103,7 +103,7 @@ public class Player : MonoBehaviour
         if ((this.health + health) <= 100)
         {
             this.health += health;
-            UIManager.Instance.SetTextPlayerHealth(this.health, GameManager.Instance.GetPlayerLevel());
+            UIManager.Instance.SetTextPlayerHealth(this.health, GameManager.Instance.GetPlayerLives());
         }
     }
 
@@ -271,7 +271,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        UIManager.Instance.SetTextPlayerHealth(this.health, GameManager.Instance.GetPlayerLevel());
+        UIManager.Instance.SetTextPlayerHealth(this.health, GameManager.Instance.GetPlayerLives());
         this.SetWeapon(GameManager.Instance.GetCurrentWeapon());
         this.SetInitialWeaponWaitFireAmount();
 
