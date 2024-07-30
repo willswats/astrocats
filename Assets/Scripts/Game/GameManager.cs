@@ -5,19 +5,30 @@ public class GameManager : MonoBehaviour
 {
     public Player player;
     public Player currentPlayer;
+
     public int experiencePoints = 0;
-    public int experiencePointsWinCondition = 4000;
+    public int experiencePointsForLevel5 = 1000;
+    public int experiencePointsForLevel4 = 750;
+    public int experiencePointsForLevel3 = 500;
+    public int experiencePointsForLevel2 = 250;
+    public int experiencePointsForLevel1 = 100;
+
     public int playerLevel = 0;
     public int playerLives = 3;
+
     public bool gamePaused = false;
+
     private string currentWeapon = "Default";
     public int weaponShotgunCount = 0;
     public int weaponLaserCount = 0;
     public int weaponCannonCount = 0;
+
     public EnemyAsteroidSpawner enemyAsteroidSpawner;
     public EnemyCatSpawner enemyCatSpawner;
+
     private List<Pickup> pickups;
     private List<Projectile> projectiles;
+
     public static GameManager Instance { get; private set; }
 
     public string GetCurrentWeapon()
@@ -86,6 +97,26 @@ public class GameManager : MonoBehaviour
                 }
                 break;
         }
+    }
+
+    public int GetExperiencePointsForLevel(int level)
+    {
+        switch (level)
+        {
+            case 4:
+                return this.experiencePointsForLevel5;
+            case 3:
+                return this.experiencePointsForLevel4;
+            case 2:
+                return this.experiencePointsForLevel3;
+            case 1:
+                return this.experiencePointsForLevel2;
+            case 0:
+                return this.experiencePointsForLevel1;
+            default:
+                return -1;
+        }
+
     }
 
     public int GetPlayerExperiencePoints()

@@ -24,26 +24,7 @@ public class UIManager : MonoBehaviour
     private string GetPlayerLevelAndExperienceNeeded(int experiencePoints)
     {
         int playerLevel = GameManager.Instance.GetPlayerLevel();
-
-        int experiencePointsNeededToLevelUp = 100;
-        switch (playerLevel)
-        {
-            case 0:
-                experiencePointsNeededToLevelUp = 100;
-                break;
-            case 1:
-                experiencePointsNeededToLevelUp = 500;
-                break;
-            case 2:
-                experiencePointsNeededToLevelUp = 1000;
-                break;
-            case 3:
-                experiencePointsNeededToLevelUp = 2500;
-                break;
-            case 4:
-                experiencePointsNeededToLevelUp = 5000;
-                break;
-        }
+        int experiencePointsNeededToLevelUp = GameManager.Instance.GetExperiencePointsForLevel(playerLevel);
 
         return $"{playerLevel} (XP: {experiencePoints}/{experiencePointsNeededToLevelUp})";
     }

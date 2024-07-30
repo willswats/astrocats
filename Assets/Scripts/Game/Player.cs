@@ -108,29 +108,30 @@ public class Player : MonoBehaviour
     {
         int playerLevel = GameManager.Instance.GetPlayerLevel();
         int experiencePoints = GameManager.Instance.GetPlayerExperiencePoints();
-        if (experiencePoints >= GameManager.Instance.experiencePointsWinCondition)
+
+        if (experiencePoints >= GameManager.Instance.GetExperiencePointsForLevel(4) && playerLevel == 4)
         {
             UIManager.Instance.ToggleWinMenu();
         }
-        else if (experiencePoints >= 2000 && playerLevel == 3)
+        else if (experiencePoints >= GameManager.Instance.GetExperiencePointsForLevel(3) && playerLevel == 3)
         {
             GameManager.Instance.AddPlayerLevel();
             GameManager.Instance.ResetPlayerExperiencePoints();
             SetLevel();
         }
-        else if (experiencePoints >= 1000 && playerLevel == 2)
+        else if (experiencePoints >= GameManager.Instance.GetExperiencePointsForLevel(2) && playerLevel == 2)
         {
             GameManager.Instance.AddPlayerLevel();
             GameManager.Instance.ResetPlayerExperiencePoints();
             SetLevel();
         }
-        else if (experiencePoints >= 500 && playerLevel == 1)
+        else if (experiencePoints >= GameManager.Instance.GetExperiencePointsForLevel(1) && playerLevel == 1)
         {
             GameManager.Instance.AddPlayerLevel();
             GameManager.Instance.ResetPlayerExperiencePoints();
             SetLevel();
         }
-        else if (experiencePoints >= 100 && playerLevel == 0)
+        else if (experiencePoints >= GameManager.Instance.GetExperiencePointsForLevel(0) && playerLevel == 0)
         {
             GameManager.Instance.AddPlayerLevel();
             GameManager.Instance.ResetPlayerExperiencePoints();
