@@ -173,7 +173,7 @@ public class Player : MonoBehaviour
         // Don't upgrade on first pickup and only upgrade to maximum
         int maximumWeaponCount = GameManager.Instance.GetMaximumWeaponCount();
         int weapontCount = GameManager.Instance.GetWeaponCount(weapon);
-        if (weapontCount > 1 && weapontCount <= maximumWeaponCount)
+        if (weapontCount > 1)
         {
             switch (weapon)
             {

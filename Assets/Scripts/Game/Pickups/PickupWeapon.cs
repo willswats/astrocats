@@ -21,9 +21,17 @@ public class PickupWeapon : Pickup
 
             void pickupWeapon(string weapon)
             {
-                GameManager.Instance.AddToWeaponCount(weapon);
                 player.SetWeapon(weapon);
-                player.UpgradeWeapon(weapon);
+
+                int maximumWeaponCount = GameManager.Instance.GetMaximumWeaponCount();
+
+                int weapontCount = GameManager.Instance.GetWeaponCount(weapon);
+                // Keep this logic here instead of in UpgradeWeapon as UpgradeWeapon needs to be able to go up to maximum weapon count (on death)
+                if (weapontCount < maximumWeaponCount)
+                {
+                    GameManager.Instance.AddToWeaponCount(weapon);
+                    player.UpgradeWeapon(weapon);
+                }
             }
 
             switch (this.gameObject.tag)

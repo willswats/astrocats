@@ -2502,7 +2502,7 @@ MonoBehaviour:
   - {fileID: 97316402}
   - {fileID: 635814329}
   spawnRateSeconds: 5
-  spawnRateDecreaseSeconds: 20
+  spawnRateDecreaseSeconds: 10
   spawnRateDecreaseBySeconds: 0.1
   spawnRateDecreaseSecondsLimit: 1
   enemyAsteroidPrefab: {fileID: 5518058203174155482, guid: 9264eaeb96651678cbe400b3c28f2e7d, type: 3}
@@ -4452,12 +4452,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 6631850269249061044, guid: 7e70e3a37167e71eaa65bccad1a76f22, type: 3}
   currentPlayer: {fileID: 0}
-  experiencePoints: 0
-  playerLives: 3
-  gamePaused: 0
-  weaponShotgunCount: 0
-  weaponLaserCount: 0
-  weaponCannonCount: 0
   enemyAsteroidSpawner: {fileID: 727662461}
   enemyCatSpawner: {fileID: 790983696}
 --- !u!4 &1614422410
