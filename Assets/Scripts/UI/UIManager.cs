@@ -80,16 +80,19 @@ public class UIManager : MonoBehaviour
 
     public void SetTextWeaponUpgrades(string weapon)
     {
+        int weaponCount = GameManager.Instance.GetWeaponCount(weapon);
+        int maximumWeaponCount = GameManager.Instance.GetMaximumWeaponCount();
+
         switch (weapon)
         {
             case "Shotgun":
-                this.textShotgunUpgrades.text = $"Shotgun: {GameManager.Instance.GetWeaponCount(weapon)}/20";
+                this.textShotgunUpgrades.text = $"Shotgun: {weaponCount}/{maximumWeaponCount}";
                 break;
             case "Laser":
-                this.textLaserUpgrades.text = $"Laser: {GameManager.Instance.GetWeaponCount(weapon)}/20";
+                this.textLaserUpgrades.text = $"Laser: {weaponCount}/{maximumWeaponCount}";
                 break;
             case "Cannon":
-                this.textCannonUpgrades.text = $"Cannon: {GameManager.Instance.GetWeaponCount(weapon)}/20";
+                this.textCannonUpgrades.text = $"Cannon: {weaponCount}/{maximumWeaponCount}";
                 break;
         }
     }

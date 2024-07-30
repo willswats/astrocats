@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     private int weaponShotgunCount = 0;
     private int weaponLaserCount = 0;
     private int weaponCannonCount = 0;
+    private int maximumWeaponCount = 10;
 
     public EnemyAsteroidSpawner enemyAsteroidSpawner;
     public EnemyCatSpawner enemyCatSpawner;
@@ -58,6 +59,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
+    public int GetMaximumWeaponCount()
+    {
+        return this.maximumWeaponCount;
+    }
+
     public int GetWeaponCount(string weapon)
     {
 
@@ -80,19 +87,19 @@ public class GameManager : MonoBehaviour
         switch (weapon)
         {
             case "Shotgun":
-                if (this.weaponShotgunCount < 20)
+                if (this.weaponShotgunCount < this.maximumWeaponCount)
                 {
                     this.weaponShotgunCount += 1;
                 }
                 break;
             case "Laser":
-                if (this.weaponLaserCount < 20)
+                if (this.weaponLaserCount < this.maximumWeaponCount)
                 {
                     this.weaponLaserCount += 1;
                 }
                 break;
             case "Cannon":
-                if (this.weaponCannonCount < 20)
+                if (this.weaponCannonCount < this.maximumWeaponCount)
                 {
                     this.weaponCannonCount += 1;
                 }

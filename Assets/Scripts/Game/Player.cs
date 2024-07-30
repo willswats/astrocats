@@ -20,6 +20,9 @@ public class Player : MonoBehaviour
     private PlayerWeapon playerWeaponShotgun;
     private PlayerWeapon playerWeaponLaser;
     private PlayerWeapon playerWeaponCannon;
+    private float playerWeaponShotgunInitialWaitFireAmount = 0.6f;
+    private float playerWeaponLaserInitialWaitFireAmount = 1f;
+    private float playerWeaponCannonInitialWaitFireAmount = 0.8f;
 
     private Rigidbody2D rb2d;
     private SpriteRenderer spriteRenderer;
@@ -167,21 +170,23 @@ public class Player : MonoBehaviour
 
     public void UpgradeWeapon(string weapon, int amount = 1)
     {
-        // Don't upgrade on first pickup and only upgrade to level 20
-        if (GameManager.Instance.GetWeaponCount(weapon) >= 2 && GameManager.Instance.GetWeaponCount(weapon) <= 20)
+        // Don't upgrade on first pickup and only upgrade to maximum
+        int maximumWeaponCount = GameManager.Instance.GetMaximumWeaponCount();
+        int weapontCount = GameManager.Instance.GetWeaponCount(weapon);
+        if (weapontCount > 1 && weapontCount <= maximumWeaponCount)
         {
             switch (weapon)
             {
                 case "Shotgun":
-                    float shotgunDecreaseAmount = 0.027f;
+                    float shotgunDecreaseAmount = this.playerWeaponShotgunInitialWaitFireAmount / maximumWeaponCount;
                     playerWeaponShotgun.DecreaseWaitAmount(shotgunDecreaseAmount, amount);
                     break;
                 case "Laser":
-                    float laserDecreaseAmount = 0.045f;
+                    float laserDecreaseAmount = this.playerWeaponLaserInitialWaitFireAmount / maximumWeaponCount;
                     playerWeaponLaser.DecreaseWaitAmount(laserDecreaseAmount, amount);
                     break;
                 case "Cannon":
-                    float cannonDecreaseAmount = 0.036f;
+                    float cannonDecreaseAmount = this.playerWeaponCannonInitialWaitFireAmount / maximumWeaponCount;
                     playerWeaponCannon.DecreaseWaitAmount(cannonDecreaseAmount, amount);
                     break;
             }
@@ -190,9 +195,10 @@ public class Player : MonoBehaviour
 
     private void UpgradeWeaponsToCurrentCount()
     {
-        this.UpgradeWeapon("Shotgun", GameManager.Instance.GetWeaponCount("Shotgun"));
-        this.UpgradeWeapon("Laser", GameManager.Instance.GetWeaponCount("Laser"));
-        this.UpgradeWeapon("Cannon", GameManager.Instance.GetWeaponCount("Cannon"));
+        // -1 as we do not upgrade on the first pickup
+        this.UpgradeWeapon("Shotgun", GameManager.Instance.GetWeaponCount("Shotgun") - 1);
+        this.UpgradeWeapon("Laser", GameManager.Instance.GetWeaponCount("Laser") - 1);
+        this.UpgradeWeapon("Cannon", GameManager.Instance.GetWeaponCount("Cannon") - 1);
     }
 
     private void SetInitialWeaponWaitFireAmount()
@@ -200,9 +206,9 @@ public class Player : MonoBehaviour
         playerWeaponShotgun = this.weaponShotgun.GetComponent<PlayerWeapon>();
         playerWeaponLaser = this.weaponLaser.GetComponent<PlayerWeapon>();
         playerWeaponCannon = this.weaponCannon.GetComponent<PlayerWeapon>();
-        playerWeaponShotgun.waitFireAmount = 0.6f;
-        playerWeaponLaser.waitFireAmount = 1f;
-        playerWeaponCannon.waitFireAmount = 0.8f;
+        playerWeaponShotgun.waitFireAmount = this.playerWeaponShotgunInitialWaitFireAmount;
+        playerWeaponLaser.waitFireAmount = this.playerWeaponLaserInitialWaitFireAmount;
+        playerWeaponCannon.waitFireAmount = this.playerWeaponCannonInitialWaitFireAmount;
     }
 
     private void GetInput()
