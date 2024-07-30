@@ -40,7 +40,7 @@ public class Player : MonoBehaviour
             this.lastAttackedAt = Time.time;
 
             this.health -= damage;
-            UIManager.Instance.SetTextPlayerHealth(this.health, GameManager.Instance.GetPlayerLevel());
+            UIManager.Instance.SetTextPlayerHealth(this.health, GameManager.Instance.GetPlayerLives());
 
             this.audioSourceExplosion.Play();
 
