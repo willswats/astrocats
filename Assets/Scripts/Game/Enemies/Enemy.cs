@@ -33,7 +33,7 @@ public class Enemy : MonoBehaviour
 
         this.audioSource.Play();
 
-        int randomNumber = UnityEngine.Random.Range(1, 11);
+        int randomNumber = UnityEngine.Random.Range(1, 21);
         if (randomNumber == 1 && pickupSpawnerHealth != null)
         {
             this.pickupSpawnerHealth.Spawn(this.transform.position);
