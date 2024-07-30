@@ -165,44 +165,44 @@ public class Player : MonoBehaviour
         }
     }
 
-
     public void UpgradeWeapon(string weapon, int amount = 1)
     {
-        // Don't upgrade on first pickup
-        if (GameManager.Instance.GetWeaponCount(weapon) >= 2)
+        // Don't upgrade on first pickup and only upgrade to level 20
+        if (GameManager.Instance.GetWeaponCount(weapon) >= 2 && GameManager.Instance.GetWeaponCount(weapon) <= 20)
         {
             switch (weapon)
             {
                 case "Shotgun":
-                    if (GameManager.Instance.GetWeaponCount(weapon) < 20)
-                    {
-                        float shotgunDecreaseAmount = 0.027f;
-                        playerWeaponShotgun.DecreaseWaitAmount(shotgunDecreaseAmount, amount);
-                    }
+                    float shotgunDecreaseAmount = 0.027f;
+                    playerWeaponShotgun.DecreaseWaitAmount(shotgunDecreaseAmount, amount);
                     break;
                 case "Laser":
-                    if (GameManager.Instance.GetWeaponCount(weapon) < 20)
-                    {
-                        float laserDecreaseAmount = 0.045f;
-                        playerWeaponLaser.DecreaseWaitAmount(laserDecreaseAmount, amount);
-                    }
+                    float laserDecreaseAmount = 0.045f;
+                    playerWeaponLaser.DecreaseWaitAmount(laserDecreaseAmount, amount);
                     break;
                 case "Cannon":
-                    if (GameManager.Instance.GetWeaponCount(weapon) < 20)
-                    {
-                        float cannonDecreaseAmount = 0.036f;
-                        playerWeaponCannon.DecreaseWaitAmount(cannonDecreaseAmount, amount);
-                    }
+                    float cannonDecreaseAmount = 0.036f;
+                    playerWeaponCannon.DecreaseWaitAmount(cannonDecreaseAmount, amount);
                     break;
             }
         }
     }
 
-    public void UpgradeWeaponsToCurrentCount()
+    private void UpgradeWeaponsToCurrentCount()
     {
         this.UpgradeWeapon("Shotgun", GameManager.Instance.GetWeaponCount("Shotgun"));
         this.UpgradeWeapon("Laser", GameManager.Instance.GetWeaponCount("Laser"));
         this.UpgradeWeapon("Cannon", GameManager.Instance.GetWeaponCount("Cannon"));
+    }
+
+    private void SetInitialWeaponWaitFireAmount()
+    {
+        playerWeaponShotgun = this.weaponShotgun.GetComponent<PlayerWeapon>();
+        playerWeaponLaser = this.weaponLaser.GetComponent<PlayerWeapon>();
+        playerWeaponCannon = this.weaponCannon.GetComponent<PlayerWeapon>();
+        playerWeaponShotgun.waitFireAmount = 0.6f;
+        playerWeaponLaser.waitFireAmount = 1f;
+        playerWeaponCannon.waitFireAmount = 0.8f;
     }
 
     private void GetInput()
@@ -267,13 +267,7 @@ public class Player : MonoBehaviour
     {
         UIManager.Instance.SetTextPlayerHealth(this.health, GameManager.Instance.GetPlayerLevel());
         this.SetWeapon(GameManager.Instance.GetCurrentWeapon());
-
-        playerWeaponShotgun = this.weaponShotgun.GetComponent<PlayerWeapon>();
-        playerWeaponLaser = this.weaponLaser.GetComponent<PlayerWeapon>();
-        playerWeaponCannon = this.weaponCannon.GetComponent<PlayerWeapon>();
-        playerWeaponShotgun.waitFireAmount = 0.6f;
-        playerWeaponLaser.waitFireAmount = 1f;
-        playerWeaponCannon.waitFireAmount = 0.8f;
+        this.SetInitialWeaponWaitFireAmount();
 
         this.UpgradeWeaponsToCurrentCount();
         this.SetLevel();

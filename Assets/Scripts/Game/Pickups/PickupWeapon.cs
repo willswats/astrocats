@@ -21,8 +21,8 @@ public class PickupWeapon : Pickup
 
             void pickupWeapon(string weapon)
             {
-                player.SetWeapon(weapon);
                 GameManager.Instance.AddToWeaponCount(weapon);
+                player.SetWeapon(weapon);
                 player.UpgradeWeapon(weapon);
             }
 

@@ -7,11 +7,11 @@ public class GameManager : MonoBehaviour
     public Player currentPlayer;
 
     private int experiencePoints = 0;
-    private int experiencePointsForLevel5 = 1000;
-    private int experiencePointsForLevel4 = 750;
-    private int experiencePointsForLevel3 = 500;
-    private int experiencePointsForLevel2 = 250;
-    private int experiencePointsForLevel1 = 100;
+    private int experiencePointsForLevel4 = 1000;
+    private int experiencePointsForLevel3 = 750;
+    private int experiencePointsForLevel2 = 500;
+    private int experiencePointsForLevel1 = 250;
+    private int experiencePointsForLevel0 = 100;
 
     private int playerLevel = 0;
     private int playerLives = 3;
@@ -119,15 +119,15 @@ public class GameManager : MonoBehaviour
         switch (level)
         {
             case 4:
-                return this.experiencePointsForLevel5;
-            case 3:
                 return this.experiencePointsForLevel4;
-            case 2:
+            case 3:
                 return this.experiencePointsForLevel3;
-            case 1:
+            case 2:
                 return this.experiencePointsForLevel2;
-            case 0:
+            case 1:
                 return this.experiencePointsForLevel1;
+            case 0:
+                return this.experiencePointsForLevel0;
             default:
                 return -1;
         }
