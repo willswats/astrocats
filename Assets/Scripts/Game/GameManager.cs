@@ -7,10 +7,10 @@ public class GameManager : MonoBehaviour
     public Player currentPlayer;
 
     private int experiencePoints = 0;
-    private int experiencePointsForLevel4 = 1000;
-    private int experiencePointsForLevel3 = 750;
-    private int experiencePointsForLevel2 = 500;
-    private int experiencePointsForLevel1 = 250;
+    private int experiencePointsForLevel4 = 1600;
+    private int experiencePointsForLevel3 = 800;
+    private int experiencePointsForLevel2 = 400;
+    private int experiencePointsForLevel1 = 200;
     private int experiencePointsForLevel0 = 100;
 
     private int playerLevel = 0;
