@@ -35,7 +35,7 @@ public class UIManager : MonoBehaviour
         int timeInt = (int)time;
         int minutes = timeInt / 60;
         int seconds = timeInt % 60;
-        string timeText = $"{minutes}m{seconds}s";
+        string timeText = $"{minutes}m:{seconds}s";
 
         return timeText;
     }
@@ -47,7 +47,13 @@ public class UIManager : MonoBehaviour
         int minutes = timeInt / 60;
         int seconds = timeInt % 60;
         string milliseconds = time.ToString("N").Split(".")[1];
-        string timeText = $"{minutes}m{seconds}s{milliseconds}ms";
+
+        if (milliseconds.StartsWith("0"))
+        {
+            milliseconds = milliseconds.Substring(1);
+        }
+
+        string timeText = $"{minutes}m:{seconds}s:{milliseconds}ms";
 
         return timeText;
     }
