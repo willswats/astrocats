@@ -270,4 +270,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthGiven: 0
   experiencePoints: 0
-  lifeTimeSeconds: 10
+  lifeTimeSeconds: 30
