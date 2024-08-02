@@ -18,7 +18,12 @@ public class GameManager : MonoBehaviour
     private int experiencePointsForLevel1 = 200;
     private int experiencePointsForLevel0 = 100;
 
-    private int playerLevel = 0;
+    private int _playerLevel = 0;
+    public int PlayerLevel
+    {
+        get => _playerLevel;
+        set => _playerLevel = value;
+    }
     private int playerLives = 3;
 
     private bool gamePaused = false;
@@ -63,7 +68,6 @@ public class GameManager : MonoBehaviour
                 break;
         }
     }
-
 
     public int GetMaximumWeaponCount()
     {
@@ -146,15 +150,6 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public int GetPlayerLevel()
-    {
-        return this.playerLevel;
-    }
-
-    public void AddPlayerLevel()
-    {
-        this.playerLevel += 1;
-    }
 
     public int GetPlayerLives()
     {

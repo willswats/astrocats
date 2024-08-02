@@ -76,7 +76,7 @@ public class Player : MonoBehaviour
 
     public void LevelUp()
     {
-        int playerLevel = GameManager.Instance.GetPlayerLevel();
+        int playerLevel = GameManager.Instance.PlayerLevel;
         int experiencePoints = GameManager.Instance.ExperiencePoints;
 
         if (experiencePoints >= GameManager.Instance.GetExperiencePointsForLevel(4) && playerLevel == 4)
@@ -85,25 +85,25 @@ public class Player : MonoBehaviour
         }
         else if (experiencePoints >= GameManager.Instance.GetExperiencePointsForLevel(3) && playerLevel == 3)
         {
-            GameManager.Instance.AddPlayerLevel();
+            GameManager.Instance.PlayerLevel += 1;
             GameManager.Instance.ExperiencePoints = 0;
             SetLevel();
         }
         else if (experiencePoints >= GameManager.Instance.GetExperiencePointsForLevel(2) && playerLevel == 2)
         {
-            GameManager.Instance.AddPlayerLevel();
+            GameManager.Instance.PlayerLevel += 1;
             GameManager.Instance.ExperiencePoints = 0;
             SetLevel();
         }
         else if (experiencePoints >= GameManager.Instance.GetExperiencePointsForLevel(1) && playerLevel == 1)
         {
-            GameManager.Instance.AddPlayerLevel();
+            GameManager.Instance.PlayerLevel += 1;
             GameManager.Instance.ExperiencePoints = 0;
             SetLevel();
         }
         else if (experiencePoints >= GameManager.Instance.GetExperiencePointsForLevel(0) && playerLevel == 0)
         {
-            GameManager.Instance.AddPlayerLevel();
+            GameManager.Instance.PlayerLevel += 1;
             GameManager.Instance.ExperiencePoints = 0;
             SetLevel();
         }
@@ -111,7 +111,7 @@ public class Player : MonoBehaviour
 
     public void SetLevel()
     {
-        int playerLevel = GameManager.Instance.GetPlayerLevel();
+        int playerLevel = GameManager.Instance.PlayerLevel;
 
         if (playerLevel == 4)
         {
