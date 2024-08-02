@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     public GameObject weaponLaser;
     public GameObject weaponCannon;
 
+    // TODO: remove need for these variables
     private PlayerWeapon playerWeaponShotgun;
     private PlayerWeapon playerWeaponLaser;
     private PlayerWeapon playerWeaponCannon;
@@ -46,9 +47,10 @@ public class Player : MonoBehaviour
 
             if (this.health <= 0)
             {
+                // TODO: refactor
                 this.audioSourceThruster.volume = 0;
                 this.rb2d.simulated = false;
-                GetComponent<Collider2D>().enabled = false;
+                this.GetComponent<Collider2D>().enabled = false;
                 this.spriteRenderer.enabled = false;
 
                 int childCount = this.transform.childCount;
@@ -60,6 +62,76 @@ public class Player : MonoBehaviour
                 Destroy(this.gameObject, 2f);
                 GameManager.Instance.KillPlayer();
             }
+        }
+    }
+
+    public void GainHealth(int health)
+    {
+        if ((this.health + health) <= 100)
+        {
+            this.health += health;
+            UIManager.Instance.SetTextPlayerHealth(this.health, GameManager.Instance.GetPlayerLives());
+        }
+    }
+
+    public void LevelUp()
+    {
+        int playerLevel = GameManager.Instance.GetPlayerLevel();
+        int experiencePoints = GameManager.Instance.ExperiencePoints;
+
+        if (experiencePoints >= GameManager.Instance.GetExperiencePointsForLevel(4) && playerLevel == 4)
+        {
+            UIManager.Instance.ToggleWinMenu();
+        }
+        else if (experiencePoints >= GameManager.Instance.GetExperiencePointsForLevel(3) && playerLevel == 3)
+        {
+            GameManager.Instance.AddPlayerLevel();
+            GameManager.Instance.ExperiencePoints = 0;
+            SetLevel();
+        }
+        else if (experiencePoints >= GameManager.Instance.GetExperiencePointsForLevel(2) && playerLevel == 2)
+        {
+            GameManager.Instance.AddPlayerLevel();
+            GameManager.Instance.ExperiencePoints = 0;
+            SetLevel();
+        }
+        else if (experiencePoints >= GameManager.Instance.GetExperiencePointsForLevel(1) && playerLevel == 1)
+        {
+            GameManager.Instance.AddPlayerLevel();
+            GameManager.Instance.ExperiencePoints = 0;
+            SetLevel();
+        }
+        else if (experiencePoints >= GameManager.Instance.GetExperiencePointsForLevel(0) && playerLevel == 0)
+        {
+            GameManager.Instance.AddPlayerLevel();
+            GameManager.Instance.ExperiencePoints = 0;
+            SetLevel();
+        }
+    }
+
+    public void SetLevel()
+    {
+        int playerLevel = GameManager.Instance.GetPlayerLevel();
+
+        if (playerLevel == 4)
+        {
+            this.moveSpeed = 4f;
+            this.rotationSpeed = 0.5f;
+        }
+        else if (playerLevel == 3)
+        {
+            this.moveSpeed = 3.5f;
+            this.rotationSpeed = 0.45f;
+        }
+        else if (playerLevel == 2)
+        {
+            this.moveSpeed = 3f;
+            this.rotationSpeed = 0.4f;
+        }
+        else if (playerLevel == 1)
+        {
+            this.moveSpeed = 2.5f;
+            this.rotationSpeed = 0.35f;
         }
     }
 
@@ -95,76 +167,6 @@ public class Player : MonoBehaviour
                 this.weaponCannon.SetActive(true);
                 GameManager.Instance.SetCurrentWeapon("Cannon");
                 break;
-        }
-    }
-
-    public void GainHealth(int health)
-    {
-        if ((this.health + health) <= 100)
-        {
-            this.health += health;
-            UIManager.Instance.SetTextPlayerHealth(this.health, GameManager.Instance.GetPlayerLives());
-        }
-    }
-
-    public void LevelUp()
-    {
-        int playerLevel = GameManager.Instance.GetPlayerLevel();
-        int experiencePoints = GameManager.Instance.GetPlayerExperiencePoints();
-
-        if (experiencePoints >= GameManager.Instance.GetExperiencePointsForLevel(4) && playerLevel == 4)
-        {
-            UIManager.Instance.ToggleWinMenu();
-        }
-        else if (experiencePoints >= GameManager.Instance.GetExperiencePointsForLevel(3) && playerLevel == 3)
-        {
-            GameManager.Instance.AddPlayerLevel();
-            GameManager.Instance.ResetPlayerExperiencePoints();
-            SetLevel();
-        }
-        else if (experiencePoints >= GameManager.Instance.GetExperiencePointsForLevel(2) && playerLevel == 2)
-        {
-            GameManager.Instance.AddPlayerLevel();
-            GameManager.Instance.ResetPlayerExperiencePoints();
-            SetLevel();
-        }
-        else if (experiencePoints >= GameManager.Instance.GetExperiencePointsForLevel(1) && playerLevel == 1)
-        {
-            GameManager.Instance.AddPlayerLevel();
-            GameManager.Instance.ResetPlayerExperiencePoints();
-            SetLevel();
-        }
-        else if (experiencePoints >= GameManager.Instance.GetExperiencePointsForLevel(0) && playerLevel == 0)
-        {
-            GameManager.Instance.AddPlayerLevel();
-            GameManager.Instance.ResetPlayerExperiencePoints();
-            SetLevel();
-        }
-    }
-
-    public void SetLevel()
-    {
-        int playerLevel = GameManager.Instance.GetPlayerLevel();
-
-        if (playerLevel == 4)
-        {
-            this.moveSpeed = 4f;
-            this.rotationSpeed = 0.5f;
-        }
-        else if (playerLevel == 3)
-        {
-            this.moveSpeed = 3.5f;
-            this.rotationSpeed = 0.45f;
-        }
-        else if (playerLevel == 2)
-        {
-            this.moveSpeed = 3f;
-            this.rotationSpeed = 0.4f;
-        }
-        else if (playerLevel == 1)
-        {
-            this.moveSpeed = 2.5f;
-            this.rotationSpeed = 0.35f;
         }
     }
 

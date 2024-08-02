@@ -6,7 +6,12 @@ public class GameManager : MonoBehaviour
     public Player player;
     public Player currentPlayer;
 
-    private int experiencePoints = 0;
+    private int _experiencePoints = 0;
+    public int ExperiencePoints
+    {
+        get => _experiencePoints;
+        set => _experiencePoints = value;
+    }
     private int experiencePointsForLevel4 = 1600;
     private int experiencePointsForLevel3 = 800;
     private int experiencePointsForLevel2 = 400;
@@ -141,21 +146,6 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public int GetPlayerExperiencePoints()
-    {
-        return this.experiencePoints;
-    }
-
-    public void AddPlayerExperiencePoints(int experiencePoints)
-    {
-        this.experiencePoints += experiencePoints;
-    }
-
-    public void ResetPlayerExperiencePoints()
-    {
-        this.experiencePoints = 0;
-    }
-
     public int GetPlayerLevel()
     {
         return this.playerLevel;
@@ -249,7 +239,7 @@ public class GameManager : MonoBehaviour
     {
         pickups = new List<Pickup>();
         projectiles = new List<Projectile>();
-        UIManager.Instance.SetTextPlayerExperiencePoints(experiencePoints);
+        UIManager.Instance.SetTextPlayerExperiencePoints(this.ExperiencePoints);
         UIManager.Instance.SetTextPlayerHealth(this.player.health, this.playerLives);
         UIManager.Instance.SetTextWeaponUpgrades("Shotgun");
         UIManager.Instance.SetTextWeaponUpgrades("Laser");

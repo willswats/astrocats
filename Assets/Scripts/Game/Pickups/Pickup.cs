@@ -32,13 +32,13 @@ public class Pickup : MonoBehaviour, IPickup
             this.audiosource.Play();
             this.PickupDestroy();
 
-            GameManager.Instance.AddPlayerExperiencePoints(this.experiencePoints);
+            GameManager.Instance.ExperiencePoints += this.experiencePoints;
 
             Player player = collision.gameObject.GetComponent<Player>();
             player.GainHealth(this.healthGiven);
             player.LevelUp();
 
-            UIManager.Instance.SetTextPlayerExperiencePoints(GameManager.Instance.GetPlayerExperiencePoints());
+            UIManager.Instance.SetTextPlayerExperiencePoints(GameManager.Instance.ExperiencePoints);
         }
     }
 }
