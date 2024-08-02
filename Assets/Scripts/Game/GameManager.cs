@@ -3,7 +3,6 @@ using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
-    // TODO: only have one player
     public Player player;
     public Player currentPlayer;
 

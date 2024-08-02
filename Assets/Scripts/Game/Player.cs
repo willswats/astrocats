@@ -17,7 +17,6 @@ public class Player : MonoBehaviour
     public GameObject weaponLaser;
     public GameObject weaponCannon;
 
-    // TODO: remove need for these variables
     private PlayerWeapon playerWeaponShotgun;
     private PlayerWeapon playerWeaponLaser;
     private PlayerWeapon playerWeaponCannon;
@@ -27,6 +26,7 @@ public class Player : MonoBehaviour
 
     private Rigidbody2D rb2d;
     private SpriteRenderer spriteRenderer;
+    private Collider2D collider2d;
 
     private AudioSource audioSourceExplosion;
     private AudioSource audioSourceThruster;
@@ -47,10 +47,9 @@ public class Player : MonoBehaviour
 
             if (this.health <= 0)
             {
-                // TODO: refactor
                 this.audioSourceThruster.volume = 0;
                 this.rb2d.simulated = false;
-                this.GetComponent<Collider2D>().enabled = false;
+                this.collider2d.enabled = false;
                 this.spriteRenderer.enabled = false;
 
                 int childCount = this.transform.childCount;
@@ -263,6 +262,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         this.rb2d = GetComponent<Rigidbody2D>();
+        this.collider2d = GetComponent<Collider2D>();
         this.anim = GetComponent<Animator>();
         this.spriteRenderer = GetComponent<SpriteRenderer>();
 
