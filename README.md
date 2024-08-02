@@ -6,7 +6,12 @@ A Unity Asteroids clone, but with cats.
 
 ## Table of Contents
 
+<!--toc:start-->
+
 - [General Information](#general-information)
+- [Controls](#controls)
+- [Screenshots](#screenshots)
+<!--toc:end-->
 
 ## General Information
 
@@ -16,3 +21,9 @@ The gameplay is similar to Asteroids with a few additions, this includes; new en
 
 - WASD or arrow keys for movement.
 - Hold space or left mouse button to fire.
+
+## Screenshots
+
+![Screenshot 1](./screenshot1.png)
+![Screenshot 2](./screenshot2.png)
+![Screenshot 3](./screenshot3.png)
