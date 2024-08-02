@@ -21,14 +21,14 @@ public class Menu : MonoBehaviour
         {
             gameObject.SetActive(false);
             Time.timeScale = 1f;
-            GameManager.Instance.SetGamePaused(false);
+            GameManager.Instance.GamePaused = false;
             AudioListener.pause = false;
         }
         else
         {
             gameObject.SetActive(true);
             Time.timeScale = 0f;
-            GameManager.Instance.SetGamePaused(true);
+            GameManager.Instance.GamePaused = true;
             AudioListener.pause = true;
         }
     }

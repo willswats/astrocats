@@ -31,7 +31,12 @@ public class GameManager : MonoBehaviour
         private set => _playerLives = value;
     }
 
-    private bool gamePaused = false;
+    private bool _gamePaused = false;
+    public bool GamePaused
+    {
+        get => _gamePaused;
+        set => _gamePaused = value;
+    }
 
     private string currentWeapon = "Default";
     private int weaponShotgunCount = 0;
@@ -153,18 +158,6 @@ public class GameManager : MonoBehaviour
                 return -1;
         }
 
-    }
-
-    // OTHER
-
-    public bool GetGamePaused()
-    {
-        return this.gamePaused;
-    }
-
-    public void SetGamePaused(bool gamePaused)
-    {
-        this.gamePaused = gamePaused;
     }
 
     public void KillPlayer()

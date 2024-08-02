@@ -11,7 +11,7 @@ public class PlayerWeapon : Weapon
     {
         bool fireOnePressed = Input.GetButton("Fire1");
 
-        if (coroutineRunning == false && fireOnePressed && !GameManager.Instance.GetGamePaused())
+        if (coroutineRunning == false && fireOnePressed && !GameManager.Instance.GamePaused)
         {
             StartCoroutine(WaitHandleFire());
         }

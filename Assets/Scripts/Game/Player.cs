@@ -283,7 +283,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if (!GameManager.Instance.GetGamePaused())
+        if (!GameManager.Instance.GamePaused)
         {
             this.GetInput();
             this.PlayThrusterAudio();
