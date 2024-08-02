@@ -24,7 +24,12 @@ public class GameManager : MonoBehaviour
         get => _playerLevel;
         set => _playerLevel = value;
     }
-    private int playerLives = 3;
+    private int _playerLives = 3;
+    public int PlayerLives
+    {
+        get => _playerLives;
+        private set => _playerLives = value;
+    }
 
     private bool gamePaused = false;
 
@@ -150,12 +155,6 @@ public class GameManager : MonoBehaviour
 
     }
 
-
-    public int GetPlayerLives()
-    {
-        return this.playerLives;
-    }
-
     // OTHER
 
     public bool GetGamePaused()
@@ -170,9 +169,9 @@ public class GameManager : MonoBehaviour
 
     public void KillPlayer()
     {
-        this.playerLives -= 1;
-        UIManager.Instance.SetTextPlayerHealth(this.player.health, this.playerLives);
-        if (this.playerLives <= 0)
+        this.PlayerLives -= 1;
+        UIManager.Instance.SetTextPlayerHealth(this.player.health, this.PlayerLives);
+        if (this.PlayerLives <= 0)
         {
             UIManager.Instance.ToggleGameOverMenu();
         }
@@ -235,7 +234,7 @@ public class GameManager : MonoBehaviour
         pickups = new List<Pickup>();
         projectiles = new List<Projectile>();
         UIManager.Instance.SetTextPlayerExperiencePoints(this.ExperiencePoints);
-        UIManager.Instance.SetTextPlayerHealth(this.player.health, this.playerLives);
+        UIManager.Instance.SetTextPlayerHealth(this.player.health, this.PlayerLives);
         UIManager.Instance.SetTextWeaponUpgrades("Shotgun");
         UIManager.Instance.SetTextWeaponUpgrades("Laser");
         UIManager.Instance.SetTextWeaponUpgrades("Cannon");

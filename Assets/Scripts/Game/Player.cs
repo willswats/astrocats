@@ -41,7 +41,7 @@ public class Player : MonoBehaviour
             this.lastAttackedAt = Time.time;
 
             this.health -= damage;
-            UIManager.Instance.SetTextPlayerHealth(this.health, GameManager.Instance.GetPlayerLives());
+            UIManager.Instance.SetTextPlayerHealth(this.health, GameManager.Instance.PlayerLives);
 
             this.audioSourceExplosion.Play();
 
@@ -70,7 +70,7 @@ public class Player : MonoBehaviour
         if ((this.health + health) <= 100)
         {
             this.health += health;
-            UIManager.Instance.SetTextPlayerHealth(this.health, GameManager.Instance.GetPlayerLives());
+            UIManager.Instance.SetTextPlayerHealth(this.health, GameManager.Instance.PlayerLives);
         }
     }
 
@@ -273,7 +273,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        UIManager.Instance.SetTextPlayerHealth(this.health, GameManager.Instance.GetPlayerLives());
+        UIManager.Instance.SetTextPlayerHealth(this.health, GameManager.Instance.PlayerLives);
         this.SetWeapon(GameManager.Instance.GetCurrentWeapon());
         this.SetInitialWeaponWaitFireAmount();
 
