@@ -9,8 +9,8 @@ public class GameManager : MonoBehaviour
     private int _experiencePoints = 0;
     public int ExperiencePoints
     {
-        get => _experiencePoints;
-        set => _experiencePoints = value;
+        get => this._experiencePoints;
+        set => this._experiencePoints = value;
     }
     private int experiencePointsForLevel4 = 1600;
     private int experiencePointsForLevel3 = 800;
@@ -22,21 +22,21 @@ public class GameManager : MonoBehaviour
     private int _playerLevel = 0;
     public int PlayerLevel
     {
-        get => _playerLevel;
-        set => _playerLevel = value;
+        get => this._playerLevel;
+        set => this._playerLevel = value;
     }
     private int _playerLives = 3;
     public int PlayerLives
     {
-        get => _playerLives;
-        private set => _playerLives = value;
+        get => this._playerLives;
+        private set => this._playerLives = value;
     }
 
     private bool _gamePaused = false;
     public bool GamePaused
     {
-        get => _gamePaused;
-        set => _gamePaused = value;
+        get => this._gamePaused;
+        set => this._gamePaused = value;
     }
 
     private string _currentWeapon = "Default";
