@@ -194,6 +194,22 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void TriggerChangedWeapon(string weapon)
+    {
+        switch (weapon)
+        {
+            case "Shotgun":
+                this.playerWeaponShotgun.TriggerChangedWeapon();
+                break;
+            case "Cannon":
+                this.playerWeaponCannon.TriggerChangedWeapon();
+                break;
+            case "Laser":
+                this.playerWeaponLaser.TriggerChangedWeapon();
+                break;
+        }
+    }
+
     private void UpgradeWeaponsToCurrentCount()
     {
         // -1 as we do not upgrade on the first pickup
