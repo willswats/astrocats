@@ -87,7 +87,7 @@ public class UIManager : MonoBehaviour
     public void SetTextWeaponUpgrades(string weapon)
     {
         int weaponCount = GameManager.Instance.GetWeaponCount(weapon);
-        int maximumWeaponCount = GameManager.Instance.GetMaximumWeaponCount();
+        int maximumWeaponCount = GameManager.Instance.MaximumWeaponCount;
 
         switch (weapon)
         {

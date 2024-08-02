@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
+    // TODO: only have one player
     public Player player;
     public Player currentPlayer;
 
@@ -17,6 +18,7 @@ public class GameManager : MonoBehaviour
     private int experiencePointsForLevel2 = 400;
     private int experiencePointsForLevel1 = 200;
     private int experiencePointsForLevel0 = 100;
+
 
     private int _playerLevel = 0;
     public int PlayerLevel
@@ -38,11 +40,39 @@ public class GameManager : MonoBehaviour
         set => _gamePaused = value;
     }
 
-    private string currentWeapon = "Default";
+    private string _currentWeapon = "Default";
+    public string CurrentWeapon
+    {
+        get => this._currentWeapon;
+        set
+        {
+            switch (value)
+            {
+                case "Default":
+                    this._currentWeapon = "Default";
+                    break;
+                case "Shotgun":
+                    this._currentWeapon = "Shotgun";
+                    break;
+                case "Laser":
+                    this._currentWeapon = "Laser";
+                    break;
+                case "Cannon":
+                    this._currentWeapon = "Cannon";
+                    break;
+            }
+        }
+    }
+
     private int weaponShotgunCount = 0;
     private int weaponLaserCount = 0;
     private int weaponCannonCount = 0;
-    private int maximumWeaponCount = 10;
+
+    private int _maximumWeaponCount = 10;
+    public int MaximumWeaponCount
+    {
+        get => this._maximumWeaponCount;
+    }
 
     public EnemyAsteroidSpawner enemyAsteroidSpawner;
     public EnemyCatSpawner enemyCatSpawner;
@@ -51,38 +81,6 @@ public class GameManager : MonoBehaviour
     private List<Projectile> projectiles;
 
     public static GameManager Instance { get; private set; }
-
-    // WEAPON
-
-    public string GetCurrentWeapon()
-    {
-        return this.currentWeapon;
-    }
-
-    public void SetCurrentWeapon(string weapon)
-    {
-
-        switch (weapon)
-        {
-            case "Default":
-                this.currentWeapon = "Default";
-                break;
-            case "Shotgun":
-                this.currentWeapon = "Shotgun";
-                break;
-            case "Laser":
-                this.currentWeapon = "Laser";
-                break;
-            case "Cannon":
-                this.currentWeapon = "Cannon";
-                break;
-        }
-    }
-
-    public int GetMaximumWeaponCount()
-    {
-        return this.maximumWeaponCount;
-    }
 
     public int GetWeaponCount(string weapon)
     {
@@ -106,19 +104,19 @@ public class GameManager : MonoBehaviour
         switch (weapon)
         {
             case "Shotgun":
-                if (this.weaponShotgunCount < this.maximumWeaponCount)
+                if (this.weaponShotgunCount < this.MaximumWeaponCount)
                 {
                     this.weaponShotgunCount += 1;
                 }
                 break;
             case "Laser":
-                if (this.weaponLaserCount < this.maximumWeaponCount)
+                if (this.weaponLaserCount < this.MaximumWeaponCount)
                 {
                     this.weaponLaserCount += 1;
                 }
                 break;
             case "Cannon":
-                if (this.weaponCannonCount < this.maximumWeaponCount)
+                if (this.weaponCannonCount < this.MaximumWeaponCount)
                 {
                     this.weaponCannonCount += 1;
                 }
@@ -137,9 +135,6 @@ public class GameManager : MonoBehaviour
             AddToWeaponCount(weapon);
         }
     }
-
-    // EXPERIENCE AND LEVEL
-
     public int GetExperiencePointsForLevel(int level)
     {
         switch (level)

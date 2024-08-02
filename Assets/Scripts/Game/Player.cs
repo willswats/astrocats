@@ -144,28 +144,28 @@ public class Player : MonoBehaviour
                 this.weaponShotgun.SetActive(false);
                 this.weaponLaser.SetActive(false);
                 this.weaponCannon.SetActive(false);
-                GameManager.Instance.SetCurrentWeapon("Default");
+                GameManager.Instance.CurrentWeapon = "Default";
                 break;
             case "Shotgun":
                 this.weaponDefault.SetActive(false);
                 this.weaponShotgun.SetActive(true);
                 this.weaponLaser.SetActive(false);
                 this.weaponCannon.SetActive(false);
-                GameManager.Instance.SetCurrentWeapon("Shotgun");
+                GameManager.Instance.CurrentWeapon = "Shotgun";
                 break;
             case "Laser":
                 this.weaponDefault.SetActive(false);
                 this.weaponShotgun.SetActive(false);
                 this.weaponLaser.SetActive(true);
                 this.weaponCannon.SetActive(false);
-                GameManager.Instance.SetCurrentWeapon("Laser");
+                GameManager.Instance.CurrentWeapon = "Laser";
                 break;
             case "Cannon":
                 this.weaponDefault.SetActive(false);
                 this.weaponShotgun.SetActive(false);
                 this.weaponLaser.SetActive(false);
                 this.weaponCannon.SetActive(true);
-                GameManager.Instance.SetCurrentWeapon("Cannon");
+                GameManager.Instance.CurrentWeapon = "Cannon";
                 break;
         }
     }
@@ -173,7 +173,7 @@ public class Player : MonoBehaviour
     public void UpgradeWeapon(string weapon, int amount = 1)
     {
         // Don't upgrade on first pickup and only upgrade to maximum
-        int maximumWeaponCount = GameManager.Instance.GetMaximumWeaponCount();
+        int maximumWeaponCount = GameManager.Instance.MaximumWeaponCount;
         int weapontCount = GameManager.Instance.GetWeaponCount(weapon);
         if (weapontCount > 1)
         {
@@ -274,7 +274,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         UIManager.Instance.SetTextPlayerHealth(this.health, GameManager.Instance.PlayerLives);
-        this.SetWeapon(GameManager.Instance.GetCurrentWeapon());
+        this.SetWeapon(GameManager.Instance.CurrentWeapon);
         this.SetInitialWeaponWaitFireAmount();
 
         this.UpgradeWeaponsToCurrentCount();
