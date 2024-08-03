@@ -255,15 +255,15 @@ public class Player : MonoBehaviour
 
     private void HandleChangeWeapon()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetButtonDown("WeaponOne"))
         {
             ChangeWeapon("Shotgun");
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        else if (Input.GetButtonDown("WeaponTwo"))
         {
             ChangeWeapon("Cannon");
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        else if (Input.GetButtonDown("WeaponThree"))
         {
             ChangeWeapon("Laser");
         }

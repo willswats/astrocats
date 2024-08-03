@@ -10,7 +10,7 @@ public class PlayerWeapon : Weapon
 
     private void Update()
     {
-        bool fireOnePressed = Input.GetButton("Fire1");
+        bool fireOnePressed = Input.GetButton("Fire");
 
         if (this.changedWeapon)
         {
