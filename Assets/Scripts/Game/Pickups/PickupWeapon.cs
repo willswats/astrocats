@@ -34,11 +34,11 @@ public class PickupWeapon : Pickup
                 case "PickupShotgun":
                     pickupWeapon("Shotgun");
                     break;
-                case "PickupLaser":
-                    pickupWeapon("Laser");
-                    break;
                 case "PickupCannon":
                     pickupWeapon("Cannon");
+                    break;
+                case "PickupLaser":
+                    pickupWeapon("Laser");
                     break;
             }
         }

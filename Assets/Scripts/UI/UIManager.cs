@@ -9,8 +9,8 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI textPlayerHealth;
 
     public TextMeshProUGUI textShotgunUpgrades;
-    public TextMeshProUGUI textLaserUpgrades;
     public TextMeshProUGUI textCannonUpgrades;
+    public TextMeshProUGUI textLaserUpgrades;
 
     public TextMeshProUGUI[] textsTimeEndScreen;
 
@@ -94,11 +94,11 @@ public class UIManager : MonoBehaviour
             case "Shotgun":
                 this.textShotgunUpgrades.text = $"Shotgun: {weaponCount}/{maximumWeaponCount}";
                 break;
-            case "Laser":
-                this.textLaserUpgrades.text = $"Laser: {weaponCount}/{maximumWeaponCount}";
-                break;
             case "Cannon":
                 this.textCannonUpgrades.text = $"Cannon: {weaponCount}/{maximumWeaponCount}";
+                break;
+            case "Laser":
+                this.textLaserUpgrades.text = $"Laser: {weaponCount}/{maximumWeaponCount}";
                 break;
         }
     }
@@ -111,23 +111,23 @@ public class UIManager : MonoBehaviour
         {
             case "Shotgun":
                 this.textShotgunUpgrades.faceColor = new Color32(255, 255, 255, 255);
+                this.textCannonUpgrades.faceColor = new Color32(255, 255, 255, 100);
                 this.textLaserUpgrades.faceColor = new Color32(255, 255, 255, 100);
-                this.textCannonUpgrades.faceColor = new Color32(255, 255, 255, 100);
-                break;
-            case "Laser":
-                this.textShotgunUpgrades.faceColor = new Color32(255, 255, 255, 100);
-                this.textLaserUpgrades.faceColor = new Color32(255, 255, 255, 255);
-                this.textCannonUpgrades.faceColor = new Color32(255, 255, 255, 100);
                 break;
             case "Cannon":
                 this.textShotgunUpgrades.faceColor = new Color32(255, 255, 255, 100);
-                this.textLaserUpgrades.faceColor = new Color32(255, 255, 255, 100);
                 this.textCannonUpgrades.faceColor = new Color32(255, 255, 255, 255);
+                this.textLaserUpgrades.faceColor = new Color32(255, 255, 255, 100);
+                break;
+            case "Laser":
+                this.textShotgunUpgrades.faceColor = new Color32(255, 255, 255, 100);
+                this.textCannonUpgrades.faceColor = new Color32(255, 255, 255, 100);
+                this.textLaserUpgrades.faceColor = new Color32(255, 255, 255, 255);
                 break;
             default:
                 this.textShotgunUpgrades.faceColor = new Color32(255, 255, 255, 100);
-                this.textLaserUpgrades.faceColor = new Color32(255, 255, 255, 100);
                 this.textCannonUpgrades.faceColor = new Color32(255, 255, 255, 100);
+                this.textLaserUpgrades.faceColor = new Color32(255, 255, 255, 100);
                 break;
         }
     }

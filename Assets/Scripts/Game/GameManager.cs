@@ -53,19 +53,19 @@ public class GameManager : MonoBehaviour
                 case "Shotgun":
                     this._currentWeapon = "Shotgun";
                     break;
-                case "Laser":
-                    this._currentWeapon = "Laser";
-                    break;
                 case "Cannon":
                     this._currentWeapon = "Cannon";
+                    break;
+                case "Laser":
+                    this._currentWeapon = "Laser";
                     break;
             }
         }
     }
 
     private int weaponShotgunCount = 0;
-    private int weaponLaserCount = 0;
     private int weaponCannonCount = 0;
+    private int weaponLaserCount = 0;
 
     private int _maximumWeaponCount = 10;
     public int MaximumWeaponCount
@@ -88,10 +88,10 @@ public class GameManager : MonoBehaviour
         {
             case "Shotgun":
                 return this.weaponShotgunCount;
-            case "Laser":
-                return this.weaponLaserCount;
             case "Cannon":
                 return this.weaponCannonCount;
+            case "Laser":
+                return this.weaponLaserCount;
             default:
                 return -1;
         }
@@ -108,16 +108,16 @@ public class GameManager : MonoBehaviour
                     this.weaponShotgunCount += 1;
                 }
                 break;
-            case "Laser":
-                if (this.weaponLaserCount < this.MaximumWeaponCount)
-                {
-                    this.weaponLaserCount += 1;
-                }
-                break;
             case "Cannon":
                 if (this.weaponCannonCount < this.MaximumWeaponCount)
                 {
                     this.weaponCannonCount += 1;
+                }
+                break;
+            case "Laser":
+                if (this.weaponLaserCount < this.MaximumWeaponCount)
+                {
+                    this.weaponLaserCount += 1;
                 }
                 break;
         }
@@ -223,8 +223,8 @@ public class GameManager : MonoBehaviour
         UIManager.Instance.SetTextPlayerExperiencePoints(this.ExperiencePoints);
         UIManager.Instance.SetTextPlayerHealth(this.player.health, this.PlayerLives);
         UIManager.Instance.SetTextWeaponUpgrades("Shotgun");
-        UIManager.Instance.SetTextWeaponUpgrades("Laser");
         UIManager.Instance.SetTextWeaponUpgrades("Cannon");
+        UIManager.Instance.SetTextWeaponUpgrades("Laser");
         UIManager.Instance.SetTextAlphaWeapons();
         currentPlayer = Instantiate(this.player);
     }

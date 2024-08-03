@@ -2325,7 +2325,7 @@ GameObject:
   - component: {fileID: 640007052}
   - component: {fileID: 640007051}
   m_Layer: 5
-  m_Name: TextCannonUpgrades
+  m_Name: TextLaserUpgrades
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3521,7 +3521,7 @@ GameObject:
   - component: {fileID: 1366616963}
   - component: {fileID: 1366616962}
   m_Layer: 5
-  m_Name: TextLaserUpgrades
+  m_Name: TextCannonUpgrades
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6203,8 +6203,8 @@ MonoBehaviour:
   textPlayerExperiencePoints: {fileID: 630267782}
   textPlayerHealth: {fileID: 599641335}
   textShotgunUpgrades: {fileID: 2048187936}
-  textLaserUpgrades: {fileID: 1366616962}
-  textCannonUpgrades: {fileID: 640007051}
+  textCannonUpgrades: {fileID: 1366616962}
+  textLaserUpgrades: {fileID: 640007051}
   textsTimeEndScreen:
   - {fileID: 1932399942}
   - {fileID: 631509735}

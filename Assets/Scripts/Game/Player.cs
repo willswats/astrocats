@@ -14,15 +14,15 @@ public class Player : MonoBehaviour
 
     public GameObject weaponDefault;
     public GameObject weaponShotgun;
-    public GameObject weaponLaser;
     public GameObject weaponCannon;
+    public GameObject weaponLaser;
 
     private PlayerWeapon playerWeaponShotgun;
-    private PlayerWeapon playerWeaponLaser;
     private PlayerWeapon playerWeaponCannon;
+    private PlayerWeapon playerWeaponLaser;
     private float playerWeaponShotgunInitialWaitFireAmount = 0.6f;
-    private float playerWeaponLaserInitialWaitFireAmount = 1f;
     private float playerWeaponCannonInitialWaitFireAmount = 0.8f;
+    private float playerWeaponLaserInitialWaitFireAmount = 1f;
 
     private Rigidbody2D rb2d;
     private SpriteRenderer spriteRenderer;
@@ -141,33 +141,33 @@ public class Player : MonoBehaviour
             case "Default":
                 this.weaponDefault.SetActive(true);
                 this.weaponShotgun.SetActive(false);
-                this.weaponLaser.SetActive(false);
                 this.weaponCannon.SetActive(false);
+                this.weaponLaser.SetActive(false);
                 GameManager.Instance.CurrentWeapon = "Default";
                 UIManager.Instance.SetTextAlphaWeapons();
                 break;
             case "Shotgun":
                 this.weaponDefault.SetActive(false);
                 this.weaponShotgun.SetActive(true);
+                this.weaponCannon.SetActive(false);
                 this.weaponLaser.SetActive(false);
-                this.weaponCannon.SetActive(false);
                 GameManager.Instance.CurrentWeapon = "Shotgun";
-                UIManager.Instance.SetTextAlphaWeapons();
-                break;
-            case "Laser":
-                this.weaponDefault.SetActive(false);
-                this.weaponShotgun.SetActive(false);
-                this.weaponLaser.SetActive(true);
-                this.weaponCannon.SetActive(false);
-                GameManager.Instance.CurrentWeapon = "Laser";
                 UIManager.Instance.SetTextAlphaWeapons();
                 break;
             case "Cannon":
                 this.weaponDefault.SetActive(false);
                 this.weaponShotgun.SetActive(false);
-                this.weaponLaser.SetActive(false);
                 this.weaponCannon.SetActive(true);
+                this.weaponLaser.SetActive(false);
                 GameManager.Instance.CurrentWeapon = "Cannon";
+                UIManager.Instance.SetTextAlphaWeapons();
+                break;
+            case "Laser":
+                this.weaponDefault.SetActive(false);
+                this.weaponShotgun.SetActive(false);
+                this.weaponCannon.SetActive(false);
+                this.weaponLaser.SetActive(true);
+                GameManager.Instance.CurrentWeapon = "Laser";
                 UIManager.Instance.SetTextAlphaWeapons();
                 break;
         }
@@ -186,13 +186,13 @@ public class Player : MonoBehaviour
                     float shotgunDecreaseAmount = this.playerWeaponShotgunInitialWaitFireAmount / maximumWeaponCount;
                     playerWeaponShotgun.DecreaseWaitAmount(shotgunDecreaseAmount, amount);
                     break;
-                case "Laser":
-                    float laserDecreaseAmount = this.playerWeaponLaserInitialWaitFireAmount / maximumWeaponCount;
-                    playerWeaponLaser.DecreaseWaitAmount(laserDecreaseAmount, amount);
-                    break;
                 case "Cannon":
                     float cannonDecreaseAmount = this.playerWeaponCannonInitialWaitFireAmount / maximumWeaponCount;
                     playerWeaponCannon.DecreaseWaitAmount(cannonDecreaseAmount, amount);
+                    break;
+                case "Laser":
+                    float laserDecreaseAmount = this.playerWeaponLaserInitialWaitFireAmount / maximumWeaponCount;
+                    playerWeaponLaser.DecreaseWaitAmount(laserDecreaseAmount, amount);
                     break;
             }
         }
@@ -218,18 +218,18 @@ public class Player : MonoBehaviour
     {
         // -1 as we do not upgrade on the first pickup
         this.UpgradeWeapon("Shotgun", GameManager.Instance.GetWeaponCount("Shotgun") - 1);
-        this.UpgradeWeapon("Laser", GameManager.Instance.GetWeaponCount("Laser") - 1);
         this.UpgradeWeapon("Cannon", GameManager.Instance.GetWeaponCount("Cannon") - 1);
+        this.UpgradeWeapon("Laser", GameManager.Instance.GetWeaponCount("Laser") - 1);
     }
 
     private void SetInitialWeaponWaitFireAmount()
     {
         playerWeaponShotgun = this.weaponShotgun.GetComponent<PlayerWeapon>();
-        playerWeaponLaser = this.weaponLaser.GetComponent<PlayerWeapon>();
         playerWeaponCannon = this.weaponCannon.GetComponent<PlayerWeapon>();
+        playerWeaponLaser = this.weaponLaser.GetComponent<PlayerWeapon>();
         playerWeaponShotgun.waitFireAmount = this.playerWeaponShotgunInitialWaitFireAmount;
-        playerWeaponLaser.waitFireAmount = this.playerWeaponLaserInitialWaitFireAmount;
         playerWeaponCannon.waitFireAmount = this.playerWeaponCannonInitialWaitFireAmount;
+        playerWeaponLaser.waitFireAmount = this.playerWeaponLaserInitialWaitFireAmount;
     }
 
     private void GetInput()
@@ -327,18 +327,18 @@ public class Player : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
 
-            if (GameManager.Instance.GetWeaponCount("Laser") >= 1)
-            {
-                this.TriggerChangedWeapon("Laser");
-                SetWeapon("Laser"); ;
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
             if (GameManager.Instance.GetWeaponCount("Cannon") >= 1)
             {
                 this.TriggerChangedWeapon("Cannon");
                 SetWeapon("Cannon"); ;
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            if (GameManager.Instance.GetWeaponCount("Laser") >= 1)
+            {
+                this.TriggerChangedWeapon("Laser");
+                SetWeapon("Laser"); ;
             }
         }
     }
