@@ -12,7 +12,11 @@ public class PickupWeapon : Pickup
             void pickupWeapon(string weapon)
             {
                 player.TriggerChangedWeapon(weapon);
-                player.SetWeapon(weapon);
+
+                if (GameManager.Instance.GetWeaponCount(weapon) < 1)
+                {
+                    player.SetWeapon(weapon);
+                }
 
                 int maximumWeaponCount = GameManager.Instance.MaximumWeaponCount;
 
