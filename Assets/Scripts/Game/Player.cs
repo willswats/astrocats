@@ -244,6 +244,31 @@ public class Player : MonoBehaviour
         this.rb2d.AddTorque(-this.horizontalInput * this.rotationSpeed);
     }
 
+    private void ChangeWeapon(string weapon)
+    {
+        if (GameManager.Instance.GetWeaponCount(weapon) >= 1)
+        {
+            this.TriggerChangedWeapon(weapon);
+            SetWeapon(weapon); ;
+        }
+    }
+
+    private void HandleChangeWeapon()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            ChangeWeapon("Shotgun");
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            ChangeWeapon("Cannon");
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            ChangeWeapon("Laser");
+        }
+    }
+
     private void PlayThrusterAudio()
     {
         if (verticalInput != 0)
@@ -306,6 +331,7 @@ public class Player : MonoBehaviour
         if (!GameManager.Instance.GamePaused)
         {
             this.GetInput();
+            this.HandleChangeWeapon();
             this.PlayThrusterAudio();
             this.PlayThrusterAnimation();
         }
@@ -316,31 +342,6 @@ public class Player : MonoBehaviour
             availableForAttack = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            if (GameManager.Instance.GetWeaponCount("Shotgun") >= 1)
-            {
-                this.TriggerChangedWeapon("Shotgun");
-                SetWeapon("Shotgun"); ;
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-
-            if (GameManager.Instance.GetWeaponCount("Cannon") >= 1)
-            {
-                this.TriggerChangedWeapon("Cannon");
-                SetWeapon("Cannon"); ;
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            if (GameManager.Instance.GetWeaponCount("Laser") >= 1)
-            {
-                this.TriggerChangedWeapon("Laser");
-                SetWeapon("Laser"); ;
-            }
-        }
     }
 
     private void FixedUpdate()
