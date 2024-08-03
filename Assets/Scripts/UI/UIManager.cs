@@ -103,6 +103,35 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void SetTextAlphaWeapons()
+    {
+        string currentWeapon = GameManager.Instance.CurrentWeapon;
+
+        switch (currentWeapon)
+        {
+            case "Shotgun":
+                this.textShotgunUpgrades.faceColor = new Color32(255, 255, 255, 255);
+                this.textLaserUpgrades.faceColor = new Color32(255, 255, 255, 100);
+                this.textCannonUpgrades.faceColor = new Color32(255, 255, 255, 100);
+                break;
+            case "Laser":
+                this.textShotgunUpgrades.faceColor = new Color32(255, 255, 255, 100);
+                this.textLaserUpgrades.faceColor = new Color32(255, 255, 255, 255);
+                this.textCannonUpgrades.faceColor = new Color32(255, 255, 255, 100);
+                break;
+            case "Cannon":
+                this.textShotgunUpgrades.faceColor = new Color32(255, 255, 255, 100);
+                this.textLaserUpgrades.faceColor = new Color32(255, 255, 255, 100);
+                this.textCannonUpgrades.faceColor = new Color32(255, 255, 255, 255);
+                break;
+            default:
+                this.textShotgunUpgrades.faceColor = new Color32(255, 255, 255, 100);
+                this.textLaserUpgrades.faceColor = new Color32(255, 255, 255, 100);
+                this.textCannonUpgrades.faceColor = new Color32(255, 255, 255, 100);
+                break;
+        }
+    }
+
     public void ToggleGameOverMenu()
     {
         this.gameOverMenu.TogglePause();

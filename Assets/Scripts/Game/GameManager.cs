@@ -225,6 +225,7 @@ public class GameManager : MonoBehaviour
         UIManager.Instance.SetTextWeaponUpgrades("Shotgun");
         UIManager.Instance.SetTextWeaponUpgrades("Laser");
         UIManager.Instance.SetTextWeaponUpgrades("Cannon");
+        UIManager.Instance.SetTextAlphaWeapons();
         currentPlayer = Instantiate(this.player);
     }
 

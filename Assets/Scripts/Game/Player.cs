@@ -144,6 +144,7 @@ public class Player : MonoBehaviour
                 this.weaponLaser.SetActive(false);
                 this.weaponCannon.SetActive(false);
                 GameManager.Instance.CurrentWeapon = "Default";
+                UIManager.Instance.SetTextAlphaWeapons();
                 break;
             case "Shotgun":
                 this.weaponDefault.SetActive(false);
@@ -151,6 +152,7 @@ public class Player : MonoBehaviour
                 this.weaponLaser.SetActive(false);
                 this.weaponCannon.SetActive(false);
                 GameManager.Instance.CurrentWeapon = "Shotgun";
+                UIManager.Instance.SetTextAlphaWeapons();
                 break;
             case "Laser":
                 this.weaponDefault.SetActive(false);
@@ -158,6 +160,7 @@ public class Player : MonoBehaviour
                 this.weaponLaser.SetActive(true);
                 this.weaponCannon.SetActive(false);
                 GameManager.Instance.CurrentWeapon = "Laser";
+                UIManager.Instance.SetTextAlphaWeapons();
                 break;
             case "Cannon":
                 this.weaponDefault.SetActive(false);
@@ -165,6 +168,7 @@ public class Player : MonoBehaviour
                 this.weaponLaser.SetActive(false);
                 this.weaponCannon.SetActive(true);
                 GameManager.Instance.CurrentWeapon = "Cannon";
+                UIManager.Instance.SetTextAlphaWeapons();
                 break;
         }
     }
@@ -310,6 +314,32 @@ public class Player : MonoBehaviour
         if (Time.time > availableForAttackTime)
         {
             availableForAttack = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            if (GameManager.Instance.GetWeaponCount("Shotgun") >= 1)
+            {
+                this.TriggerChangedWeapon("Shotgun");
+                SetWeapon("Shotgun"); ;
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+
+            if (GameManager.Instance.GetWeaponCount("Laser") >= 1)
+            {
+                this.TriggerChangedWeapon("Laser");
+                SetWeapon("Laser"); ;
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            if (GameManager.Instance.GetWeaponCount("Cannon") >= 1)
+            {
+                this.TriggerChangedWeapon("Cannon");
+                SetWeapon("Cannon"); ;
+            }
         }
     }
 
