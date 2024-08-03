@@ -21,6 +21,7 @@ The gameplay is similar to Asteroids with a few additions, this includes; new en
 
 - WASD or arrow keys for movement.
 - Hold space or left mouse button to fire.
+- 1, 2, and 3 to change weapons (once acquired).
 
 ## Screenshots
 
