@@ -40,6 +40,8 @@ public class Player : MonoBehaviour
             this.availableForAttack = false;
             this.lastAttackedAt = Time.time;
 
+            this.spriteRenderer.color = new Color32(255, 255, 255, 100);
+
             this.health -= damage;
             UIManager.Instance.SetTextPlayerHealth(this.health, GameManager.Instance.PlayerLives);
 
@@ -336,17 +338,8 @@ public class Player : MonoBehaviour
         if (Time.time > availableForAttackTime)
         {
             availableForAttack = true;
-        }
-
-        if (this.availableForAttack == false)
-        {
-            this.spriteRenderer.color = new Color32(255, 255, 255, 100);
-        }
-        else
-        {
             this.spriteRenderer.color = new Color32(255, 255, 255, 255);
         }
-
     }
 
     private void FixedUpdate()
