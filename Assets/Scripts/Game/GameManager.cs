@@ -220,12 +220,14 @@ public class GameManager : MonoBehaviour
     {
         pickups = new List<Pickup>();
         projectiles = new List<Projectile>();
+
         UIManager.Instance.SetTextPlayerExperiencePoints(this.ExperiencePoints);
         UIManager.Instance.SetTextPlayerHealth(this.player.health, this.PlayerLives);
         UIManager.Instance.SetTextWeaponUpgrades("Shotgun");
         UIManager.Instance.SetTextWeaponUpgrades("Cannon");
         UIManager.Instance.SetTextWeaponUpgrades("Laser");
         UIManager.Instance.SetTextAlphaWeapons();
+
         currentPlayer = Instantiate(this.player);
     }
 

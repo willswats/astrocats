@@ -16,8 +16,11 @@ public class UIManager : MonoBehaviour
 
     public Menu gameOverMenu;
     public Button gameOverMenuSelected;
+    private AudioSource gameOverMenuAudioSource;
+
     public Menu winMenu;
     public Button winMenuSelected;
+    private AudioSource winMenuAudioSource;
 
     public static UIManager Instance { get; private set; }
 
@@ -136,6 +139,7 @@ public class UIManager : MonoBehaviour
     {
         this.gameOverMenu.TogglePause();
         this.gameOverMenuSelected.Select();
+        this.gameOverMenuAudioSource.Play();
     }
 
 
@@ -143,6 +147,7 @@ public class UIManager : MonoBehaviour
     {
         this.winMenu.TogglePause();
         this.winMenuSelected.Select();
+        this.winMenuAudioSource.Play();
     }
 
     private void Awake()
@@ -155,5 +160,10 @@ public class UIManager : MonoBehaviour
         {
             Instance = this;
         }
+
+        this.gameOverMenuAudioSource = this.gameOverMenu.GetComponent<AudioSource>();
+        this.gameOverMenuAudioSource.ignoreListenerPause = true;
+        this.winMenuAudioSource = this.winMenu.GetComponent<AudioSource>();
+        this.winMenuAudioSource.ignoreListenerPause = true;
     }
 }
