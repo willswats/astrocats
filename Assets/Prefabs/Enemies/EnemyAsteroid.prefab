@@ -128,7 +128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupSpawner: {fileID: 6732064406872171360, guid: 79fb72cf68f9be786a569f178c2f965b, type: 3}
   pickupSpawnerHealth: {fileID: 6732064406872171360, guid: 5f4cf0a55d5e1a900a28af619d225b48, type: 3}
-  damageGiven: 25
+  damageGiven: 50
   lifeTimeSeconds: 30
   destroySelfSeconds: 2
   collidedProjectile: 0

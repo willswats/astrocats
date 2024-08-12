@@ -4,7 +4,7 @@ public class Enemy : MonoBehaviour
 {
     public PickupSpawner pickupSpawner;
     public PickupSpawner pickupSpawnerHealth;
-    public int damageGiven = 25;
+    public int damageGiven = 50;
     public float lifeTimeSeconds = 30f;
     public float destroySelfSeconds = 2f;
     public bool collidedProjectile = false;

@@ -204,7 +204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6050d6a9c5188c879bf696fa3369845a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthGiven: 25
+  healthGiven: 50
   experiencePoints: 0
   lifeTimeSeconds: 30
 --- !u!82 &3911978866155781212
