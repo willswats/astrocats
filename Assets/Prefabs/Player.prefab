@@ -80,7 +80,6 @@ MonoBehaviour:
   projectileSpawnPoints:
   - {fileID: 7047042348882667427}
   waitFireAmount: 0.6
-  coroutineRunning: 0
 --- !u!1 &5118731245331346961
 GameObject:
   m_ObjectHideFlags: 0
@@ -130,7 +129,6 @@ MonoBehaviour:
   projectileSpawnPoints:
   - {fileID: 203186557678653069}
   waitFireAmount: 0.6
-  coroutineRunning: 0
 --- !u!1 &6631850268325041940
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,7 +209,6 @@ MonoBehaviour:
   projectileSpawnPoints:
   - {fileID: 6631850269894008752}
   waitFireAmount: 0.8
-  coroutineRunning: 0
 --- !u!1 &6631850269090079131
 GameObject:
   m_ObjectHideFlags: 0
@@ -498,8 +495,8 @@ MonoBehaviour:
   hitProtection: 1
   weaponDefault: {fileID: 6631850268907350616}
   weaponShotgun: {fileID: 6631850269543625597}
-  weaponLaser: {fileID: 443519755977153630}
   weaponCannon: {fileID: 5118731245331346961}
+  weaponLaser: {fileID: 443519755977153630}
 --- !u!82 &-1530630519635453756
 AudioSource:
   m_ObjectHideFlags: 0
@@ -609,7 +606,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 07f697c99afd649b798e9038b5ada60e, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 1
+  m_Pitch: 1.5
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -797,7 +794,6 @@ MonoBehaviour:
   - {fileID: 6631850268325041940}
   - {fileID: 6631850269090079131}
   waitFireAmount: 0.6
-  coroutineRunning: 0
 --- !u!1 &6631850269894008752
 GameObject:
   m_ObjectHideFlags: 0

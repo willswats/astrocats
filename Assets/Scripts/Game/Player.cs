@@ -342,6 +342,15 @@ public class Player : MonoBehaviour
             availableForAttack = true;
         }
 
+        if (this.availableForAttack == false)
+        {
+            this.spriteRenderer.color = new Color32(255, 255, 255, 100);
+        }
+        else
+        {
+            this.spriteRenderer.color = new Color32(255, 255, 255, 255);
+        }
+
     }
 
     private void FixedUpdate()
