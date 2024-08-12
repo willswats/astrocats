@@ -4,7 +4,7 @@ public class Player : MonoBehaviour
 {
     public int health = 100;
     public float moveSpeed = 2f;
-    public float rotationSpeed = 0.3f;
+    public float rotationSpeed = 0.35f;
     private float verticalInput;
     private float horizontalInput;
 
@@ -115,22 +115,18 @@ public class Player : MonoBehaviour
         if (playerLevel == 4)
         {
             this.moveSpeed = 4f;
-            this.rotationSpeed = 0.5f;
         }
         else if (playerLevel == 3)
         {
             this.moveSpeed = 3.5f;
-            this.rotationSpeed = 0.45f;
         }
         else if (playerLevel == 2)
         {
             this.moveSpeed = 3f;
-            this.rotationSpeed = 0.4f;
         }
         else if (playerLevel == 1)
         {
             this.moveSpeed = 2.5f;
-            this.rotationSpeed = 0.35f;
         }
     }
 
