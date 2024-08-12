@@ -92,13 +92,13 @@ public class UIManager : MonoBehaviour
         switch (weapon)
         {
             case "Shotgun":
-                this.textShotgunUpgrades.text = $"Shotgun: {weaponCount}/{maximumWeaponCount}";
+                this.textShotgunUpgrades.text = $"(1) Shotgun: {weaponCount}/{maximumWeaponCount}";
                 break;
             case "Cannon":
-                this.textCannonUpgrades.text = $"Cannon: {weaponCount}/{maximumWeaponCount}";
+                this.textCannonUpgrades.text = $"(2) Cannon: {weaponCount}/{maximumWeaponCount}";
                 break;
             case "Laser":
-                this.textLaserUpgrades.text = $"Laser: {weaponCount}/{maximumWeaponCount}";
+                this.textLaserUpgrades.text = $"(3) Laser: {weaponCount}/{maximumWeaponCount}";
                 break;
         }
     }
