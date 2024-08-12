@@ -242,7 +242,7 @@ public class Player : MonoBehaviour
 
     private void ChangeWeapon(string weapon)
     {
-        if (GameManager.Instance.GetWeaponCount(weapon) >= 1)
+        if (GameManager.Instance.GetWeaponCount(weapon) >= 1 && GameManager.Instance.CurrentWeapon != (weapon))
         {
             this.TriggerChangedWeapon(weapon);
             SetWeapon(weapon); ;
