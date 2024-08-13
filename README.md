@@ -31,3 +31,7 @@ The gameplay is similar to Asteroids with a few additions, this includes; new en
 ![Screenshot 3](./Screenshots/ScreenshotThree.png)
 ![Screenshot 4](./Screenshots/ScreenshotFour.png)
 ![Screenshot 5](./Screenshots/ScreenshotFive.png)
+
+## Acknowledgements
+
+The font used is [Orbitron](https://fonts.google.com/specimen/Orbitron).
