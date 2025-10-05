@@ -12,7 +12,9 @@ public class Menu : MonoBehaviour
 
     public void ExitGame()
     {
+        #if !UNITY_WEBGL && !UNITY_EDITOR
         Application.Quit();
+        #endif
     }
 
     public void TogglePause()
